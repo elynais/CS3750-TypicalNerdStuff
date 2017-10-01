@@ -546,7 +546,6 @@
 	padding-bottom: 10%;
 }
 
-/* added this */
 .pre-scrollable {
 	max-height: 150px;
     overflow-y: scroll;
