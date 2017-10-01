@@ -551,3 +551,13 @@
 	max-height: 150px;
     overflow-y: scroll;
 }
+
+@media (min-width: 768px) {
+    .navbar-right .dropdown-menu {
+        left: 2px;
+        right:auto;
+    }
+     .navbar-right .dropdown-menu > li > a {
+       margin: 10px 0 10px 0;
+    }
+}
