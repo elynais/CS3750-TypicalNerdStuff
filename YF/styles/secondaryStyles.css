@@ -320,8 +320,8 @@
 }
 
 .col-xs-4.donor_box {
-	height: 120px;
-	width: 369px;
+	height: 60px;
+	width: 185px;
 	margin: .5%;
 }
 
@@ -331,16 +331,16 @@
 
 .col-xs-4.donor_box .donor_name{ 
 	font-family: "montserrat-semibold";
-	font-size: 20px;
-	line-height: 30px;
+	font-size: 10px;
+	line-height: 15px;
 	padding-top: 5%;
 	margin: 0;
 }
 
 .col-xs-4.donor_box .year{ 
 	font-family: "montserrat-light";
-	font-size: 16px;
-	line-height: 30px;
+	font-size: 8px;
+	line-height: 15px;
 	color: white;	
 }
 
