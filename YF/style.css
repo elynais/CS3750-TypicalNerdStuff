@@ -25,6 +25,7 @@ body {
     background-color: rgba(76, 95, 111, 0.15);
     overflow-x: hidden;
     min-width: 500px;
+    padding-top: 120px;
 }
 
 h1 {
@@ -553,7 +554,14 @@ footer .row {
 .panel-img-container {
     height: 200px;
 }
-
+.img-center{
+    margin-left:auto;
+    margin-right:auto;
+}
+.purpose-border{
+    border-right:1px dotted;
+    border-left: 1px dotted;
+}
 .purpose-title {
     margin: 97px 86px 0 86px;
 }
@@ -682,6 +690,7 @@ footer .row {
     width: 235px;
     margin-bottom: 50px;
 }
+
 /**********************************
 
 *       Media Queries:            *
