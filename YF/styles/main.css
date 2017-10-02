@@ -159,7 +159,7 @@ color: white;
 
 .questions .text {
 	font-family: montserrat-semibold;
-	font-size: 36px;  
+	font-size: 33px;  
 	color: white;
 	text-align: right;
 	padding-top: 2%;
@@ -167,7 +167,7 @@ color: white;
 
 .questions .phone {
 	font-family: quicksand-bold;
-	font-size: 36px;
+	font-size: 33px;
 	font-weight: bold;
 	color: #4a4a4a;
 	text-align: left;
@@ -176,6 +176,49 @@ color: white;
 
 .questions .phone p {
 	padding-left: 2%;
+}
+
+@media (max-width: 991px) {
+	.questions .phone {
+		text-align: left;
+		display: inline-block;
+		width: auto;
+	}
+	.questions .text {
+		text-align: left;
+		display: inline-block;
+		width: auto;
+	}
+	.questions .phone p {
+		display: inline;
+	}
+	.questions .text p {
+		display: inline;
+	}
+}
+
+@media (max-width: 768px) {
+	.questions .phone {
+		text-align: left;
+		display: block;
+	}
+	.questions .text {
+		text-align: left;
+		display: block;
+	}
+}
+
+@media (max-width: 420px) {
+	.questions .phone {
+		text-align: left;
+		width: 100%;
+		font-size: 1.8em;
+	}
+	.questions .text {
+		text-align: left;
+		width: 100%;
+		font-size: 1.8em;
+	}
 }
 
 .main_img {

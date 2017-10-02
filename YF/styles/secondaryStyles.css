@@ -189,7 +189,9 @@
 .board_members {
 	background-color: white;
 	padding-left: 5%;
-	padding-bottom: 5%;	
+	padding-bottom: 5%;
+	height: 130px;
+	overflow-y: scroll;
 }
 
 .board_members {
@@ -204,6 +206,29 @@
 }
 
 .board_members   img {
+	padding-bottom: 10%;
+}
+
+.staff_members {
+	background-color: white;
+	padding-left: 5%;
+	padding-bottom: 5%;
+	height: 440px;
+	overflow-y: scroll;
+}
+
+.staff_members {
+	font-family: "montserrat-light";
+	font-size: 16px;
+	line-height: 30px;
+	color: #474747;
+}
+
+.staff_members  span.name {
+	font-size: 20px;
+}
+
+.staff_members   img {
 	padding-bottom: 10%;
 }
 
