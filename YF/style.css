@@ -600,9 +600,11 @@ footer .row {
 }
 .sponsor-bar {
     min-height: 141px;
+    height: 141px;
     background-color: #474747;
     margin-left: -15px;
     margin-right: 15px;
+    overflow-y: scroll;
 }
 .no-padding {
     padding: 0;

@@ -178,6 +178,19 @@ color: white;
 	padding-left: 2%;
 }
 
+@media (max-width: 768px) {
+	.questions .phone {
+		text-align: left;
+		width: 32%;
+		font-size: 2em;
+		margin-top: 6px;
+	}
+	.questions .text {
+		text-align: left;
+		width: 68%;
+	}
+}
+
 .main_img {
 	background-image: url(../resources/home_header.png);
 	background-size: cover;
