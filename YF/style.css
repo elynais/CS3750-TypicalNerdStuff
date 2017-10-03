@@ -288,15 +288,18 @@ h1,h2,h4,h6{
 .sub-text-box {
     background-color: #FFF;
     min-height: 104px;
-    max-width: 591px;
-    padding: 7px 66px 11px 1px;
+    max-width: 490px;
+    padding: 7px 0px 1px 1px;
+    margin-right: -30px;
+    margin-left: -30px;
+    padding-left: 1px; 
 }
 .sub-text-box > .sub-text {
     font-family: quicksand-bold;
     font-size: 34px;
     letter-spacing: -2px;
     color: #474747;
-    line-height: 43px;
+    line-height: 43px;   
 }
 .header-box {
     margin-left: 550px;
