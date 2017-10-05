@@ -73,8 +73,10 @@ CREATE TABLE yfContent
 (
 	yfContent_id INT IDENTITY(1,1) NOT NULL,
 	yfImage_id INT NULL,
-	yfContentDesc VARCHAR(MAX) NULL, 
-	yfFile_id INT NULL  -- WHEN THIS IS NOT NULL, CONTENT IS STORED IN A FILE
+	yfContentName NVARCHAR(30) NULL, 
+	yfContentInfo NVARCHAR(MAX) NULL,
+	yfFile_id INT NULL,  -- WHEN THIS IS NOT NULL, CONTENT IS STORED IN A FILE
+	yfPageNum INT NOT NULL
 );
 
 CREATE TABLE yfFile
@@ -111,6 +113,16 @@ CREATE TABLE yfErrorLog
 
 );
 
+CREATE TABLE yfColumn
+(
+	yfColumn_id INT IDENTITY(1,1) NOT NULL,
+	yfColumnHeader NVARCHAR(400) NOT NULL,
+	yfColumnLinkDesc NVARCHAR(100) NOT NULL,
+	yfColumnLink NVARCHAR(200) NOT NULL,
+	yfImage_id INT NOT NULL,
+	yfSectionNumber INT NOT NULL
+);
+
 -------------------- SET PRIMARY KEYS -----------------------
 ALTER TABLE yfUser
 ADD CONSTRAINT PK_yfUser PRIMARY KEY CLUSTERED (yfUser_id)
@@ -135,6 +147,9 @@ ADD CONSTRAINT PK_yfEvent PRIMARY KEY CLUSTERED (yfEvent_id)
 
 ALTER TABLE yfErrorLog
 ADD CONSTRAINT PK_yfErrorLog PRIMARY KEY CLUSTERED (yfErrorLog_id)
+
+ALTER TABLE yfColumn
+ADD CONSTRAINT PK_yfColumn PRIMARY KEY CLUSTERED (yfColumn_id)
 
 -------------------- SET FOREIGN KEYS ---------------------------
 ALTER TABLE yfErrorLog
@@ -161,6 +176,11 @@ ALTER TABLE yfContent
 ADD CONSTRAINT FK_yfContent_yfFile
 FOREIGN KEY (yfFile_id)
 REFERENCES yfFile (yfFile_id)
+
+ALTER TABLE yfColumn
+ADD CONSTRAINT FK_yfColumn_yfImage
+FOREIGN KEY (yfImage_id)
+REFERENCES yfImage (yfImage_id)
 
 ------------------ SET ALTERNATIVE KEY TO UNIQUE ------------------
 ALTER TABLE yfUser
@@ -195,12 +215,12 @@ CHECK(yfDonorLevel = 'P' OR yfDonorLevel = 'G' OR yfDonorLevel = 'S' OR yfDonorL
 ------------------------ INSERT DATA INTO TABLES ------------------------
 
 ---------- yfContent
-INSERT INTO yfContent (yfContentDesc)
-VALUES ('Hi');
+INSERT INTO yfContent (yfContentDesc, yfPageNum)
+VALUES ('Hi', 1);
 
-INSERT INTO yfContent (yfContentDesc)
-VALUES ('14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME :)')
+INSERT INTO yfContent (yfContentDesc, yfPageNum)
+VALUES ('14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME :)', 1)
 
-INSERT INTO yfContent (yfContentDesc)
-VALUES ('Have questions? Send us a text!')
+INSERT INTO yfContent (yfContentDesc, yfPageNum)
+VALUES ('Have questions? Send us a text!', 1)
 
