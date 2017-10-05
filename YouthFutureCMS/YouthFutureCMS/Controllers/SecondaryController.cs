@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace YouthFutureCMS.Controllers
 {
-    public class HomeController : Controller
+    public class SecondaryController : Controller
     {
+        // GET: Secondary
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }
