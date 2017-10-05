@@ -1,31 +1,237 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"></a><img src="./resources/yf_logo.svg" alt="Youth Futures Logo" />
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html" class="current">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Programs</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="secondary.html#outreachBanner">Street Outreach</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Involved</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dsecondary.html#donateMainonate.html">Donate</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="secondary.html#donorsMain">Donor Recognition</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="secondary.html#historyBanner">History</a></li>
+                        <li><a href="secondary.html#staffMain">Staff</a></li>
+                        <li><a href="secondary.html#directorsMain">Board</a></li>
+                        <li><a href="secondary.html#mediaMain">Media</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="secondary.html#contactMain">Contact Info</a></li>
+                    </ul>
+                </li>
+                <li class="donate" style="background-color: #1c5788;"><a href="secondary.html#donateMain">Donate</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<section class="container-fluid main-header">
+    <div class="row">
+        <div class="col-xs-12 header-box">
+            <div class="row">
+                <p class="header-text-greeting col-xs-12">Hi</p>
+            </div>
+            <div class="row sub-text-box">
+                <p class="sub-text col-xs-12">14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME <span class="quicksand-dark-38-lightgreen">:) </span></p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="header" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-11">
+            <p class="green-header">
+                <span class="mont-semibold-dark-36 have-questions-heading">Have questions? Send us a text!</span>
+                <span class="quicksand-dark-36-main have-questions-phone"> (801) 528-1214</span>
+            </p>
+        </div>
+    </div>
+</section>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<section class="container-fluid services">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4 class="services-heading">Services</h4>
+            <p class="mont-light-light-22 about-services">
+                Our programming is divided into three main areas. Each program area has specific components to meet the
+                needs of the youth in need.
+            </p>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="boxes">
+            <article class="col-sm-4">
+                <section class="panel-img-container">
+                    <img src="./resources/house_icon.png" alt="House" class="img-responsive panel-img img-center" />
+                </section>
+                <section>
+                    <p class="quicksand-light-32 panel-heading">Overnight Shelter</p>
+                </section>
+                <section>
+                    <p class="mont-light-light-18 panel-summary">
+                        Located in the heart of downtown Ogden, Utah, Youth Futures provides emergency shelter, temporary
+                        residence and supportive services for runaway, homeless, unaccompanied and at-risk youth
+                        ages 12-17. The shelter is open 24 hours per day.
+                    </p>
+                </section>
+                <section class="panel-footer">
+                    <p class="quicksand-light-24-green"><a href="#">Learn more ></a></p>
+                </section>
+            </article>
+            <article class="col-sm-4">
+                <section class="panel-img-container">
+                    <img src="./resources/door_icon.png" alt="Door" class="img-responsive panel-img img-center" />
+                </section>
+                <section>
+                    <p class="quicksand-light-32 panel-heading">Drop-in Services</p>
+                </section>
+                <section>
+                    <p class="mont-light-light-18 panel-summary">
+                        Available to any youth ages 12-18. Drop-in services allow for the youth to access food, clothing,
+                        hygiene items, laundry facilities, computer stations, and case management. Drop-in hours
+                        are 6:30 am to 8:00 pm every day of the week.
+                    </p>
+                </section>
+                <section class="panel-footer">
+                    <p class="quicksand-light-24-green"><a href="#">Learn more ></a></p>
+                </section>
+            </article>
+            <article class="col-sm-4">
+                <section class="panel-img-container">
+                    <img src="./resources/van_icon.png" alt="Van" class="img-responsive panel-img van-img img-center" />
+                </section>
+                <section>
+                    <p class="quicksand-light-32 panel-heading">Street Outreach</p>
+                </section>
+                <section>
+                    <p class="mont-light-light-18 panel-summary">
+                        Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services
+                        to youth in Ogden City, Utah.
+                    </p>
+                </section>
+                <section class="panel-footer">
+                    <p class="quicksand-light-24-green"><a href="#">Learn more ></a></p>
+                </section>
+            </article>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</section>
+<article class="container-fluid purpose-box">
+    <section class="row purpose col-xs-12">
+        <div class="row purpose-title">
+            <h2 class="h2-white">OUR</h2>
+            <h2 class="h2-green">PURPOSE</h2>
+        </div>
+        <div class="row purpose-detail">
+            <div class="col-xs-12 no-padding">
+                <p class="montlight-dark-32">
+                    To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where
+                    they can develop the needed skills to become active, healthy, successful members of our future
+                    world.
+                </p>
+            </div>
+        </div>
+        <div class="row purpose-stats">
+            <div class="col-xs-12">
+                <p><span class="alt-color">7,085</span> MEALS SERVED. <span class="alt-color">511</span> DROP-IN SERVICES.</p>
+                <p>
+                    <span class="alt-color">245</span> STREET OUTREACH HOURS. <span class="alt-color">64</span> SHELTERED
+                    YOUTH.
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="clear"></div>
+    <section class="row sponsor-bar">
+        <div class="col-xs-12 col-lg-3">
+            <p class="partner-text">Our Sponsors</p>
+        </div>
+        <div class="col-xs-12 col-lg-3 ">
+            <div class="partner-logo">
+                <img src="./resources/mckaydee_hospital.png" alt="McKay Dee Hospital" class="mckay" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+            <div class="partner-logo">
+                <img src="./resources/the_group_logo.png" alt="The Group Real Estate" class="thegroup" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+            <div class="partner-logo">
+                <img src="./resources/giv_development.png" alt="GIV Development" class="giv" />
+            </div>
+        </div>
+    </section>
+    <section class="row purpose-user">
+        <div class="purpose-boxes">
+            <article class="col-sm-4 purpose-border">
+                <section class="panel-img-container">
+                    <img src="./resources/hand_icon.png" alt="Volunteer" class="img-responsive panel-img img-center" />
+                </section>
+                <section>
+                    <p class="panel-heading">Apply to Volunteer</p>
+                </section>
+                <section>
+                    <p class="mont-light-light-22 panel-summary">Make your mark where it matters. Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse.</p>
+                </section>
+                <section class="panel-footer">
+                    <p class="quicksand-light-24-green"><a href="#">Volunteer Now ></a></p>
+                </section>
+            </article>
+            <article class="col-sm-4 purpose-border">
+                <section class="panel-img-container">
+                    <img src="./resources/girl_icon.png" alt="Youth Stories" class="img-responsive panel-img img-center" />
+                </section>
+                <section>
+                    <p class="panel-heading">Youth Stories</p>
+                </section>
+                <section>
+                    <p class="mont-light-light-22 panel-summary">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.</p>
+                </section>
+                <section class="panel-footer">
+                    <p class="quicksand-light-24-green"><a href="#">Read the Stories ></a></p>
+                </section>
+            </article>
+            <article class="col-sm-4 purpose-border">
+                <section class="panel-img-container">
+                    <img src="./resources/calendar_icon.png" alt="Events" class="img-responsive panel-img img-center" />
+                </section>
+                <section>
+                    <p class="panel-heading">Events</p>
+                </section>
+                <section>
+                    <p class="mont-light-light-22 panel-summary">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.</p>
+                </section>
+                <section class="panel-footer">
+                    <p class="quicksand-light-24-green"><a href="#">View All Events ></a></p>
+                </section>
+            </article>
+        </div>
+    </section>
+</article>

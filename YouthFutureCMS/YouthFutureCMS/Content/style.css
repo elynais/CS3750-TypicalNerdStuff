@@ -1,4 +1,4 @@
-﻿/*@font-face {
+﻿@font-face {
 	font-family: 'montserrat-light';
 	src: url('resources/montserrat-light.otf') format('opentype');
 }
@@ -16,7 +16,7 @@
 @font-face {
 	font-family: 'quicksand-bold';
 	src: url('resources/quicksand-bold.otf') format('opentype');
-}*/
+}
 
 body {
 	width: 100%;
