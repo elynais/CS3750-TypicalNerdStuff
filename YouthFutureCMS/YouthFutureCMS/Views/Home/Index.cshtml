@@ -1,14 +1,14 @@
-﻿<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+﻿@*<nav class="navbar navbar-default navbar-fixed-top maxwidthHeader ">
+    <div class="container-fluid maxwidthHeader">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+        <div class="navbar-header maxwidthHeader">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"></a><img src="./resources/yf_logo.svg" alt="Youth Futures Logo" />
+            <a class="navbar-brand" href="index.html"></a><img src="../resources/yf_logo.svg" alt="Youth Futures Logo" />
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -49,21 +49,22 @@
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
-</nav>
+@*</nav>*@
 
-<section class="container-fluid main-header">
+<section class="container-fluid main-header indexLeftMargin">
     <div class="row">
-        <div class="col-xs-12 header-box">
+        <div class="header-box">
             <div class="row">
-                <p class="header-text-greeting col-xs-12">Hi</p>
+                <p class="header-text-greeting ">Hi</p>
             </div>
             <div class="row sub-text-box">
-                <p class="sub-text col-xs-12">14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME <span class="quicksand-dark-38-lightgreen">:) </span></p>
+                <p class="sub-text">14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME <span class="quicksand-dark-38-lightgreen">:) </span></p>
             </div>
         </div>
     </div>
 </section>
-<section id="header" class="container-fluid">
+
+<section id="header" class="container-fluid indexLeftMargin">
     <div class="row">
         <div class="col-xs-offset-1 col-xs-11">
             <p class="green-header">
@@ -74,7 +75,7 @@
     </div>
 </section>
 
-<section class="container-fluid services">
+<section class="container-fluid indexLeftMarginServices">
     <div class="row">
         <div class="col-xs-12">
             <h4 class="services-heading">Services</h4>
@@ -85,33 +86,33 @@
         </div>
     </div>
     <div class="row">
-        <div class="boxes">
+        <div class="purpose-boxes">
             <article class="col-sm-4">
                 <section class="panel-img-container">
-                    <img src="./resources/house_icon.png" alt="House" class="img-responsive panel-img img-center" />
+                    <img src="../resources/house_icon.png" alt="House" class="img-responsive panel-img img-center" />
                 </section>
                 <section>
                     <p class="quicksand-light-32 panel-heading">Overnight Shelter</p>
                 </section>
-                <section>
+                <section class="minHeightServices">
                     <p class="mont-light-light-18 panel-summary">
                         Located in the heart of downtown Ogden, Utah, Youth Futures provides emergency shelter, temporary
                         residence and supportive services for runaway, homeless, unaccompanied and at-risk youth
                         ages 12-17. The shelter is open 24 hours per day.
                     </p>
                 </section>
-                <section class="panel-footer">
+                <section class="panel-footer Learn-more-">
                     <p class="quicksand-light-24-green"><a href="#">Learn more ></a></p>
                 </section>
             </article>
             <article class="col-sm-4">
                 <section class="panel-img-container">
-                    <img src="./resources/door_icon.png" alt="Door" class="img-responsive panel-img img-center" />
+                    <img src="../resources/door_icon.png" alt="Door" class="img-responsive panel-img img-center" />
                 </section>
                 <section>
                     <p class="quicksand-light-32 panel-heading">Drop-in Services</p>
                 </section>
-                <section>
+                <section class="minHeightServices">
                     <p class="mont-light-light-18 panel-summary">
                         Available to any youth ages 12-18. Drop-in services allow for the youth to access food, clothing,
                         hygiene items, laundry facilities, computer stations, and case management. Drop-in hours
@@ -119,17 +120,17 @@
                     </p>
                 </section>
                 <section class="panel-footer">
-                    <p class="quicksand-light-24-green"><a href="#">Learn more ></a></p>
+                    <p class="quicksand-light-24-green"><a class="quicksand-light-24-green" href="#">Learn more ></a></p>
                 </section>
             </article>
             <article class="col-sm-4">
                 <section class="panel-img-container">
-                    <img src="./resources/van_icon.png" alt="Van" class="img-responsive panel-img van-img img-center" />
+                    <img src="../resources/van_icon.png" alt="Van" class="img-responsive panel-img van-img img-center" />
                 </section>
                 <section>
                     <p class="quicksand-light-32 panel-heading">Street Outreach</p>
                 </section>
-                <section>
+                <section class="minHeightServices">
                     <p class="mont-light-light-18 panel-summary">
                         Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services
                         to youth in Ogden City, Utah.
@@ -142,8 +143,8 @@
         </div>
     </div>
 </section>
-<article class="container-fluid purpose-box">
-    <section class="row purpose col-xs-12">
+<article class="container-fluid purpose-padding indexLeftMargin">
+    <section class="row purpose col-xs-12 purpose-padding" >
         <div class="row purpose-title">
             <h2 class="h2-white">OUR</h2>
             <h2 class="h2-green">PURPOSE</h2>
@@ -157,11 +158,11 @@
                 </p>
             </div>
         </div>
-        <div class="row purpose-stats">
+        <div class="purpose-stats">
             <div class="col-xs-12">
                 <p><span class="alt-color">7,085</span> MEALS SERVED. <span class="alt-color">511</span> DROP-IN SERVICES.</p>
                 <p>
-                    <span class="alt-color">245</span> STREET OUTREACH HOURS. <span class="alt-color">64</span> SHELTERED
+                    <span class="alt-color">245</span> STREET OUTREACH HOURS. </p><p><span class="alt-color">64</span> SHELTERED
                     YOUTH.
                 </p>
             </div>
@@ -174,17 +175,17 @@
         </div>
         <div class="col-xs-12 col-lg-3 ">
             <div class="partner-logo">
-                <img src="./resources/mckaydee_hospital.png" alt="McKay Dee Hospital" class="mckay" />
+                <img src="../resources/mckaydee_hospital.png" alt="McKay Dee Hospital" class="mckay" />
             </div>
         </div>
         <div class="col-xs-12 col-lg-3">
             <div class="partner-logo">
-                <img src="./resources/the_group_logo.png" alt="The Group Real Estate" class="thegroup" />
+                <img src="../resources/the_group_logo.png" alt="The Group Real Estate" class="thegroup" />
             </div>
         </div>
         <div class="col-xs-12 col-lg-3">
             <div class="partner-logo">
-                <img src="./resources/giv_development.png" alt="GIV Development" class="giv" />
+                <img src="../resources/giv_development.png" alt="GIV Development" class="giv" />
             </div>
         </div>
     </section>
@@ -192,12 +193,12 @@
         <div class="purpose-boxes">
             <article class="col-sm-4 purpose-border">
                 <section class="panel-img-container">
-                    <img src="./resources/hand_icon.png" alt="Volunteer" class="img-responsive panel-img img-center" />
+                    <img src="../resources/hand_icon.png" alt="Volunteer" class="img-responsive panel-img img-center" />
                 </section>
                 <section>
                     <p class="panel-heading">Apply to Volunteer</p>
                 </section>
-                <section>
+                <section class="minHeight">
                     <p class="mont-light-light-22 panel-summary">Make your mark where it matters. Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse.</p>
                 </section>
                 <section class="panel-footer">
@@ -206,12 +207,12 @@
             </article>
             <article class="col-sm-4 purpose-border">
                 <section class="panel-img-container">
-                    <img src="./resources/girl_icon.png" alt="Youth Stories" class="img-responsive panel-img img-center" />
+                    <img src="../resources/girl_icon.png" alt="Youth Stories" class="img-responsive panel-img img-center" />
                 </section>
                 <section>
                     <p class="panel-heading">Youth Stories</p>
                 </section>
-                <section>
+                <section class="minHeight">
                     <p class="mont-light-light-22 panel-summary">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.</p>
                 </section>
                 <section class="panel-footer">
@@ -220,12 +221,12 @@
             </article>
             <article class="col-sm-4 purpose-border">
                 <section class="panel-img-container">
-                    <img src="./resources/calendar_icon.png" alt="Events" class="img-responsive panel-img img-center" />
+                    <img src="../resources/calendar_icon.png" alt="Events" class="img-responsive panel-img img-center" />
                 </section>
                 <section>
                     <p class="panel-heading">Events</p>
                 </section>
-                <section>
+                <section class="minHeight">
                     <p class="mont-light-light-22 panel-summary">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna.</p>
                 </section>
                 <section class="panel-footer">
