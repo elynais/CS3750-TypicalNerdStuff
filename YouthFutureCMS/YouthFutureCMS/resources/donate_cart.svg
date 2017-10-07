@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="181px" height="180px" viewBox="0 0 181 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>D9C19129-8B68-4C5D-A885-104B46B7F8FE</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <circle id="path-1" cx="90" cy="90" r="90"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-Secondary-Template" transform="translate(-550.000000, -10671.000000)">
+            <g id="Group-14" transform="translate(550.500000, 10671.000000)">
+                <g id="Group-12">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#9EC54D" xlink:href="#path-1"></use>
+                    <path d="M133.611112,53.7590832 L207.454427,127.356841 L149.009766,168.267753 L126.916814,194.854026 C126.916814,194.854026 58.0490465,134.647941 58.0490465,134.647941 C58.0490465,134.647941 58.0490465,121.819133 65.9935117,113.072416 C55.252005,110.889711 49.3138931,103.579634 49.3138931,99.0033691 C49.3138931,87.8383311 133.611112,53.7590832 133.611112,53.7590832 Z" id="Path-6" fill="#6A6A6A" style="mix-blend-mode: multiply;" opacity="0.445425725" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
