@@ -1,0 +1,26 @@
+﻿@model YouthFutureCMS.Models.File
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>File</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.filePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.filePath)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fileId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
