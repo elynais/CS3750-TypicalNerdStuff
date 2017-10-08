@@ -1,0 +1,42 @@
+﻿@model YouthFutureCMS.Models.Content
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Content</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contentInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contentInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pageNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pageNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.contentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
