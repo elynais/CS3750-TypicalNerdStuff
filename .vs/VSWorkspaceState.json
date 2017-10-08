@@ -1,9 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\YF",
-    "\\YF\\styles"
+    "\\YouthFutureCMS",
+    "\\YouthFutureCMS\\YouthFutureCMS",
+    "\\YouthFutureCMS\\YouthFutureCMS\\Controllers",
+    "\\YouthFutureCMS\\YouthFutureCMS\\Properties",
+    "\\YouthFutureCMS\\YouthFutureCMS\\Views",
+    "\\YouthFutureCMS\\YouthFutureCMS\\Views\\Home",
+    "\\YouthFutureCMS\\YouthFutureCMS\\Views\\Manage",
+    "\\YouthFutureCMS\\YouthFutureCMS\\Views\\Secondary"
   ],
-  "SelectedNode": "\\YF\\styles\\main.css",
+  "SelectedNode": "\\YouthFutureCMS\\YouthFutureCMS.sln",
   "PreviewInSolutionExplorer": false
 }
