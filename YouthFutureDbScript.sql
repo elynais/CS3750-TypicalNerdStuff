@@ -3,14 +3,14 @@ Use master;
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE NAME = 'YouthFutureCMS')
 	DROP DATABASE YouthFutureCMS;
 
-CREATE DATABASE YouthFutureCMS
+CREATE DATABASE [YouthFutureCMS]
 ON Primary
-(NAME = N'YouthFutureCMS' , FILENAME = 
-N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureCMS.mdf',
+(NAME = N'YouthFutureCMS', FILENAME = 
+N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureCMS.mdf',
 SIZE = 5120KB, FILEGROWTH = 1024KB)
 LOG ON
 (NAME = N'YouthFutureCMSLog', FILENAME = 
-N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureCMS.ldf',
+N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\\YouthFutureCMS.ldf',
 SIZE = 2048KB, FILEGROWTH = 10%);
 GO
 
@@ -41,6 +41,11 @@ IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'yfStaff')
 
 IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'yfFile')
 	DROP TABLE yfFile;
+
+IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'yfColumn')
+	DROP TABLE yfColumn;
+
+GO
 
 -------------------- CREATE TABLES -----------------------
 CREATE TABLE yfUser
@@ -117,7 +122,7 @@ CREATE TABLE yfColumn
 (
 	yfColumn_id INT IDENTITY(1,1) NOT NULL,
 	yfColumnHeader NVARCHAR(400) NOT NULL,
-	yfColumnLinkDesc NVARCHAR(100) NOT NULL,
+	yfColumnLinkDesc NVARCHAR(MAX) NOT NULL,
 	yfColumnLink NVARCHAR(200) NOT NULL,
 	yfImage_id INT NOT NULL,
 	yfSectionNumber INT NOT NULL
@@ -213,14 +218,122 @@ ADD CONSTRAINT CK_yfDonor_yfDonorLevel
 CHECK(yfDonorLevel = 'P' OR yfDonorLevel = 'G' OR yfDonorLevel = 'S' OR yfDonorLevel = 'B')
 
 ------------------------ INSERT DATA INTO TABLES ------------------------
+GO
 
----------- yfContent
-INSERT INTO yfContent (yfContentDesc, yfPageNum)
-VALUES ('Hi', 1);
+SET IDENTITY_INSERT yfImage ON
 
-INSERT INTO yfContent (yfContentDesc, yfPageNum)
-VALUES ('14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME :)', 1)
+--INSERT INTO yfContent (yfImage_id, yfContentName, yfContentInfo, yfPageNum)
+--VALUES (1,'Header picture', null, 1);
 
-INSERT INTO yfContent (yfContentDesc, yfPageNum)
-VALUES ('Have questions? Send us a text!', 1)
+INSERT INTO yfImage (yfImage_id, yfImagePath)
+VALUES (1, '..\resources\home_header.png');
 
+SET IDENTITY_INSERt yfImage OFF
+
+GO
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Header Text', 'Hi', 1);
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Header Fact', '14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME:)', 1);
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Header Contacting', 'Have questions? Send us a text!', 1);
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Header Contact Number', '(801) 528-1214', 1);
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Service Title', 'Services', 1);
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Service desc', 'Our programming is divided into three main areas. Each program area has specific components to meet the needs of the youth in need', 1);
+
+GO
+
+SET IDENTITY_INSERT yfImage ON
+
+INSERT INTO yfImage (yfImage_id, yfImagePath)
+VALUES (2, '..\resources\house_icon.png');
+
+INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
+VALUES (
+	'Overnight Shelter', 
+	'Located in the heart of downtown Ogden, Utah. Youth Futures provides emergency shelter, temporary residence and supportive services for runaway, homeless, unaccompanied and at-risk youth 12-17. The shelter is open 24 hours per day.',
+	'secondary.html#historyBanner',
+	2,
+	1
+	);
+
+INSERT INTO yfImage (yfImage_id, yfImagePath)
+VALUES (3, '..\resources\door_icon.png');
+
+INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
+VALUES(
+	'Drop-in Services',
+	'Available to any youth ages 12-18. Drop-in services allow for the youth to access food, clothing, hygiene items, laundry facilities, computer stations, and case management. Drop-in hours are 6:30 am to 8:00 pm every day of the week.',
+	'secondary.html#outreachBanner',
+	3,
+	2
+	);
+
+INSERT INTO yfImage (yfImage_id, yfImagePath)
+VALUES (4, '..\resources\van_icon.png');
+
+INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
+VALUES (
+	'Street Outreach',
+	'Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.',
+	'secondary.html#outreachBanner',
+	4,
+	3
+	);
+
+SET IDENTITY_INSERT yfImage OFF
+
+GO
+
+SET IDENTITY_INSERT yfImage ON
+
+INSERT INTO yfImage (yfImage_id, yfImagePath)
+VALUES (5, '..\resources\purpose.png');
+
+SET IDENTITY_INSERT yfImage OFF
+
+GO
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Our Purpose', 'OUR PURPOSE', 1);
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Our purpose desc', 'To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.', 1);
+
+INSERT INTO yfContent (yfContentName, yfContentInfo, yfPageNum)
+VALUES ('Our purpose fact', ' 7,085 MEALS SERVED. 511 DROP-IN SERVICES. 245 STREET OUTREACH HOURS. 64 SHELTERED YOUTH.', 1);
+
+GO
+
+SET IDENTITY_INSERT yfImage ON
+
+INSERT INTO yfImage (yfImage_id, yfImagePath)
+VALUES (6, '..\resources\hand_icon.png');
+
+INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
+VALUES ('Apply to Volunteer', 'Make your mark where it matters.', 'secondary.html#donateMain', 6, 4);
+
+INSERT INTO yfImage (yfImage_id, yfImagePath)
+VALUES (7, '..\resources\girl_icon.png');
+
+INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
+VALUES ('Youth Stories', 'Read how these young men and women overcome their success stories', 'secondary.html#historyBanner', 7, 5);
+
+INSERT INTO yfImage (yfImage_id, yfImagePath)
+VALUES (8, '..\resources\calendar_icon.png');
+
+INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
+VALUES ('Events', 'Check out our monthly events', 'secondary.html#calendarMain', 8, 6);
+
+SET IDENTITY_INSERT yfImage OFF
+
+GO
