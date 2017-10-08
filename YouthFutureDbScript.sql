@@ -275,7 +275,7 @@ VALUES(
 	'Available to any youth ages 12-18. Drop-in services allow for the youth to access food, clothing, hygiene items, laundry facilities, computer stations, and case management. Drop-in hours are 6:30 am to 8:00 pm every day of the week.',
 	'secondary.html#outreachBanner',
 	3,
-	2
+	1
 	);
 
 INSERT INTO yfImage (yfImage_id, yfImagePath)
@@ -287,7 +287,7 @@ VALUES (
 	'Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.',
 	'secondary.html#outreachBanner',
 	4,
-	3
+	1
 	);
 
 SET IDENTITY_INSERT yfImage OFF
@@ -320,20 +320,22 @@ INSERT INTO yfImage (yfImage_id, yfImagePath)
 VALUES (6, '..\resources\hand_icon.png');
 
 INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
-VALUES ('Apply to Volunteer', 'Make your mark where it matters.', 'secondary.html#donateMain', 6, 4);
+VALUES ('Apply to Volunteer', 'Make your mark where it matters.', 'secondary.html#donateMain', 6, 2);
 
 INSERT INTO yfImage (yfImage_id, yfImagePath)
 VALUES (7, '..\resources\girl_icon.png');
 
 INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
-VALUES ('Youth Stories', 'Read how these young men and women overcome their success stories', 'secondary.html#historyBanner', 7, 5);
+VALUES ('Youth Stories', 'Read how these young men and women overcome their success stories', 'secondary.html#historyBanner', 7, 2);
 
 INSERT INTO yfImage (yfImage_id, yfImagePath)
 VALUES (8, '..\resources\calendar_icon.png');
 
 INSERT INTO yfColumn (yfColumnHeader, yfColumnLinkDesc, yfColumnLink, yfImage_id, yfSectionNumber)
-VALUES ('Events', 'Check out our monthly events', 'secondary.html#calendarMain', 8, 6);
+VALUES ('Events', 'Check out our monthly events', 'secondary.html#calendarMain', 8, 2);
 
 SET IDENTITY_INSERT yfImage OFF
 
 GO
+
+-----------------------------------------------secondary pages data-------------------------------------------------------------------
