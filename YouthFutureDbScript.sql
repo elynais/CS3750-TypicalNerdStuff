@@ -338,6 +338,5 @@ SET IDENTITY_INSERT Image OFF
 
 GO
 
-SELECT * FROM [Column];
 
 -----------------------------------------------secondary pages data-------------------------------------------------------------------
