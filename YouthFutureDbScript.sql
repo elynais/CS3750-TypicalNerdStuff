@@ -121,9 +121,10 @@ CREATE TABLE ErrorLog
 CREATE TABLE [Column]
 (
 	Column_id INT IDENTITY(1,1) NOT NULL,
-	ColumnHeader NVARCHAR(400) NOT NULL,
-	ColumnLinkDesc NVARCHAR(MAX) NOT NULL,
-	ColumnLink NVARCHAR(200) NOT NULL,
+	ColumnHeader NVARCHAR(400) NULL,
+	ColumnInfo NVARCHAR(MAX) NOT NULL,
+	ColumnLink NVARCHAR(200) NULL,
+	ColumnLinkDesc NVARCHAR(200) NULL,
 	Image_id INT NOT NULL,
 	SectionNumber INT NOT NULL
 );
@@ -236,7 +237,7 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Header Text', 'Hi', 1);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Header Fact', '14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME:)', 1);
+VALUES ('Header Fact', '14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME', 1);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Header Contacting', 'Have questions? Send us a text!', 1);
@@ -257,37 +258,40 @@ SET IDENTITY_INSERT Image ON
 INSERT INTO Image (Image_id, ImagePath)
 VALUES (2, '..\resources\house_icon.png');
 
-INSERT INTO [Column] (ColumnHeader, ColumnLinkDesc, ColumnLink, Image_id, SectionNumber)
+INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
 VALUES (
 	'Overnight Shelter', 
 	'Located in the heart of downtown Ogden, Utah. Youth Futures provides emergency shelter, temporary residence and supportive services for runaway, homeless, unaccompanied and at-risk youth 12-17. The shelter is open 24 hours per day.',
-	'secondary.html#historyBanner',
+	'/Secondary/Index#historyBanner',
 	2,
-	1
+	1,
+	'Learn more >'
 	);
 
 INSERT INTO Image (Image_id, ImagePath)
 VALUES (3, '..\resources\door_icon.png');
 
-INSERT INTO [Column] (ColumnHeader, ColumnLinkDesc, ColumnLink, Image_id, SectionNumber)
+INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
 VALUES(
 	'Drop-in Services',
 	'Available to any youth ages 12-18. Drop-in services allow for the youth to access food, clothing, hygiene items, laundry facilities, computer stations, and case management. Drop-in hours are 6:30 am to 8:00 pm every day of the week.',
-	'secondary.html#outreachBanner',
+	'/Secondary/Index#outreachBanner',
 	3,
-	1
+	1,
+	'Learn more >'
 	);
 
 INSERT INTO Image (Image_id, ImagePath)
 VALUES (4, '..\resources\van_icon.png');
 
-INSERT INTO [Column] (ColumnHeader, ColumnLinkDesc, ColumnLink, Image_id, SectionNumber)
+INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
 VALUES (
 	'Street Outreach',
-	'Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.',
-	'secondary.html#outreachBanner',
+	'Youth FuturesÕ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.',
+	'/Secondary/Index#outreachBanner',
 	4,
-	1
+	1,
+	'Learn more >'
 	);
 
 SET IDENTITY_INSERT Image OFF
@@ -319,20 +323,20 @@ SET IDENTITY_INSERT Image ON
 INSERT INTO Image (Image_id, ImagePath)
 VALUES (6, '..\resources\hand_icon.png');
 
-INSERT INTO [Column] (ColumnHeader, ColumnLinkDesc, ColumnLink, Image_id, SectionNumber)
-VALUES ('Apply to Volunteer', 'Make your mark where it matters.', 'secondary.html#donateMain', 6, 2);
+INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
+VALUES ('Apply to Volunteer', 'Make your mark where it matters.', '/Secondary/Index#donateMain', 6, 2, 'Volunteer Now >');
 
 INSERT INTO Image (Image_id, ImagePath)
 VALUES (7, '..\resources\girl_icon.png');
 
-INSERT INTO [Column] (ColumnHeader, ColumnLinkDesc, ColumnLink, Image_id, SectionNumber)
-VALUES ('Youth Stories', 'Read how these young men and women overcome their success stories', 'secondary.html#historyBanner', 7, 2);
+INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
+VALUES ('Youth Stories', 'Read how these young men and women overcome their success stories', '/Secondary/Index#historyBanner', 7, 2, 'Read the Stories >');
 
 INSERT INTO Image (Image_id, ImagePath)
 VALUES (8, '..\resources\calendar_icon.png');
 
-INSERT INTO [Column] (ColumnHeader, ColumnLinkDesc, ColumnLink, Image_id, SectionNumber)
-VALUES ('Events', 'Check out our monthly events', 'secondary.html#calendarMain', 8, 2);
+INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
+VALUES ('Events', 'Check out our monthly events', '/Secondary/Index#calendarMain', 8, 2, 'View All Events >');
 
 SET IDENTITY_INSERT Image OFF
 
