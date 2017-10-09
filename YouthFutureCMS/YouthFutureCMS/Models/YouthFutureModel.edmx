@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YouthFutureDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Column">
+          <Key>
+            <PropertyRef Name="Column_id" />
+          </Key>
+          <Property Name="Column_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ColumnHeader" Type="nvarchar" MaxLength="400" />
+          <Property Name="ColumnInfo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ColumnLink" Type="nvarchar" MaxLength="200" />
+          <Property Name="ColumnLinkDesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="Image_id" Type="int" Nullable="false" />
+          <Property Name="SectionNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Content_id" />
+          </Key>
+          <Property Name="Content_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image_id" Type="int" />
+          <Property Name="ContentName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ContentInfo" Type="nvarchar(max)" />
+          <Property Name="File_id" Type="int" />
+          <Property Name="PageNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donor">
+          <Key>
+            <PropertyRef Name="Donor_id" />
+          </Key>
+          <Property Name="Donor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DonorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DonorYear" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DonorLevel" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="DonorStatus" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="ErrorLog_id" />
+          </Key>
+          <Property Name="ErrorLog_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ErrorDesc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ErrorDatetime" Type="datetime" Nullable="false" />
+          <Property Name="User_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Event_id" />
+          </Key>
+          <Property Name="Event_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EventDate" Type="date" Nullable="false" />
+          <Property Name="EventDesc" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EventLocation" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="File_id" />
+          </Key>
+          <Property Name="File_id" Type="int" Nullable="false" />
+          <Property Name="FilePath" Type="varchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Image_id" />
+          </Key>
+          <Property Name="Image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Staff_id" />
+          </Key>
+          <Property Name="Staff_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffFirstName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="StaffLastName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="StaffEmail" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="StaffTitle" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="BoardTitle" Type="nvarchar" MaxLength="40" />
+          <Property Name="Image_id" Type="int" Nullable="false" />
+          <Property Name="StaffStatus" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Staff_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Column_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="Column" Type="Self.Column" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Image_id" />
+            </Principal>
+            <Dependent Role="Column">
+              <PropertyRef Name="Image_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_File">
+          <End Role="File" Type="Self.File" Multiplicity="0..1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="File_id" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="File_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Image_id" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="Image_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ErrorLog_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ErrorLog" Type="Self.ErrorLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="ErrorLog">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Image_id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="Image_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Staff_id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Staff_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YouthFutureDbModelStoreContainer">
+          <EntitySet Name="Column" EntityType="Self.Column" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donor" EntityType="Self.Donor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File" EntityType="Self.File" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Column_Image" Association="Self.FK_Column_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="Column" EntitySet="Column" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_File" Association="Self.FK_Content_File">
+            <End Role="File" EntitySet="File" />
+            <End Role="Content" EntitySet="Content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Image" Association="Self.FK_Content_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="Content" EntitySet="Content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ErrorLog_User" Association="Self.FK_ErrorLog_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="ErrorLog" EntitySet="ErrorLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Image" Association="Self.FK_Staff_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Staff" Association="Self.FK_User_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YouthFutureDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Column">
+          <Key>
+            <PropertyRef Name="Column_id" />
+          </Key>
+          <Property Name="Column_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColumnHeader" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ColumnInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ColumnLink" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ColumnLinkDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Image_id" Type="Int32" Nullable="false" />
+          <Property Name="SectionNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_Column_Image" FromRole="Column" ToRole="Image" />
+        </EntityType>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Content_id" />
+          </Key>
+          <Property Name="Content_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image_id" Type="Int32" />
+          <Property Name="ContentName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ContentInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="File_id" Type="Int32" />
+          <Property Name="PageNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="File" Relationship="Self.FK_Content_File" FromRole="Content" ToRole="File" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_Content_Image" FromRole="Content" ToRole="Image" />
+        </EntityType>
+        <EntityType Name="Donor">
+          <Key>
+            <PropertyRef Name="Donor_id" />
+          </Key>
+          <Property Name="Donor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DonorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DonorYear" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DonorLevel" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DonorStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="ErrorLog_id" />
+          </Key>
+          <Property Name="ErrorLog_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ErrorDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ErrorDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="User_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ErrorLog_User" FromRole="ErrorLog" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Event_id" />
+          </Key>
+          <Property Name="Event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EventDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventLocation" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="File_id" />
+          </Key>
+          <Property Name="File_id" Type="Int32" Nullable="false" />
+          <Property Name="FilePath" Type="String" MaxLength="450" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Contents" Relationship="Self.FK_Content_File" FromRole="File" ToRole="Content" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Image_id" />
+          </Key>
+          <Property Name="Image_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Columns" Relationship="Self.FK_Column_Image" FromRole="Image" ToRole="Column" />
+          <NavigationProperty Name="Contents" Relationship="Self.FK_Content_Image" FromRole="Image" ToRole="Content" />
+          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Image" FromRole="Image" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Staff_id" />
+          </Key>
+          <Property Name="Staff_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffFirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StaffLastName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StaffEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StaffTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BoardTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Image_id" Type="Int32" Nullable="false" />
+          <Property Name="StaffStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_Staff_Image" FromRole="Staff" ToRole="Image" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Staff" FromRole="Staff" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Staff_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ErrorLogs" Relationship="Self.FK_ErrorLog_User" FromRole="User" ToRole="ErrorLog" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK_User_Staff" FromRole="User" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK_Column_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="Column" Type="Self.Column" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Image_id" />
+            </Principal>
+            <Dependent Role="Column">
+              <PropertyRef Name="Image_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_File">
+          <End Role="File" Type="Self.File" Multiplicity="0..1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="File_id" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="File_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Content_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Image_id" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="Image_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ErrorLog_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ErrorLog" Type="Self.ErrorLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="ErrorLog">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Image_id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="Image_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Staff_id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Staff_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YouthFutureDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Columns" EntityType="Self.Column" />
+          <EntitySet Name="Contents" EntityType="Self.Content" />
+          <EntitySet Name="Donors" EntityType="Self.Donor" />
+          <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLog" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Files" EntityType="Self.File" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Column_Image" Association="Self.FK_Column_Image">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Column" EntitySet="Columns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_File" Association="Self.FK_Content_File">
+            <End Role="File" EntitySet="Files" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Content_Image" Association="Self.FK_Content_Image">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ErrorLog_User" Association="Self.FK_ErrorLog_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ErrorLog" EntitySet="ErrorLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Image" Association="Self.FK_Staff_Image">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Staff" Association="Self.FK_User_Staff">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YouthFutureDbModelStoreContainer" CdmEntityContainer="YouthFutureDbEntities">
+          <EntitySetMapping Name="Columns">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.Column">
+              <MappingFragment StoreEntitySet="Column">
+                <ScalarProperty Name="Column_id" ColumnName="Column_id" />
+                <ScalarProperty Name="ColumnHeader" ColumnName="ColumnHeader" />
+                <ScalarProperty Name="ColumnInfo" ColumnName="ColumnInfo" />
+                <ScalarProperty Name="ColumnLink" ColumnName="ColumnLink" />
+                <ScalarProperty Name="ColumnLinkDesc" ColumnName="ColumnLinkDesc" />
+                <ScalarProperty Name="Image_id" ColumnName="Image_id" />
+                <ScalarProperty Name="SectionNumber" ColumnName="SectionNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.Content">
+              <MappingFragment StoreEntitySet="Content">
+                <ScalarProperty Name="Content_id" ColumnName="Content_id" />
+                <ScalarProperty Name="Image_id" ColumnName="Image_id" />
+                <ScalarProperty Name="ContentName" ColumnName="ContentName" />
+                <ScalarProperty Name="ContentInfo" ColumnName="ContentInfo" />
+                <ScalarProperty Name="File_id" ColumnName="File_id" />
+                <ScalarProperty Name="PageNum" ColumnName="PageNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donors">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.Donor">
+              <MappingFragment StoreEntitySet="Donor">
+                <ScalarProperty Name="Donor_id" ColumnName="Donor_id" />
+                <ScalarProperty Name="DonorName" ColumnName="DonorName" />
+                <ScalarProperty Name="DonorYear" ColumnName="DonorYear" />
+                <ScalarProperty Name="DonorLevel" ColumnName="DonorLevel" />
+                <ScalarProperty Name="DonorStatus" ColumnName="DonorStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorLogs">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.ErrorLog">
+              <MappingFragment StoreEntitySet="ErrorLog">
+                <ScalarProperty Name="ErrorLog_id" ColumnName="ErrorLog_id" />
+                <ScalarProperty Name="ErrorDesc" ColumnName="ErrorDesc" />
+                <ScalarProperty Name="ErrorDatetime" ColumnName="ErrorDatetime" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Event_id" ColumnName="Event_id" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EventDesc" ColumnName="EventDesc" />
+                <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.File">
+              <MappingFragment StoreEntitySet="File">
+                <ScalarProperty Name="File_id" ColumnName="File_id" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="Image_id" ColumnName="Image_id" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Staff_id" ColumnName="Staff_id" />
+                <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
+                <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
+                <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+                <ScalarProperty Name="StaffTitle" ColumnName="StaffTitle" />
+                <ScalarProperty Name="BoardTitle" ColumnName="BoardTitle" />
+                <ScalarProperty Name="Image_id" ColumnName="Image_id" />
+                <ScalarProperty Name="StaffStatus" ColumnName="StaffStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="YouthFutureDbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Staff_id" ColumnName="Staff_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
