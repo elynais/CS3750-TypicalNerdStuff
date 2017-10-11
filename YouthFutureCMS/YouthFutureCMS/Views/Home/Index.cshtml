@@ -73,8 +73,8 @@
         </div>
     </div>
 </section>
-<article class="container-fluid purpose-padding indexLeftMargin">
-    <section class="row purpose col-xs-12 purpose-padding">
+<article class="container-fluid indexLeftMargin">
+    <section class="purpose purpose-padding indexLeftMargin">
         <div class="row purpose-title">
             @{
                 string[] purpose = ourPurpose.Split(' ');
@@ -110,7 +110,7 @@
         </div>
     </section>
     <div class="clear"></div>
-    <section class="row sponsor-bar">
+    <section class="sponsor-bar">
         <div class="col-xs-12 col-lg-3">
             <p class="partner-text">Our Sponsors</p>
         </div>
@@ -130,29 +130,31 @@
             </div>
         </div>
     </section>
-    
-    <section class="row purpose-user">
-        <div class="purpose-boxes">
-            
-            @foreach (var col in columnsTwo)
-            {
-                <article class="col-sm-4 purpose-border">
-                    <section class="panel-img-container">
-                        <img src="@Html.DisplayFor(m => col.Image.ImagePath)" alt="Volunteer" class="img-responsive panel-img img-center"/>
-                    </section>
-                    <section>
-                        <p class="panel-heading">@Html.DisplayFor(m => col.ColumnHeader)</p>
-                    </section>
-                    <section class="minHeight">
-                        <p class="mont-light-light-22 panel-summary">@Html.DisplayFor(m => col.ColumnInfo)</p>
-                    </section>
-                    <section class="panel-footer">
-                        <p class="quicksand-light-24-green"><a href="@Html.DisplayFor(m => col.ColumnLink)">@Html.DisplayFor(m => col.ColumnLinkDesc)</a>
-                        </p>
-                    </section>
-                </article>
-            }
+    <article class="container-fluid indexLeftMargin30">
+        <section class="row purpose-user">
+            <div class="purpose-boxes">
 
-        </div>
-    </section>
+                @foreach (var col in columnsTwo)
+            {
+                    <article class="col-sm-4 purpose-border">
+                        <section class="panel-img-container">
+                            <img src="@Html.DisplayFor(m => col.Image.ImagePath)" alt="Volunteer" class="img-responsive panel-img img-center" />
+                        </section>
+                        <section>
+                            <p class="panel-heading">@Html.DisplayFor(m => col.ColumnHeader)</p>
+                        </section>
+                        <section class="minHeight">
+                            <p class="mont-light-light-22 panel-summary">@Html.DisplayFor(m => col.ColumnInfo)</p>
+                        </section>
+                        <section class="panel-footer">
+                            <p class="quicksand-light-24-green">
+                                <a href="@Html.DisplayFor(m => col.ColumnLink)">@Html.DisplayFor(m => col.ColumnLinkDesc)</a>
+                            </p>
+                        </section>
+                    </article>
+                }
+
+            </div>
+        </section>
+    </article>
 </article>
