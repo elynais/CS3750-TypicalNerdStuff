@@ -5,22 +5,22 @@ IF EXISTS (SELECT * FROM sys.sysdatabases WHERE NAME = 'YouthFutureDb')
 
 CREATE DATABASE [YouthFutureDb]
 ON Primary
---(NAME = N'YouthFutureDb', FILENAME = 
---N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureDb.mdf',
---SIZE = 5120KB, FILEGROWTH = 1024KB)
---LOG ON
---(NAME = N'YouthFutureDbLog', FILENAME = 
---N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\\YouthFutureDb.ldf',
---SIZE = 2048KB, FILEGROWTH = 10%);
+(NAME = N'YouthFutureDb', FILENAME = 
+N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureDb.mdf',
+SIZE = 5120KB, FILEGROWTH = 1024KB)
+LOG ON
+(NAME = N'YouthFutureDbLog', FILENAME = 
+N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\\YouthFutureDb.ldf',
+SIZE = 2048KB, FILEGROWTH = 10%);
 
-(NAME = N'YouthFutureDb', FILENAME =
-	N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureDb.mdf',
-	SIZE = 5120KB, FILEGROWTH = 1024KB)
+--(NAME = N'YouthFutureDb', FILENAME =
+--	N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureDb.mdf',
+--	SIZE = 5120KB, FILEGROWTH = 1024KB)
 
-	LOG ON
-	(NAME = N'YouthFutureDbLOG', FILENAME =
-	N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureDbLog.ldf',
-	SIZE = 2048KB, FILEGROWTH = 10%);
+--	LOG ON
+--	(NAME = N'YouthFutureDbLOG', FILENAME =
+--	N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureDbLog.ldf',
+--	SIZE = 2048KB, FILEGROWTH = 10%);
 GO
 
 --ATTACH TO A NEW DATABASE
