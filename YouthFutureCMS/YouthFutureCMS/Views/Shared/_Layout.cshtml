@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/fonts.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/main.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/secondaryStyles.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/layout.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 
@@ -43,8 +44,8 @@
                 </div>
             </div>
         </div>*@
-        <div class="navbar navbar-default navbar-fixed-top navBar-widthCenter" style="max-width: 1155px; position: absolute; margin: auto; max-height: 150px;">
-            @*<nav class="navbar navbar-default navbar-fixed-top">*@
+        <div class="topDivMarginLayout">
+            <nav class="navbarLayout navbar-default navbar-fixed-top navBar-widthCenter navBarWidthLayout navBarWidthLayoutLeft">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -89,13 +90,13 @@
                                     <li><a href="/Secondary/Index#contactMain">Contact Info</a></li>
                                 </ul>
                             </li>
-                            <li class="donate" style="background-color: #1c5788; max-height:150px;"><a href="/Secondary/Index#donateMain">Donate</a></li>
+                            <li class="donate"><a href="/Secondary/Index#donateMain">Donate</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
                 </div>
                 <!-- /.container-fluid -->
-            @*</nav>*@
+            </nav>
 
         <!-- /.body-content -->
         <div class="container body-content">
@@ -139,8 +140,6 @@
         </footer>
 
         </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
     </body>
 

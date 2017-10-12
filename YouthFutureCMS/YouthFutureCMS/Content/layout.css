@@ -1,0 +1,20 @@
+﻿
+.topDivMarginLayout {
+    max-width: 1155px; 
+    margin: auto; 
+    margin-top: 50px;
+}
+
+.navBarWidthLayout {
+    max-width: 1155px; 
+    position: fixed; 
+    margin: auto;
+    max-height: 150px;
+}
+
+.navbarLayout {
+    font-family: "montserrat-regular";
+    font-size: 18px;
+    line-height: 21px;
+    background-color: white;
+}
