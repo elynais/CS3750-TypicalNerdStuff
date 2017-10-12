@@ -509,14 +509,14 @@ SET IDENTITY_INSERT Image OFF
 
 GO
 
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('JUSTINE MURRAY', 'Program Manager, Youth Futures', 'jmurray@yfut.org','jmurray@yfut.org', 18, 6);
+INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, Image_id, StaffStatus)
+VALUES ('Justine', 'Murray', 'jmurray@yfut.org', 'Program Manager', null, 18, 'A');
 
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('SUSAN MCBRIDE','Floor Staff Co-Lead, Youth Futures','smcbride@yfut.org', 'smcbride@yfut.org', 19, 6);
+INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, Image_id, StaffStatus)
+VALUES ('Susan', 'McBride', 'smcbride@yfut.org', 'Floor Staff Co-Lead', null, 19, 'A');
 
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('ALYSON DEUSSEN', 'Floor Staff Co-Lead, Youth Futures', 'aallred@yfut.org','allred@yfut.org', 20, 6);
+INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, Image_id, StaffStatus)
+VALUES ('Alyson', 'Deussen', 'aallred@yfut.org', 'Floor Staff Co-Lead', 'Board Secretary', 20, 'A');
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Media', 'MEDIA', 2);
@@ -550,65 +550,50 @@ VALUES ('Donors', 'DONORS', 2);
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Plat Donors','Plantinum Level Donors', 2);
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Plat donor1','MILLER FAMILY FOUNDATION LARRY H. & GAIL 2015 & 2016', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Miller Family Foundation Larry H. & Gail', '2015 & 2016', 'P', 'A');
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Plat donor2','IVY LANE PEDIATRICS 2016', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Ivy Lane Pediatrics', '2016', 'P', 'A');
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Plat donor3','SORENSON LEGACY FOUNDATION 2015', 2);
-
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Plat donor4','MILLER FAMILY FOUNDATION LARRY H. & GAIL 2015 & 2016', 2);
-
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Plat donor5','IVY LANE PEDIATRICS 2016', 2);
-
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Plat donor6','SORENSON LEGACY FOUNDATION 2015', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Sorenson Legacy Foundation', '2015', 'P', 'A');
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Gold Donors','Gold Level Donors', 2);
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Gold donor1','MILLER FAMILY FOUNDATION LARRY H. & GAIL 2015 & 2016', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Miller Family Foundation Larry H. & Gail', '2015 & 2016', 'G', 'A');
+
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Ivy Lane Pediatrics', '2016', 'G', 'A');
+
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Sorenson Legacy Foundation', '2015', 'G', 'A');
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Gold donor2','IVY LANE PEDIATRICS 2016', 2);
+VALUES ('Silver Donors','Silver Level Donors', 2);
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Gold donor3','SORENSON LEGACY FOUNDATION 2015', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Miller Family Foundation Larry H. & Gail', '2015 & 2016', 'S', 'A');
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Gold donor4','MILLER FAMILY FOUNDATION LARRY H. & GAIL 2015 & 2016', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Ivy Lane Pediatrics', '2016', 'S', 'A');
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Gold donor5','IVY LANE PEDIATRICS 2016', 2);
-
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Gold donor6','SORENSON LEGACY FOUNDATION 2015', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Sorenson Legacy Foundation', '2015', 'S', 'A');
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Bronze Donors','Bronze Level Donors', 2);
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Bronze donor1','MILLER FAMILY FOUNDATION LARRY H. & GAIL 2015 & 2016', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Miller Family Foundation Larry H. & Gail', '2015 & 2016', 'B', 'A');
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Bronze donor2','IVY LANE PEDIATRICS 2016', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Ivy Lane Pediatrics', '2016', 'B', 'A');
 
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Bronze donor3','SORENSON LEGACY FOUNDATION 2015', 2);
-
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Bronze donor4','MILLER FAMILY FOUNDATION LARRY H. & GAIL 2015 & 2016', 2);
-
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Bronze donor5','IVY LANE PEDIATRICS 2016', 2);
-
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Bronze donor6','SORENSON LEGACY FOUNDATION 2015', 2);
+INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
+VALUES ('Sorenson Legacy Foundation', '2015', 'B', 'A');
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('donations','DONATE', 2);
