@@ -246,7 +246,7 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Header Text', 'Hi', 1);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Header Fact', '14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME', 1);
+VALUES ('Header Fact', '14 WARM BEDS. YOUTH 12-17. YOUR TEMPORARY HOME <span class="quicksand-dark-38-lightgreen">:)</span>', 1);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Header Contacting', 'Have questions? Send us a text!', 1);
@@ -323,8 +323,8 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Our purpose desc', 'To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.', 1);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Our purpose fact', ' 7,085 MEALS SERVED. 511 DROP-IN SERVICES. 245 STREET OUTREACH HOURS. 64 SHELTERED YOUTH.', 1);
-
+VALUES ('Our purpose fact', '<span class="alt-color">7,085</span> MEALS SERVED. <span class="alt-color">511</span> DROP-IN SERVICES. <span class="alt-color">245</span> STREET OUTREACH HOURS. <span class="alt-color">64</span> SHELTERED YOUTH.', 1);
+ 
 GO
 
 SET IDENTITY_INSERT Image ON
@@ -443,13 +443,13 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Served 7,085 meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room 354 times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.', 14, 4);
+VALUES ('Served <span class = "green">7,085</span> meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room <span class = "green">354</span> times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.', 14, 4);
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Conducted more than 245 street outreach hours and provided items from the resource room to street youth', 15, 4);
+VALUES ('Conducted more than <span class = "green">245</span> street outreach hours and provided items from the resource room to street youth.', 15, 4);
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Provided 1,535 shelter night stays and 511 drop in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.', 16, 4);
+VALUES ('Provided <span class = "green">1,535</span> shelter night stays and <span class = "green">511</span> drop in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.', 16, 4);
 
 GO 
 
@@ -472,10 +472,10 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('YF outreach desc','Street Outreach is designed to meet the clients where they are on the street to build rapport and encourage youth to access drop-in and shelter services. This program offers, case management, hygiene items, food, sleeping bags, and other essential items as needed. Street Outreach currently take place once per week on Wednesdays. The team visits the same Ogden, Utah locations every week:', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('YF outreach list1', 'Jefferson Park  Marshall White Center Park  Lorin Farr Skate Park', 2);
+VALUES ('YF outreach list1', '<li>Jefferson Park</li> <li>Marchall White Center Park</li> <li>Lorin Farr Skate Park</li>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('YF outreach list2', 'Basketball Court at Bonneville Park  Under the Ogden River bridge (sporadic)  Lantern House Homeless Shelter', 2);
+VALUES ('YF outreach list2', '<li>Basketball Court at Bonneville Park</li> <li>Under the Ogden River Bridge (sporadic)</li> <li>Lantern House Homeless Shelter</li>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Board of Dir', 'BOARD OF DIRECTORS', 2);
@@ -622,32 +622,73 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Monetary donations are our biggest need right now. Recurring PayPal donations can be scheduled from our website, even $10 makes a difference.', 22, 7);
+VALUES ('Monetary donations are our biggest need right now. Recurring <span class = "green"><a href="https://www.paypal.com/donate/?token=jeB7uObfTI7Nfw4Tx4PaidB_PzukgOctKJHDDfMJzE7JdkG6dfpuY6AlEvS1ktKjGQ9H2W&country.x=US&locale.x=US">PayPal</a> </span> donations can be scheduled from our website, even $10 makes a difference.', 22, 7);
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Donate through rewards programs Amazon Smile, Smiths Community Rewards or United Way Federal and State Employee contributions LoveUTGiveUT', 23, 7);
+VALUES ('Donate through rewards programs: <span class = "green"><a href="https://smile.amazon.com/ref=smi_ext_ch_45-3245622_dl?_encoding=UTF8&ein=45-3245622&ref_=smi_chpf_redirect&ref_=smi_ext_ch_45-3245622_cl">Amazon Smile,</a> </span> <span class = "green"><a href="https://www.smithsfoodanddrug.com/account/create/">Smiths Community Rewards,</a></span> or <span class = "green"><a href="https://www.unitedway.org/">United Way,</a></span> <span class = "green">Federal and State Employee contributions,</a></span> <span class = "green"><a href="https://loveutgiveut.razoo.com/organization/Youthfutures">LoveUTGiveUT', 23, 7);
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Donate your time as a volunteer to help with needs around the shelter! Sign up here.', 15, 7);
+VALUES ('Donate your time as a volunteer to help with needs around the shelter! <span class="green"><a href="https://www.classy.org/charity/youth-futures/c37253">Sign up here.</a></span>', 15, 7);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('list of needs', 'LIST OF NEEDS', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Most important needs', 'MOST IMPORTANT NEEDS (In order of priority) Cash donations Printer Paper Canned meat & Jerky Scotch tape Bus tokens or passes Earbud Headphones Cinch bags Batteries Sweat Pants Pajama Bottoms Sports bras Trail mix individuals Toilet Paper Condoms Tampons Carabiners Paper plates and cups Mens and Womens Underwear Socks Kleenex individuals Undershirts, S M L XL Garbage bags 30 Gallon Garbage sacks small Lip balm Ziploc bags, quart and gallon Energy Bars Heavy duty plastic storage bins that will not melt if heated in shed', 2);
+VALUES ('Most important needs', 'MOST IMPORTANT NEEDS (In order of priority)',2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Misc needs', 'MISC. NEEDS MiniVan NEW Printer', 2);
+VALUES('important needs', '<li>Cash donations</li> <li>Printer Paper</li> <li>Canned meat & Jerky</li> <li>Scotch tape</li> <li>Bus tokens or passes</li> <li>Earbud Headphones</li> <li>Cinch bags</li> <li>Batteries</li> <li>Sweat Pants</li> <li>Pajama Bottoms </li> <li>Sports bras</li> <li>Trail mix individuals</li> <li>Toilet Paper</li> <li>Condoms</li> <li>Tampons</li> <li>Carabiners</li> <li>Paper plates and cups</li>	<li>Mens and Womens Underwear</li> <li>Socks </li>	<li>Kleenex individuals</li> <li>Undershirts, S M L XL</li>	<li>Garbage bags 30 Gallon</li>	<li>Garbage sacks small</li> <li>Lip balm</li> <li>Ziploc bags, quart and gallon</li> <li>Energy Bars</li> <li>Heavy duty plastic storage bins that will not melt if heated in shed</li>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Gift cards', 'GIFT CARDS FOR Walmart Fun things to do Grocery store Maverick Restaurants Movies Bus passes or tokens Phone minutes Beauty salons/haircuts Shoe stores Lagoon passes', 2);
+VALUES ('Misc needs', 'MISC. NEEDS', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('house furnishings', 'HOUSEHOLD FURNISHINGS NEEDS NEW pots and pans New couches', 2);
+VALUES ('misc list', '<li>Minivan</li> <li>NEW Printer</li>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Voluneteers', 'VOLUNETEERS Mentors Educators Group activity facilitators Meal preparers/providers Tutors Life skills trainers Beauticians Street Outreach Workers Artists for classes Yard work Interior painters', 2);
+VALUES ('Gift cards', 'GIFT CARDS FOR', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Repair needs', 'REPAIR NEEDS Concrete or pavers 1500 sq. feet Cement sidewalk repairs & labor', 2);
+VALUES ('gift card list', '<li>Walmart</li> <li>Fun things to do</li> <li>Grocery store</li> <li>Maverick</li> <li>Restaurants</li>	<li>Movies</li> <li>Bus passes or tokens</li> <li>Phone minutes </li> <li>Beauty salons/haircuts</li> <li>For shoe stores</li> <li>Lagoon passes</li>', 2);
 
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('house furnishings', 'HOUSEHOLD FURNISHINGS NEEDS', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('furnishings list', '<li>NEW pots and pans</li> <li>New Couches</li>', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Voluneteers', 'VOLUNETEERS', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Voluneteers list', '<li>Mentors</li> <li>Educators</li> <li>Group activity facilitators</li> <li>Meal preparers/providers</li>	<li>Tutors</li>	<li>Life skills trainers</li> <li>Beauticians</li> <li>Street Outreach Workers</li> <li>Artists for classes</li> <li>Yard work</li> <li>Interior painters</li>', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Repair needs', 'REPAIR NEEDS', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Repair list', '<li>Concrete or pavers 1500 sq. feet</li> <li>Cement sidewalk repair& labor</li>', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Contact Title', 'CONTACT', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Contact us', 'CONTACT US', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Contact call us', 'CALL US', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Contact number', 'Tel: 801-528-1214', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('come see us', 'COME SEE US', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('address1', '60 Adams Ave. Ogden, UT', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('address2', 'Ogden, Utah 84401', 2);
+
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('social media', 'SOCIAL MEDIA', 2);
