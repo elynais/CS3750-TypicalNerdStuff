@@ -26,7 +26,7 @@ namespace YouthFutureCMS.Models
         public string StaffEmail { get; set; }
         public string StaffTitle { get; set; }
         public string BoardTitle { get; set; }
-        public int Image_id { get; set; }
+        public Nullable<int> Image_id { get; set; }
         public string StaffStatus { get; set; }
     
         public virtual Image Image { get; set; }

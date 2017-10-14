@@ -289,7 +289,7 @@ h1,h2,h4,h6{
 	min-height: 104px;
 	max-width: 490px;
 	padding: 7px 0px 1px 1px;
-    margin-right: -15px;
+	margin-right: -15px;
 	margin-left: 0px;
 	padding-left: 2px; 
 }
@@ -301,7 +301,7 @@ h1,h2,h4,h6{
 	line-height: 43px;   
 	margin-left: 0px;
 	padding-left: 2px; 
-    padding-right: 10px; 
+	padding-right: 10px; 
 }
 .header-box {
 	margin-left: 550px;
@@ -375,7 +375,7 @@ footer .row {
 .social-media img {
 	margin-top: 8px;
 	margin-right: 17.6px;
-    width: 17%;
+	width: 17%;
 }
 
 .copyright {
@@ -540,19 +540,19 @@ footer .row {
 	margin: 0;
 }
 .minHeightServices {
-    position: relative; height: 100%;
-    min-height: 205px;
+	position: relative; height: 100%;
+	min-height: 205px;
 }
 .minHeight {
-    position: relative; height: 100%;
-    min-height: 125px;
+	position: relative; height: 100%;
+	min-height: 125px;
 }
 .maxwidthFooter {
-    max-width: 1155px; 
-    /*margin-left: 15px;*/
+	max-width: 1155px; 
+	/*margin-left: 15px;*/
 }
 .maxwidthHeader {
-    max-width: 1140px; 
+	max-width: 1140px; 
 }
 .learn-more {
 	text-align: center;
@@ -626,16 +626,16 @@ footer .row {
 }
 .purpose-stats {
 	max-width: 1127px;
-	margin:49px 76px 0 77px;
+	/*margin:49px 76px 0 77px;*/
 	background-color: #FFF;
-	min-height: 175px;
-    margin-top: 49px;
-    line-height: 25px;
+	min-height: 105px;
+	margin-top: 49px;
+	line-height: 25px;
 }
 .purpose-stats p{
 	font-size: 38px;
 	font-family: quicksand-bold;
-    margin-top: 22px;
+	margin-top: 22px;
 	margin-bottom: -8px;
 	text-align: center;
 	color: #474747;
@@ -732,24 +732,24 @@ footer .row {
 
 .navBar-widthCenter{
 	max-width: 1140px; 
-    position: absolute; 
-    margin: auto; 
-    max-height: 150px;
-    font-family: "montserrat-regular";
-    font-size: 18px;
-    line-height: 21px;
-    background-color: white;
+	position: absolute; 
+	margin: auto; 
+	max-height: 150px;
+	font-family: "montserrat-regular";
+	font-size: 18px;
+	line-height: 21px;
+	background-color: white;
 }
 
 .indexLeftMargin {
-    margin-left: -15px;
+	margin-left: -15px;
 }
 .indexLeftMargin30 {
-    margin-left: -30px;
+	margin-left: -30px;
 }
 .indexLeftMarginServices {
-    margin-left: -15px;
-    background: white;
+	margin-left: -15px;
+	background: white;
 }
 
 /**********************************

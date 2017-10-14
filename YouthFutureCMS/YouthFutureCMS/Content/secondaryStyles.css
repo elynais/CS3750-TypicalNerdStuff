@@ -573,18 +573,18 @@
 
 .pre-scrollable {
 	max-height: 150px;
-    overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 @media (min-width: 768px) {
-    .navbar-right .dropdown-menu {
-        left: 2px;
-        right:auto;
-    }
-     .navbar-right .dropdown-menu > li > a {
-       margin: 10px 0 10px 0;
-    }
+	.navbar-right .dropdown-menu {
+		left: 2px;
+		right:auto;
+	}
+	 .navbar-right .dropdown-menu > li > a {
+	   margin: 10px 0 10px 0;
+	}
 }
 body {
-    padding-top: 70px;
+	padding-top: 70px;
 }
