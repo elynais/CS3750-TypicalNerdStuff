@@ -296,7 +296,7 @@ VALUES (4, '..\resources\van_icon.png');
 INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
 VALUES (
 	'Street Outreach',
-	'Youth FuturesÕ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.',
+	'Youth FuturesÃ• Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.',
 	'/Secondary/Index#outreachBanner',
 	4,
 	1,
@@ -539,7 +539,7 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('media check desc', 'At right, from left to right: Kristen Mitchell, executive director of Youth Futures Utah and Scott Tuccio, president of the Board of Directorsof Youth Futures Utah, stand with Nicole Cypers, public relations and social media manager for America First Credit Union, at the Weber State basketball game for a check presentation in the amount of $3,400 on Saturday, March 7 at Weber State University.', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('media check story1', 'OGDEN, Utah--America First Credit Union awarded Youth Futures Utah, a homeless shelter for youth, with $3,400 during the Weber State University basketball game. America First paid the organization $10 for each assist the Weber State University basketball team completed throughout the 2014 – 2015 season. With 340 assists, the donation amounted to $3,400 in total for the newly-opened youth homeless organization, located in Ogden, Utah.', 2);
+VALUES ('media check story1', 'OGDEN, Utah--America First Credit Union awarded Youth Futures Utah, a homeless shelter for youth, with $3,400 during the Weber State University basketball game. America First paid the organization $10 for each assist the Weber State University basketball team completed throughout the 2014 Â– 2015 season. With 340 assists, the donation amounted to $3,400 in total for the newly-opened youth homeless organization, located in Ogden, Utah.', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('media check story2', 'Youth Futures Utah is a 501(c)3 organization committed to the well-being of the youth of Utah. The mission of Youth Futures Utah is to provide shelter, support, resources and guidance to homeless, unaccompanied and runaway youth in Utah. Youth Futures connects each youth with food, housing and resources to build the skills needed to support a healthy future.', 2);
@@ -612,7 +612,8 @@ INSERT INTO Image(Image_id, ImagePath)
 VALUES (22, '..\resources\donate_dollar.svg');
 
 INSERT INTO Image(Image_id, ImagePath)
-VALUES (23, '..\resources\donate_cart.svg');
+VALUES (23, '..\resources\shoppingcart_icon.png');
+--VALUES (23, '..\resources\donate_cart.svg');
 
 --INSERT INTO Image(Image_id, ImagePath)
 --VALUES (24, '..\resources\donate_hand.svg');
