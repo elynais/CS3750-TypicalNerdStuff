@@ -6,10 +6,11 @@
 }
 
 .navBarWidthLayout {
-    max-width: 1155px; 
+    max-width: 100%; 
     position: fixed; 
-    margin: auto;
+    margin: 0;
     max-height: 150px;
+    box-shadow: 1px 2px 10px grey;
 }
 
 .navbarLayout {

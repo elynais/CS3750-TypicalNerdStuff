@@ -93,6 +93,10 @@
 	color: #9ec54d;
 }
 
+.nav.navbar-nav.navbar-right li.donate {
+    background-color: #1c5788;
+}
+
 .navbar-inverse .navbar-nav li.donate {
 	height: 103px;
 	width: 159px;
