@@ -557,7 +557,7 @@ footer .row {
 	min-height: 125px;
 }
 .maxwidthFooter {
-	max-width: 1155px; 
+	max-width: 100%; 
 	/*margin-left: 15px;*/
 }
 .maxwidthHeader {
