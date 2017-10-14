@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using YouthFutureCMS.Models;
-using YouthFutureCMS.ViewModel;
+using YouthFutureCMS.ViewModels;
 
 namespace YouthFutureCMS.Controllers
 {
@@ -13,19 +13,15 @@ namespace YouthFutureCMS.Controllers
     {
         public ActionResult Index()
         {
-            using (var db = new YouthFutureDbEntities())
+            using (var dbContext = new YouthFutureDbEntities())
             {
-                var contents = (from c in db.Contents
-                               where c.PageNum == 1
-                               orderby c.Content_id
-                               select c)
-                               .ToList();
+                var contents = dbContext.Contents.Include(c => c.Image).Include(c => c.File).Where(c => c.PageNum == 1).ToList();
 
-                var columns = db.Columns.Include(c => c.Image).ToList();
+                var columns = dbContext.Columns.Include(c => c.Image).ToList();
 
-                HomeIndexViewModel index = new HomeIndexViewModel(contents, columns);
+                HomeIndexViewModel indexViewModel = new HomeIndexViewModel(contents, columns);
                 
-                return View(index);
+                return View(indexViewModel);
             }
         }
 

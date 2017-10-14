@@ -1,27 +1,13 @@
-﻿@model YouthFutureCMS.ViewModel.HomeIndexViewModel
-@{
-    string headerText = Model.GetContentInfo("Header Text");
-    string headerFact = Model.GetContentInfo("Header Fact");
-    string headerContact = Model.GetContentInfo("Header Contacting");
-    string headerContactPhoneNum = Model.GetContentInfo("Header Contact Number");
-    string serviceTitle = Model.GetContentInfo("Service Title");
-    string serviceDesc = Model.GetContentInfo("Service desc");
-    string ourPurpose = Model.GetContentInfo("Our Purpose");
-    string ourPurposeDesc = Model.GetContentInfo("Our purpose desc");
-    string ourPurposeFact = Model.GetContentInfo("Our purpose fact");
-
-    var columnsOne = Model.GetColumnList(1);
-    var columnsTwo = Model.GetColumnList(2);
-}
+﻿@model YouthFutureCMS.ViewModels.HomeIndexViewModel
 
 <section class="container-fluid main-header indexLeftMargin">
     <div class="row">
         <div class="header-box">
             <div class="row">
-                <p class="header-text-greeting "> @Html.DisplayFor(m => headerText) </p>
+                <p class="header-text-greeting "> @Model.GetContentInfo("Header Text") </p>
             </div>
             <div class="row sub-text-box">
-                <p class="sub-text">@Html.DisplayFor(m => headerFact) <span class="quicksand-dark-38-lightgreen">:) </span></p>
+                <p class="sub-text">@Html.Raw(Model.GetContentInfo("Header Fact"))</p>
             </div>
         </div>
     </div>
@@ -31,8 +17,8 @@
     <div class="row">
         <div class="col-xs-offset-1 col-xs-11">
             <p class="green-header">
-                <span class="mont-semibold-dark-36 have-questions-heading">@Html.DisplayFor(m => headerContact)</span>
-                <span class="quicksand-dark-36-main have-questions-phone"> @Html.DisplayFor(m => headerContactPhoneNum)</span>
+                <span class="mont-semibold-dark-36 have-questions-heading">@Model.GetContentInfo("Header Contacting")</span>
+                <span class="quicksand-dark-36-main have-questions-phone"> @Model.GetContentInfo("Header Contact Number")</span>
             </p>
         </div>
     </div>
@@ -41,31 +27,31 @@
 <section class="container-fluid indexLeftMarginServices">
     <div class="row">
         <div class="col-xs-12">
-            <h4 class="services-heading">@Html.DisplayFor(m => serviceTitle)</h4>
+            <h4 class="services-heading">@Model.GetContentInfo("Service Title")</h4>
             <p class="mont-light-light-22 about-services">
-                @Html.DisplayFor(m => serviceDesc)
+                @Model.GetContentInfo("Service desc")
             </p>
         </div>
     </div>
     <div class="row">
         <div class="purpose-boxes">
-            @foreach (var col in columnsOne)
+            @foreach (var col in Model.GetColumnList(1))
             {
                 <article class="col-sm-4">
                     <section class="panel-img-container">
-                        <img src="@Html.DisplayFor(m => col.Image.ImagePath)" alt="House" class="img-responsive panel-img img-center" />
+                        <img src="@col.Image.ImagePath" alt="House" class="img-responsive panel-img img-center" />
                     </section>
                     <section>
-                        <p class="quicksand-light-32 panel-heading">@Html.DisplayFor(m => col.ColumnHeader)</p>
+                        <p class="quicksand-light-32 panel-heading">@col.ColumnHeader</p>
                     </section>
                     <section class="minHeightServices">
                         <p class="mont-light-light-18 panel-summary">
-                            @Html.DisplayFor(m => col.ColumnInfo)
+                            @col.ColumnInfo
                         </p>
                     </section>
                     <section class="panel-footer Learn-more-">
                         <p class="quicksand-light-24-green">
-                            <a href="@Html.DisplayFor(m => col.ColumnLink)">@Html.DisplayFor(m => col.ColumnLinkDesc)</a>
+                            <a href="@col.ColumnLink">@col.ColumnLinkDesc</a>
                         </p>
                     </section>
                 </article>
@@ -73,88 +59,66 @@
         </div>
     </div>
 </section>
+
 <article class="container-fluid indexLeftMargin">
     <section class="purpose purpose-padding indexLeftMargin">
         <div class="row purpose-title">
-            @{
-                string[] purpose = ourPurpose.Split(' ');
-            }
-            <h2 class="h2-white">@Html.DisplayFor(m => purpose[0])</h2>
-            <h2 class="h2-green">@Html.DisplayFor(m => purpose[1])</h2>
+            @Html.Raw(Model.GetContentInfo("Our Purpose"))
         </div>
         <div class="row purpose-detail">
             <div class="col-xs-12 no-padding">
                 <p class="montlight-dark-32">
-                    @Html.DisplayFor(m => ourPurposeDesc);
+                    @Model.GetContentInfo("Our purpose desc")
                 </p>
             </div>
         </div>
         <div class="purpose-stats">
             <div class="col-xs-12">
-                @{
-                    string[] facts = ourPurposeFact.Split('.');
-                }
-                @foreach (var fact in facts)
-                {
-                    if (fact == "")
-                    {
-                        break;
-                    }
-
-                    string factTemp = fact.Trim();
-                    string[] factArr = factTemp.Split(new[] { ' ' }, 2);
-                    <p><span class="alt-color">@Html.DisplayFor(m => factArr[0])</span> @Html.DisplayFor(m => factArr[1])</p>
-
-                }
+                <p>@Html.Raw(Model.GetContentInfo("Our purpose fact"))</p>
             </div>
         </div>
     </section>
+
     <div class="clear"></div>
+
     <section class="sponsor-bar">
         <div class="col-xs-12 col-lg-3">
-            <p class="partner-text">Our Sponsors</p>
+            <p class="partner-text">@Model.GetContentInfo("Our sponsor")</p>
         </div>
-        <div class="col-xs-12 col-lg-3 ">
-            <div class="partner-logo">
-                <img src="../resources/mckaydee_hospital.png" alt="McKay Dee Hospital" class="mckay" />
+        @foreach (var sp in Model.Contents.Where(c => c.ContentName == "Sponsors"))
+        {
+            <div class="col-xs-12 col-lg-3 ">
+                <div class="partner-logo">
+                    <img src="@sp.Image.ImagePath" alt="Picture" class="@sp.ContentInfo" />
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-lg-3">
-            <div class="partner-logo">
-                <img src="../resources/the_group_logo.png" alt="The Group Real Estate" class="thegroup" />
-            </div>
-        </div>
-        <div class="col-xs-12 col-lg-3">
-            <div class="partner-logo">
-                <img src="../resources/giv_development.png" alt="GIV Development" class="giv" />
-            </div>
-        </div>
+        }
     </section>
+
     <article class="container-fluid indexLeftMargin30">
         <section class="row purpose-user">
             <div class="purpose-boxes">
-
-                @foreach (var col in columnsTwo)
-            {
+                @foreach (var col in Model.GetColumnList(2))
+                {
                     <article class="col-sm-4 purpose-border">
                         <section class="panel-img-container">
-                            <img src="@Html.DisplayFor(m => col.Image.ImagePath)" alt="Volunteer" class="img-responsive panel-img img-center" />
+                            <img src="@col.Image.ImagePath" alt="Picture" class="img-responsive panel-img img-center" />
                         </section>
                         <section>
-                            <p class="panel-heading">@Html.DisplayFor(m => col.ColumnHeader)</p>
+                            <p class="panel-heading">@col.ColumnHeader</p>
                         </section>
                         <section class="minHeight">
-                            <p class="mont-light-light-22 panel-summary">@Html.DisplayFor(m => col.ColumnInfo)</p>
+                            <p class="mont-light-light-22 panel-summary">@col.ColumnInfo</p>
                         </section>
                         <section class="panel-footer">
                             <p class="quicksand-light-24-green">
-                                <a href="@Html.DisplayFor(m => col.ColumnLink)">@Html.DisplayFor(m => col.ColumnLinkDesc)</a>
+                                <a href="@col.ColumnLink">@col.ColumnLinkDesc</a>
                             </p>
                         </section>
                     </article>
                 }
-
             </div>
         </section>
     </article>
+
 </article>

@@ -10,7 +10,7 @@ N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutur
 SIZE = 5120KB, FILEGROWTH = 1024KB)
 LOG ON
 (NAME = N'YouthFutureDbLog', FILENAME = 
-N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\\YouthFutureDb.ldf',
+N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureDb.ldf',
 SIZE = 2048KB, FILEGROWTH = 10%);
 
 --(NAME = N'YouthFutureDb', FILENAME =
@@ -73,7 +73,7 @@ CREATE TABLE Staff
 	StaffEmail NVARCHAR(40) NOT NULL,
 	StaffTitle NVARCHAR(40) NOT NULL,
 	BoardTitle NVARCHAR(40) NULL,
-	Image_id INT NOT NULL,
+	Image_id INT NULL,
 	StaffStatus VARCHAR(1) NOT NULL
 );
 
@@ -296,7 +296,7 @@ VALUES (4, '..\resources\van_icon.png');
 INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
 VALUES (
 	'Street Outreach',
-	'Youth Futures’ Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.',
+	'Youth Futures Street Outreach is conducted once per week and provides outreach and crisis services to youth in Ogden City, Utah.',
 	'/Secondary/Index#outreachBanner',
 	4,
 	1,
@@ -317,14 +317,15 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Our Purpose', 'OUR PURPOSE', 1);
+VALUES ('Our Purpose', '<h2 class="h2-white">OUR</h2> <h2 class="h2-green">PURPOSE</h2>', 1);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Our purpose desc', 'To provide unaccompanied, runaway and homeless youth with a safe and nurturing environment where they can develop the needed skills to become active, healthy, successful members of our future world.', 1);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Our purpose fact', '<span class="alt-color">7,085</span> MEALS SERVED. <span class="alt-color">511</span> DROP-IN SERVICES. <span class="alt-color">245</span> STREET OUTREACH HOURS. <span class="alt-color">64</span> SHELTERED YOUTH.', 1);
- 
+VALUES ('Our purpose fact', '<p><span class="alt-color">7,085</span> MEALS SERVED. <span class="alt-color">511</span> DROP-IN SERVICES.</p>
+                        <p><span class="alt-color">245</span> STREET OUTREACH HOURS. <span class="alt-color">64</span> SHELTERED
+                            YOUTH.</p>', 1);
 GO
 
 SET IDENTITY_INSERT Image ON
@@ -351,6 +352,33 @@ SET IDENTITY_INSERT Image OFF
 
 GO
 
+INSERT INTO Content (ContentName, ContentInfo, PageNum)
+VALUES ('Our sponsor', 'Our Sponsors', 1)
+
+SET IDENTITY_INSERT Image ON
+
+INSERT INTO Image (Image_id, ImagePath)
+VALUES (24, '..\resources\mckaydee_hospital.png');
+
+INSERT INTO Content (ContentName, ContentInfo, Image_id, PageNum)
+VALUES ('Sponsors', 'mckay', 24, 1)
+
+INSERT INTO Image (Image_id, ImagePath)
+VALUES (25, '..\resources\the_group_logo.png');
+
+INSERT INTO Content (ContentName, ContentInfo, Image_id, PageNum)
+VALUES ('Sponsors', 'thegroup', 25, 1)
+
+INSERT INTO Image (Image_id, ImagePath)
+VALUES (26, '..\resources\giv_development.png');
+
+INSERT INTO Content (ContentName, ContentInfo, Image_id, PageNum)
+VALUES ('Sponsors', 'giv', 26, 1)
+
+SET IDENTITY_INSERT Image OFF
+
+GO
+
 -----------------------------------------------secondary pages data-------------------------------------------------------------------
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum) 
@@ -371,7 +399,7 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('YF History', 'YOUTH FUTURES HISTORY', 2);
+VALUES ('YF History', '<h2>Youth Futures</h2> <h2 class = "h2style1">History</h2>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('YF His descib', 'Located in the heart of downtown Ogden, Youth Futures opened Utah''s first homeless Residential Support Temporary Youth Shelter on February 20, 2015. Youth Futures provides shelter and drop-in services to all youth ages 12-17, and will not exclude any youth who falls within these age ranges, regardless of circumstance. We provide 14 temporary overnight shelter beds and day-time drop-in services to youth, as well as intensive case management to help youth become re-united with family or self-sufficiently contributing to our community. Weekly outreach efforts assist in building rapport with street youth, ensuring they receive food and other basic necessities and educating them about options to living in unsafe conditions. Youth are guided in a loving, supportive and productive way, encouraging their own personal path for a healthy future.', 2);
@@ -466,31 +494,22 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('YF outreach', 'STREET OUTREACH', 2);
+VALUES ('YF outreach', '<h2>Street</h2><h2 class = "h2style1">Outreach</h2>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('YF outreach desc','Street Outreach is designed to meet the clients where they are on the street to build rapport and encourage youth to access drop-in and shelter services. This program offers, case management, hygiene items, food, sleeping bags, and other essential items as needed. Street Outreach currently take place once per week on Wednesdays. The team visits the same Ogden, Utah locations every week:', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('YF outreach list1', '<li>Jefferson Park</li> <li>Marchall White Center Park</li> <li>Lorin Farr Skate Park</li>', 2);
+VALUES ('YF outreach list1', '<ul> <li>Jefferson Park</li> <li>Marchall White Center Park</li> <li>Lorin Farr Skate Park</li> </ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('YF outreach list2', '<li>Basketball Court at Bonneville Park</li> <li>Under the Ogden River Bridge (sporadic)</li> <li>Lantern House Homeless Shelter</li>', 2);
+VALUES ('YF outreach list2', '<ul> <li>Basketball Court at Bonneville Park</li> <li>Under the Ogden River Bridge (sporadic)</li> <li>Lantern House Homeless Shelter</li> <ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Board of Dir', 'BOARD OF DIRECTORS', 2);
-
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('SCOTT CATUCCIO', 'Board President President, A3 Utah','scottcatuccio@gmail.com','scottcatuccio@gmail.com', 99, 5);
-
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('KRISTEN MITCHELL', 'Board Vice President  Executive Director, Youth Futures','kristen@yfut.org', 'kristen@yfut.org', 99, 5);
-
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('ALYSON DEUSSEN', 'Board Secretary Ouelessebougou Utah Alliance', 'alysondeussen@gmail.com','alysondeussen@gmail.com', 99, 5);
+VALUES ('Board of Dir', '<h2>Board of</h2><h2 class = "h2style1">Directors</h2>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Staff', 'OUR STAFF', 2);
+VALUES ('Staff', '<h2>Our</h2><h2 class = "h2style1">Staff</h2>', 2);
 
 GO
 
@@ -509,6 +528,12 @@ SET IDENTITY_INSERT Image OFF
 
 GO
 
+INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, StaffStatus)
+VALUES ('Scott', 'Catuccio', 'scottcatuccio@gmail.com', 'President, A3 Utah', 'Board President', 'A');
+
+INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, StaffStatus)
+VALUES ('Kristen', 'Mitchell', 'kristen@yfut.org', 'Executive Director, Youth Futures', 'Board Vice President', 'A');
+
 INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, Image_id, StaffStatus)
 VALUES ('Justine', 'Murray', 'jmurray@yfut.org', 'Program Manager', null, 18, 'A');
 
@@ -519,7 +544,7 @@ INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardT
 VALUES ('Alyson', 'Deussen', 'aallred@yfut.org', 'Floor Staff Co-Lead', 'Board Secretary', 20, 'A');
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Media', 'MEDIA', 2);
+VALUES ('Media', '<h2 class = "h2style1">Media</h2>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('media headline', 'America First Provides an ''Assist'' to Homeless Shelter', 2);
@@ -539,13 +564,13 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('media check desc', 'At right, from left to right: Kristen Mitchell, executive director of Youth Futures Utah and Scott Tuccio, president of the Board of Directorsof Youth Futures Utah, stand with Nicole Cypers, public relations and social media manager for America First Credit Union, at the Weber State basketball game for a check presentation in the amount of $3,400 on Saturday, March 7 at Weber State University.', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('media check story1', 'OGDEN, Utah--America First Credit Union awarded Youth Futures Utah, a homeless shelter for youth, with $3,400 during the Weber State University basketball game. America First paid the organization $10 for each assist the Weber State University basketball team completed throughout the 2014 ñ 2015 season. With 340 assists, the donation amounted to $3,400 in total for the newly-opened youth homeless organization, located in Ogden, Utah.', 2);
+VALUES ('media check story1', 'OGDEN, Utah--America First Credit Union awarded Youth Futures Utah, a homeless shelter for youth, with $3,400 during the Weber State University basketball game. America First paid the organization $10 for each assist the Weber State University basketball team completed throughout the 2014  2015 season. With 340 assists, the donation amounted to $3,400 in total for the newly-opened youth homeless organization, located in Ogden, Utah.', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('media check story2', 'Youth Futures Utah is a 501(c)3 organization committed to the well-being of the youth of Utah. The mission of Youth Futures Utah is to provide shelter, support, resources and guidance to homeless, unaccompanied and runaway youth in Utah. Youth Futures connects each youth with food, housing and resources to build the skills needed to support a healthy future.', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Donors', 'DONORS', 2);
+VALUES ('Donors', '<h2 class = "h2style1">Donors</h2>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Plat Donors','Plantinum Level Donors', 2);
@@ -596,7 +621,7 @@ INSERT INTO Donor (DonorName, DonorYear, DonorLevel, DonorStatus)
 VALUES ('Sorenson Legacy Foundation', '2015', 'B', 'A');
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('donations','DONATE', 2);
+VALUES ('donations','<h2 class = "h2style1">Donate</h2>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('donations question', 'HOW CAN YOU HELP?', 2);
@@ -622,13 +647,13 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Monetary donations are our biggest need right now. Recurring <span class = "green"><a href="https://www.paypal.com/donate/?token=jeB7uObfTI7Nfw4Tx4PaidB_PzukgOctKJHDDfMJzE7JdkG6dfpuY6AlEvS1ktKjGQ9H2W&country.x=US&locale.x=US">PayPal</a> </span> donations can be scheduled from our website, even $10 makes a difference.', 22, 7);
-
+VALUES ('Monetary donations are our biggest need right now. Recurring <span class = "green"><a href="https://www.paypal.com/donate/?token=jeB7uObfTI7Nfw4Tx4PaidB_PzukgOctKJHDDfMJzE7JdkG6dfpuY6AlEvS1ktKjGQ9H2W&country.x=US&locale.x=US">PayPal</a> </span> donations can be scheduled from our website, even $10 makes a difference.', 22, 5);
+  
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Donate through rewards programs: <span class = "green"><a href="https://smile.amazon.com/ref=smi_ext_ch_45-3245622_dl?_encoding=UTF8&ein=45-3245622&ref_=smi_chpf_redirect&ref_=smi_ext_ch_45-3245622_cl">Amazon Smile,</a> </span> <span class = "green"><a href="https://www.smithsfoodanddrug.com/account/create/">Smiths Community Rewards,</a></span> or <span class = "green"><a href="https://www.unitedway.org/">United Way,</a></span> <span class = "green">Federal and State Employee contributions,</a></span> <span class = "green"><a href="https://loveutgiveut.razoo.com/organization/Youthfutures">LoveUTGiveUT', 23, 7);
-
+VALUES ('Donate through rewards programs: <span class = "green"><a href="https://smile.amazon.com/ref=smi_ext_ch_45-3245622_dl?_encoding=UTF8&ein=45-3245622&ref_=smi_chpf_redirect&ref_=smi_ext_ch_45-3245622_cl">Amazon Smile,</a> </span> <span class = "green"><a href="https://www.smithsfoodanddrug.com/account/create/">Smiths Community Rewards,</a></span> or <span class = "green"><a href="https://www.unitedway.org/">United Way,</a></span> <span class = "green">Federal and State Employee contributions,</a></span> <span class = "green"><a href="https://loveutgiveut.razoo.com/organization/Youthfutures">LoveUTGiveUT', 23, 5);
+  
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Donate your time as a volunteer to help with needs around the shelter! <span class="green"><a href="https://www.classy.org/charity/youth-futures/c37253">Sign up here.</a></span>', 15, 7);
+VALUES ('Donate your time as a volunteer to help with needs around the shelter! <span class="green"><a href="https://www.classy.org/charity/youth-futures/c37253">Sign up here.</a></span>', 15, 5);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('list of needs', 'LIST OF NEEDS', 2);
@@ -637,37 +662,37 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Most important needs', 'MOST IMPORTANT NEEDS (In order of priority)',2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES('important needs', '<li>Cash donations</li> <li>Printer Paper</li> <li>Canned meat & Jerky</li> <li>Scotch tape</li> <li>Bus tokens or passes</li> <li>Earbud Headphones</li> <li>Cinch bags</li> <li>Batteries</li> <li>Sweat Pants</li> <li>Pajama Bottoms </li> <li>Sports bras</li> <li>Trail mix individuals</li> <li>Toilet Paper</li> <li>Condoms</li> <li>Tampons</li> <li>Carabiners</li> <li>Paper plates and cups</li>	<li>Mens and Womens Underwear</li> <li>Socks </li>	<li>Kleenex individuals</li> <li>Undershirts, S M L XL</li>	<li>Garbage bags 30 Gallon</li>	<li>Garbage sacks small</li> <li>Lip balm</li> <li>Ziploc bags, quart and gallon</li> <li>Energy Bars</li> <li>Heavy duty plastic storage bins that will not melt if heated in shed</li>', 2);
+VALUES('important needs', '<ul> <li>Cash donations</li> <li>Printer Paper</li> <li>Canned meat & Jerky</li> <li>Scotch tape</li> <li>Bus tokens or passes</li> <li>Earbud Headphones</li> <li>Cinch bags</li> <li>Batteries</li> <li>Sweat Pants</li> <li>Pajama Bottoms </li> <li>Sports bras</li> <li>Trail mix individuals</li> <li>Toilet Paper</li> <li>Condoms</li> <li>Tampons</li> <li>Carabiners</li> <li>Paper plates and cups</li>	<li>Mens and Womens Underwear</li> <li>Socks </li>	<li>Kleenex individuals</li> <li>Undershirts, S M L XL</li>	<li>Garbage bags 30 Gallon</li>	<li>Garbage sacks small</li> <li>Lip balm</li> <li>Ziploc bags, quart and gallon</li> <li>Energy Bars</li> <li>Heavy duty plastic storage bins that will not melt if heated in shed</li> </ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Misc needs', 'MISC. NEEDS', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('misc list', '<li>Minivan</li> <li>NEW Printer</li>', 2);
+VALUES ('misc list', '<ul> <li>Minivan</li> <li>NEW Printer</li> </ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Gift cards', 'GIFT CARDS FOR', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('gift card list', '<li>Walmart</li> <li>Fun things to do</li> <li>Grocery store</li> <li>Maverick</li> <li>Restaurants</li>	<li>Movies</li> <li>Bus passes or tokens</li> <li>Phone minutes </li> <li>Beauty salons/haircuts</li> <li>For shoe stores</li> <li>Lagoon passes</li>', 2);
+VALUES ('gift card list', '<ul> <li>Walmart</li> <li>Fun things to do</li> <li>Grocery store</li> <li>Maverick</li> <li>Restaurants</li>	<li>Movies</li> <li>Bus passes or tokens</li> <li>Phone minutes </li> <li>Beauty salons/haircuts</li> <li>For shoe stores</li> <li>Lagoon passes</li> </ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('house furnishings', 'HOUSEHOLD FURNISHINGS NEEDS', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('furnishings list', '<li>NEW pots and pans</li> <li>New Couches</li>', 2);
+VALUES ('furnishings list', '<ul> <li>NEW pots and pans</li> <li>New Couches</li> </ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Voluneteers', 'VOLUNETEERS', 2);
+VALUES ('Volunteers', 'VOLUNETEERS', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Voluneteers list', '<li>Mentors</li> <li>Educators</li> <li>Group activity facilitators</li> <li>Meal preparers/providers</li>	<li>Tutors</li>	<li>Life skills trainers</li> <li>Beauticians</li> <li>Street Outreach Workers</li> <li>Artists for classes</li> <li>Yard work</li> <li>Interior painters</li>', 2);
+VALUES ('Volunteers list', '<ul> <li>Mentors</li> <li>Educators</li> <li>Group activity facilitators</li> <li>Meal preparers/providers</li>	<li>Tutors</li>	<li>Life skills trainers</li> <li>Beauticians</li> <li>Street Outreach Workers</li> <li>Artists for classes</li> <li>Yard work</li> <li>Interior painters</li> </ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Repair needs', 'REPAIR NEEDS', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('Repair list', '<li>Concrete or pavers 1500 sq. feet</li> <li>Cement sidewalk repair& labor</li>', 2);
+VALUES ('Repair list', '<ul> <li>Concrete or pavers 1500 sq. feet</li> <li>Cement sidewalk repair& labor</li> </ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Contact Title', 'CONTACT', 2);
@@ -685,10 +710,7 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('come see us', 'COME SEE US', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('address1', '60 Adams Ave. Ogden, UT', 2);
-
-INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('address2', 'Ogden, Utah 84401', 2);
+VALUES ('address', '2760 S. Adams Ave<br>Ogden, Utah 84403', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('social media', 'SOCIAL MEDIA', 2);

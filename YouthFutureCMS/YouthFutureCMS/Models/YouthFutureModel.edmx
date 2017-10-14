@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="YouthFutureDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="YouthFutureDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Column">
           <Key>
             <PropertyRef Name="Column_id" />
@@ -81,7 +81,7 @@
           <Property Name="StaffEmail" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="StaffTitle" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="BoardTitle" Type="nvarchar" MaxLength="40" />
-          <Property Name="Image_id" Type="int" Nullable="false" />
+          <Property Name="Image_id" Type="int" />
           <Property Name="StaffStatus" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
@@ -142,7 +142,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_Image">
-          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Image">
@@ -200,8 +200,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YouthFutureDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -289,7 +288,7 @@
           <Property Name="StaffEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StaffTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BoardTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="Image_id" Type="Int32" Nullable="false" />
+          <Property Name="Image_id" Type="Int32" />
           <Property Name="StaffStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Image" Relationship="Self.FK_Staff_Image" FromRole="Staff" ToRole="Image" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Staff" FromRole="Staff" ToRole="User" />
@@ -354,7 +353,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staff_Image">
-          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Image">

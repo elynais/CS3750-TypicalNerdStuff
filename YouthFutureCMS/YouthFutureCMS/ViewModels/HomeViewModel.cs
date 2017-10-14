@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using YouthFutureCMS.Models;
 
-namespace YouthFutureCMS.ViewModel
+namespace YouthFutureCMS.ViewModels
 {
     public class HomeIndexViewModel
     {
@@ -24,8 +24,7 @@ namespace YouthFutureCMS.ViewModel
 
         public List<Column> GetColumnList(int sectionNum)
         {
-            var columns = Columns.Where(c => c.SectionNumber == sectionNum).ToList();
-            return columns;
+            return Columns.Where(c => c.SectionNumber == sectionNum).ToList();
         }
     }
 }
