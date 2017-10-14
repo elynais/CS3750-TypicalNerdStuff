@@ -97,6 +97,11 @@
     background-color: #1c5788;
 }
 
+.nav.navbar-nav.navbar-right li.donate:hover {
+    color: #83a44a;
+	background-color: #474747;
+}
+
 .navbar-inverse .navbar-nav li.donate {
 	height: 103px;
 	width: 159px;
