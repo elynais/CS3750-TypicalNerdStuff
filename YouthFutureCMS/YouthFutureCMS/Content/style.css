@@ -435,6 +435,10 @@ footer .row {
 	font-family: montserrat-regular;
 }
 
+.navbar-default .navbar-nav>li.donate>a {
+    color: white;
+}
+
 .dropdown-menu > li > a {
 	color: #474747;
 	font-size: 18px;
@@ -446,6 +450,11 @@ footer .row {
 .dropdown-menu > li > a:hover {
 	color: #83a44a;
 	background-color: #FFF;
+}
+.navbar-default .navbar-nav > li.donate > a:hover,
+.dropdown-menu > li.donate > a:hover {
+	color: #83a44a;
+	background-color: #474747;
 }
 
 .navbar .navbar-right > li:last-child  {
@@ -548,7 +557,7 @@ footer .row {
 	min-height: 125px;
 }
 .maxwidthFooter {
-	max-width: 1155px; 
+	max-width: 100%; 
 	/*margin-left: 15px;*/
 }
 .maxwidthHeader {

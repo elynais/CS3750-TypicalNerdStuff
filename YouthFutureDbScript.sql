@@ -637,7 +637,8 @@ INSERT INTO Image(Image_id, ImagePath)
 VALUES (22, '..\resources\donate_dollar.svg');
 
 INSERT INTO Image(Image_id, ImagePath)
-VALUES (23, '..\resources\donate_cart.svg');
+VALUES (23, '..\resources\shoppingcart_icon.png');
+--VALUES (23, '..\resources\donate_cart.svg');
 
 --INSERT INTO Image(Image_id, ImagePath)
 --VALUES (24, '..\resources\donate_hand.svg');
