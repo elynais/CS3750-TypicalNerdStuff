@@ -1,0 +1,50 @@
+﻿@model YouthFutureCMS.Models.Donor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Donor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.donorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.donorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.donorYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.donorYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.donorLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.donorLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.donorStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.donorStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.donorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

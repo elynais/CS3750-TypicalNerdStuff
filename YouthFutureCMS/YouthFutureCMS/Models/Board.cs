@@ -8,14 +8,10 @@ namespace YouthFutureCMS.Models
 {
     public class Board
     {
-        public int boardMemberId { get; set; }
-
+        public int boardId { get; set; }
         public string boardMemberName { get; set; }
-
         public string boardMemberTitle { get; set; }
-
         public int staffId { get; set; }
-
         public int imageId { get; set; }
 
         //join to staff table here??

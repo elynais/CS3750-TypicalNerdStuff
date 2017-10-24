@@ -1,0 +1,50 @@
+﻿@model YouthFutureCMS.Models.Board
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Board</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.boardMemberName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boardMemberName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.boardMemberTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boardMemberTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staffId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staffId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.boardId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
