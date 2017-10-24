@@ -336,21 +336,21 @@
     <Content Include="Views\Secondary\Index.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Secondary\Edit.cshtml" />
-    <Content Include="Views\Dynamic\Staff\Create.cshtml" />
-    <Content Include="Views\Dynamic\Staff\Delete.cshtml" />
-    <Content Include="Views\Dynamic\Staff\Details.cshtml" />
-    <Content Include="Views\Dynamic\Staff\Edit.cshtml" />
-    <Content Include="Views\Dynamic\Staff\Index.cshtml" />
-    <Content Include="Views\Dynamic\Board\Create.cshtml" />
-    <Content Include="Views\Dynamic\Board\Delete.cshtml" />
-    <Content Include="Views\Dynamic\Board\Details.cshtml" />
-    <Content Include="Views\Dynamic\Board\Edit.cshtml" />
-    <Content Include="Views\Dynamic\Board\Index.cshtml" />
-    <Content Include="Views\Dynamic\Donors\Create.cshtml" />
-    <Content Include="Views\Dynamic\Donors\Delete.cshtml" />
-    <Content Include="Views\Dynamic\Donors\Details.cshtml" />
-    <Content Include="Views\Dynamic\Donors\Edit.cshtml" />
-    <Content Include="Views\Dynamic\Donors\Index.cshtml" />
+    <Content Include="Views\Staff\Create.cshtml" />
+    <Content Include="Views\Staff\Delete.cshtml" />
+    <Content Include="Views\Staff\Details.cshtml" />
+    <Content Include="Views\Staff\Edit.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Board\Create.cshtml" />
+    <Content Include="Views\Board\Delete.cshtml" />
+    <Content Include="Views\Board\Details.cshtml" />
+    <Content Include="Views\Board\Edit.cshtml" />
+    <Content Include="Views\Board\Index.cshtml" />
+    <Content Include="Views\Donors\Create.cshtml" />
+    <Content Include="Views\Donors\Delete.cshtml" />
+    <Content Include="Views\Donors\Details.cshtml" />
+    <Content Include="Views\Donors\Edit.cshtml" />
+    <Content Include="Views\Donors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
