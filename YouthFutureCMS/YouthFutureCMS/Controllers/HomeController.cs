@@ -5,25 +5,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using YouthFutureCMS.Models;
-using YouthFutureCMS.ViewModels;
 
 namespace YouthFutureCMS.Controllers
 {
     public class HomeController : Controller
     {
+        private SystemDataContext data = new SystemDataContext();
+
         public ActionResult Index()
         {
-            using (var dbContext = new YouthFutureDbEntities())
-            {
-                var contents = dbContext.Contents.Include(c => c.Image).Include(c => c.File).Where(c => c.PageNum == 1).ToList();
-
-                var columns = dbContext.Columns.Include(c => c.Image).ToList();
-
-                HomeIndexViewModel indexViewModel = new HomeIndexViewModel(contents, columns);
-                
-                return View(indexViewModel);
-            }
+            //pass the data sets to the view and map from there??
+            return View(data);
         }
+
+        //editing view here?
+        /*
+         public ActionResult Edit()
+         {
+             return View(data);
+         }
+         */
 
     }
 }

@@ -203,54 +203,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Column.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Content.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Donor.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ErrorLog.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Event.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\File.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Board.cs" />
+    <Compile Include="Models\Column.cs" />
+    <Compile Include="Models\Content.cs" />
+    <Compile Include="Models\Donor.cs" />
+    <Compile Include="Models\ErrorLog.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Image.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Staff.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YouthFutureModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>YouthFutureModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YouthFutureModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>YouthFutureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\YouthFutureModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>YouthFutureModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\SystemDataContext.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="ViewModels\SecondaryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -264,16 +230,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\YouthFutureModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YouthFutureModel.edmx</DependentUpon>
-      <LastGenOutput>YouthFutureModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\YouthFutureModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YouthFutureModel.edmx</DependentUpon>
-      <LastGenOutput>YouthFutureModel.cs</LastGenOutput>
-    </Content>
     <Content Include="resources\arrow_left.png" />
     <Content Include="resources\arrow_right.png" />
     <Content Include="resources\board_header.jpg" />
@@ -329,13 +285,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\YouthFutureModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>YouthFutureModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\YouthFutureModel.edmx.diagram">
-      <DependentUpon>YouthFutureModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
