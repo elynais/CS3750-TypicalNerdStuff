@@ -199,9 +199,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\DynamicContent\BoardController.cs" />
     <Compile Include="Controllers\DynamicContent\DonorsController.cs" />
+    <Compile Include="Controllers\DynamicContent\ImagesController.cs" />
+    <Compile Include="Controllers\DynamicContent\StaffController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SecondaryController.cs" />
-    <Compile Include="Controllers\DynamicContent\StaffController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,12 +212,12 @@
     <Compile Include="Models\Content.cs" />
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\ErrorLog.cs" />
-    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SecondaryModel.cs" />
     <Compile Include="Models\Staff.cs" />
-    <Compile Include="Models\SystemDataContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -336,21 +337,26 @@
     <Content Include="Views\Secondary\Index.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Secondary\Edit.cshtml" />
-    <Content Include="Views\Staff\Create.cshtml" />
-    <Content Include="Views\Staff\Delete.cshtml" />
-    <Content Include="Views\Staff\Details.cshtml" />
-    <Content Include="Views\Staff\Edit.cshtml" />
-    <Content Include="Views\Staff\Index.cshtml" />
-    <Content Include="Views\Board\Create.cshtml" />
-    <Content Include="Views\Board\Delete.cshtml" />
-    <Content Include="Views\Board\Details.cshtml" />
-    <Content Include="Views\Board\Edit.cshtml" />
-    <Content Include="Views\Board\Index.cshtml" />
     <Content Include="Views\Donors\Create.cshtml" />
     <Content Include="Views\Donors\Delete.cshtml" />
     <Content Include="Views\Donors\Details.cshtml" />
     <Content Include="Views\Donors\Edit.cshtml" />
     <Content Include="Views\Donors\Index.cshtml" />
+    <Content Include="Views\Staff\Create.cshtml" />
+    <Content Include="Views\Staff\Delete.cshtml" />
+    <Content Include="Views\Staff\Details.cshtml" />
+    <Content Include="Views\Staff\Edit.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Images\Create.cshtml" />
+    <Content Include="Views\Images\Delete.cshtml" />
+    <Content Include="Views\Images\Details.cshtml" />
+    <Content Include="Views\Images\Edit.cshtml" />
+    <Content Include="Views\Images\Index.cshtml" />
+    <Content Include="Views\Board\Create.cshtml" />
+    <Content Include="Views\Board\Delete.cshtml" />
+    <Content Include="Views\Board\Details.cshtml" />
+    <Content Include="Views\Board\Edit.cshtml" />
+    <Content Include="Views\Board\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

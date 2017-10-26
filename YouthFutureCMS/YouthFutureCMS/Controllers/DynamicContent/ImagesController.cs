@@ -10,107 +10,107 @@ using YouthFutureCMS.Models;
 
 namespace YouthFutureCMS.Controllers.DynamicContent
 {
-    public class BoardController : Controller
+    public class ImagesController : Controller
     {
-        private BoardContext db = new BoardContext();
+        private ImageContext db = new ImageContext();
 
-        // GET: Board
+        // GET: Images
         public ActionResult Index()
         {
-            return View(db.board.ToList());
+            return View(db.images.ToList());
         }
 
-        // GET: Board/Details/5
+        // GET: Images/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Board board = db.board.Find(id);
-            if (board == null)
+            Image image = db.images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(board);
+            return View(image);
         }
 
-        // GET: Board/Create
+        // GET: Images/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Board/Create
+        // POST: Images/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "boardId,boardMemberFirstName,boardMemberLastName,boardMemberTitle,staffId,imageId")] Board board)
+        public ActionResult Create([Bind(Include = "imageId,imagePath")] Image image)
         {
             if (ModelState.IsValid)
             {
-                db.board.Add(board);
+                db.images.Add(image);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(board);
+            return View(image);
         }
 
-        // GET: Board/Edit/5
+        // GET: Images/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Board board = db.board.Find(id);
-            if (board == null)
+            Image image = db.images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(board);
+            return View(image);
         }
 
-        // POST: Board/Edit/5
+        // POST: Images/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "boardId,boardMemberFirstName,boardMemberLastName,boardMemberTitle,staffId,imageId")] Board board)
+        public ActionResult Edit([Bind(Include = "imageId,imagePath")] Image image)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(board).State = EntityState.Modified;
+                db.Entry(image).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(board);
+            return View(image);
         }
 
-        // GET: Board/Delete/5
+        // GET: Images/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Board board = db.board.Find(id);
-            if (board == null)
+            Image image = db.images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(board);
+            return View(image);
         }
 
-        // POST: Board/Delete/5
+        // POST: Images/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Board board = db.board.Find(id);
-            db.board.Remove(board);
+            Image image = db.images.Find(id);
+            db.images.Remove(image);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

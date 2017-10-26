@@ -6,24 +6,21 @@ using System.Web;
 
 namespace YouthFutureCMS.Models
 {
-    public class SystemDataContext
+    public class SecondaryModel
     {
+        /* Declare all DbSets of Info for use in Models below*/
         public DbSet<Column> columns { get; set; }
 
         public DbSet<Content> content { get; set; }
 
         public DbSet<Donor> donors { get; set; }
 
-        public DbSet<ErrorLog> errors { get; set; }
-
         public DbSet<Board> board { get; set; }
-
-        public DbSet<File> files { get; set; }
 
         public DbSet<Image> images { get; set; }
 
         public DbSet<Staff> staff { get; set; }
 
-        public DbSet<User> users { get; set; }
+        /* Model used for Secondary page View content */
     }
 }

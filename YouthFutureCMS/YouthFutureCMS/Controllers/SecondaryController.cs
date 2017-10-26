@@ -11,7 +11,7 @@ namespace YouthFutureCMS.Controllers
 {
     public class SecondaryController : Controller
     {
-        private SystemDataContext data = new SystemDataContext();
+        private DisplayViewModels data = new DisplayViewModels();
 
         public ActionResult Index()
         {

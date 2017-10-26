@@ -10,12 +10,15 @@ namespace YouthFutureCMS.Controllers
 {
     public class HomeController : Controller
     {
-        private SystemDataContext data = new SystemDataContext();
-
+        /// <summary>
+        /// ActionResult for the Home Index View
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
+            
             //pass the data sets to the view and map from there??
-            return View(data);
+            return View();
         }
 
         //editing view here?
