@@ -1,0 +1,51 @@
+﻿@model IEnumerable<YouthFutureCMS.Models.Board>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.boardMemberName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.boardMemberTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staffId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.boardMemberName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.boardMemberTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staffId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imageId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.boardId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.boardId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.boardId })
+        </td>
+    </tr>
+}
+
+</table>

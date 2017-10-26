@@ -1,0 +1,74 @@
+﻿@model YouthFutureCMS.Models.Staff
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Staff</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staffEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staffEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staffTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staffTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.boardTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boardTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staffStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staffStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.staffId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
