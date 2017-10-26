@@ -5,6 +5,7 @@ IF EXISTS (SELECT * FROM sys.sysdatabases WHERE NAME = 'YouthFutureDb')
 
 CREATE DATABASE [YouthFutureDb]
 ON Primary
+
 (NAME = N'YouthFutureDb', FILENAME = 
 N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureDb.mdf',
 SIZE = 5120KB, FILEGROWTH = 1024KB)
@@ -36,8 +37,8 @@ IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'ErrorLog')
 IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Donor')
 	DROP TABLE Donor;
 
-IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Event')
-	DROP TABLE Event;
+--IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Event')
+--	DROP TABLE Event;
 
 IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Content')
 	DROP TABLE Content;
@@ -45,11 +46,14 @@ IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Content')
 IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Image')
 	DROP TABLE Image;
 
+IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Board')
+	DROP TABLE Board;
+
 IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Staff')
 	DROP TABLE Staff;
 
-IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'File')
-	DROP TABLE [File];
+--IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'File')
+--	DROP TABLE [File];
 
 IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Column')
 	DROP TABLE [Column];
@@ -77,6 +81,15 @@ CREATE TABLE Staff
 	StaffStatus VARCHAR(1) NOT NULL
 );
 
+CREATE TABLE Board
+(	
+	Board_id INT IDENTITY(1,1) NOT NULL,
+	BoardMemberName NVARCHAR(255) NOT NULL,
+	BoardMemberTitle NVARCHAR(255) NOT NULL,
+	Staff_id INT NULL,
+	Image_id INT NULL,
+);
+
 CREATE TABLE Image
 (
 	Image_id INT IDENTITY(1,1) NOT NULL,
@@ -89,15 +102,15 @@ CREATE TABLE Content
 	Image_id INT NULL,
 	ContentName NVARCHAR(30) NULL, 
 	ContentInfo NVARCHAR(MAX) NULL,
-	File_id INT NULL,  -- WHEN THIS IS NOT NULL, CONTENT IS STORED IN A FILE
+	--File_id INT NULL,  -- WHEN THIS IS NOT NULL, CONTENT IS STORED IN A FILE
 	PageNum INT NOT NULL
 );
 
-CREATE TABLE [File]
-(
-	File_id INT NOT NULL,
-	FilePath VARCHAR(450) NOT NULL
-);
+--CREATE TABLE [File]
+--(
+--	File_id INT NOT NULL,
+--	FilePath VARCHAR(450) NOT NULL
+--);
 
 CREATE TABLE Donor
 (
@@ -109,14 +122,14 @@ CREATE TABLE Donor
 
 );
 
-CREATE TABLE Event
-(
-	Event_id INT IDENTITY(1,1) NOT NULL,
-	EventName NVARCHAR(50) NOT NULL,
-	EventDate DATE NOT NULL,
-	EventDesc NVARCHAR(100) NOT NULL,
-	EventLocation NVARCHAR(80) NOT NULL
-);
+--CREATE TABLE Event
+--(
+--	Event_id INT IDENTITY(1,1) NOT NULL,
+--	EventName NVARCHAR(50) NOT NULL,
+--	EventDate DATE NOT NULL,
+--	EventDesc NVARCHAR(100) NOT NULL,
+--	EventLocation NVARCHAR(80) NOT NULL
+--);
 
 CREATE TABLE ErrorLog
 (
@@ -145,20 +158,23 @@ ADD CONSTRAINT PK_User PRIMARY KEY CLUSTERED (User_id)
 ALTER TABLE Staff
 ADD CONSTRAINT PK_Staff PRIMARY KEY CLUSTERED (Staff_id)
 
+ALTER TABLE Board
+ADD CONSTRAINT PK_Board PRIMARY KEY CLUSTERED (Board_id)
+
 ALTER TABLE Image
 ADD CONSTRAINT PK_Image PRIMARY KEY CLUSTERED (Image_id)
 
 ALTER TABLE Content
 ADD CONSTRAINT PK_Content PRIMARY KEY CLUSTERED (Content_id)
 
-ALTER TABLE [File]
-ADD CONSTRAINT PK_File PRIMARY KEY CLUSTERED (File_id)
+--ALTER TABLE [File]
+--ADD CONSTRAINT PK_File PRIMARY KEY CLUSTERED (File_id)
 
 ALTER TABLE Donor
 ADD CONSTRAINT PK_Donor PRIMARY KEY CLUSTERED (Donor_id)
 
-ALTER TABLE Event
-ADD CONSTRAINT PK_Event PRIMARY KEY CLUSTERED (Event_id)
+--ALTER TABLE Event
+--ADD CONSTRAINT PK_Event PRIMARY KEY CLUSTERED (Event_id)
 
 ALTER TABLE ErrorLog
 ADD CONSTRAINT PK_ErrorLog PRIMARY KEY CLUSTERED (ErrorLog_id)
@@ -182,15 +198,25 @@ ADD CONSTRAINT FK_Staff_Image
 FOREIGN KEY (Image_id)
 REFERENCES Image (Image_id)
 
+ALTER TABLE Board
+ADD CONSTRAINT FK_Board_Staff
+FOREIGN KEY (Staff_id)
+REFERENCES Staff (Staff_id)
+
+ALTER TABLE Board
+ADD CONSTRAINT FK_Board_Image
+FOREIGN KEY (Image_id)
+REFERENCES Image (Image_id)
+
 ALTER TABLE Content
 ADD CONSTRAINT FK_Content_Image
 FOREIGN KEY (Image_id)
 REFERENCES Image (Image_id)
 
-ALTER TABLE Content
-ADD CONSTRAINT FK_Content_File
-FOREIGN KEY (File_id)
-REFERENCES [File] (File_id)
+--ALTER TABLE Content
+--ADD CONSTRAINT FK_Content_File
+--FOREIGN KEY (File_id)
+--REFERENCES [File] (File_id)
 
 ALTER TABLE [Column]
 ADD CONSTRAINT FK_Column_Image
@@ -206,9 +232,9 @@ ALTER TABLE Image
 ADD CONSTRAINT AK_Image
 UNIQUE (ImagePath)
 
-ALTER TABLE [File]
-ADD CONSTRAINT AK_File
-UNIQUE (FilePath)
+--ALTER TABLE [File]
+--ADD CONSTRAINT AK_File
+--UNIQUE (FilePath)
 
 ALTER TABLE Staff
 ADD CONSTRAINT AK_Staff
@@ -480,14 +506,20 @@ VALUES ('YF outreach list2', '<li>Basketball Court at Bonneville Park</li> <li>U
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Board of Dir', 'BOARD OF DIRECTORS', 2);
 
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('SCOTT CATUCCIO', 'Board President President, A3 Utah','scottcatuccio@gmail.com','scottcatuccio@gmail.com', 99, 5);
+INSERT INTO Board (BoardMemberName, BoardMemberTitle, Staff_id)
+VALUES ('SCOTT CATUCCO', 'Board President, A3 Utah', null);
 
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('KRISTEN MITCHELL', 'Board Vice President  Executive Director, Youth Futures','kristen@yfut.org', 'kristen@yfut.org', 99, 5);
+INSERT INTO Board (BoardMemberName, BoardMemberTitle, Staff_id)
+VALUES ('KRISTEN MITCHELL', 'Board Vice President  Executive Director, Youth Futures', null);
 
-INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
-VALUES ('ALYSON DEUSSEN', 'Board Secretary Ouelessebougou Utah Alliance', 'alysondeussen@gmail.com','alysondeussen@gmail.com', 99, 5);
+--INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
+--VALUES ('SCOTT CATUCCIO', 'Board President President, A3 Utah','scottcatuccio@gmail.com','scottcatuccio@gmail.com', 99, 5);
+
+--INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
+--VALUES ('KRISTEN MITCHELL', 'Board Vice President  Executive Director, Youth Futures','kristen@yfut.org', 'kristen@yfut.org', 99, 5);
+
+--INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, ColumnLinkDesc, Image_id, SectionNumber)
+--VALUES ('ALYSON DEUSSEN', 'Board Secretary Ouelessebougou Utah Alliance', 'alysondeussen@gmail.com','alysondeussen@gmail.com', 99, 5);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Staff', 'OUR STAFF', 2);
@@ -515,8 +547,19 @@ VALUES ('Justine', 'Murray', 'jmurray@yfut.org', 'Program Manager', null, 18, 'A
 INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, Image_id, StaffStatus)
 VALUES ('Susan', 'McBride', 'smcbride@yfut.org', 'Floor Staff Co-Lead', null, 19, 'A');
 
-INSERT INTO Staff (StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, Image_id, StaffStatus)
-VALUES ('Alyson', 'Deussen', 'aallred@yfut.org', 'Floor Staff Co-Lead', 'Board Secretary', 20, 'A');
+GO
+
+SET IDENTITY_INSERT Staff ON
+
+INSERT INTO Staff ( Staff_id, StaffFirstName, StaffLastName, StaffEmail, StaffTitle, BoardTitle, Image_id, StaffStatus)
+VALUES (3, 'Alyson', 'Deussen', 'aallred@yfut.org', 'Floor Staff Co-Lead', 'Board Secretary', 20, 'A');
+
+INSERT INTO Board (BoardMemberName, BoardMemberTitle, Staff_id)
+VALUES ('ALYSON DEUSSEN', 'Board Secretary Ouelessebougou Utah Alliance', 3);
+
+SET IDENTITY_INSERT Staff OFF
+
+GO
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Media', 'MEDIA', 2);
