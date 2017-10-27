@@ -37,8 +37,8 @@ namespace YouthFutureCMS.Controllers
          public ActionResult Edit()
          {
             //populate lists with dataset info
-            List<Column> columns = data.columns.ToList();
-            List<Content> content = data.content.Where(c => c.pageNumber == 1).ToList();
+            List<Column> columns = data.columns.Include(c => c.imageId).ToList();
+            List<Content> content = data.content.Include(c => c.imageId).Where(c => c.pageNumber == 1).ToList();
             List<Image> images = data.images.ToList();
 
             //construct the model based on the list info

@@ -48,6 +48,11 @@ namespace YouthFutureCMS.Models
             return columns.Where(c => c.sectionNum == section).ToList();
         }
 
+        /// <summary>
+        /// Gets the image path/url from the given id
+        /// </summary>
+        /// <param name="id">Id you want the image path for</param>
+        /// <returns></returns>
         public string getImagePath(int id)
         {
             return images.Find(c => c.imageId == id).imagePath;
