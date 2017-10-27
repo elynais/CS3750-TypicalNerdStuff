@@ -14,7 +14,7 @@ namespace YouthFutureCMS.Controllers
 
         public ActionResult Index()
         {
-            return View(data);
+            return View();
         }
 
         //editing view here?

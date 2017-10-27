@@ -19,7 +19,7 @@ namespace YouthFutureCMS.Controllers
         public ActionResult Index()
         {
             //populate lists with dataset info
-            List<Column> columns = data.columns.Include(c => c.imageId).ToList();
+            /*List<Column> columns = data.columns.Include(c => c.imageId).ToList();
             List<Content> content = data.content.Include(c => c.imageId).Where(c => c.pageNumber == 1).ToList();
             List<Image> images = data.images.ToList();
             
@@ -27,7 +27,8 @@ namespace YouthFutureCMS.Controllers
             HomeModel model = new HomeModel(content, columns, images);
             
             //pass the specific model to the view
-            return View(model);
+            return View(model);*/
+            return View();
         }
 
          /// <summary>
