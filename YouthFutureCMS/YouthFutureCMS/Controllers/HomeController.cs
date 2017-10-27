@@ -10,24 +10,42 @@ namespace YouthFutureCMS.Controllers
 {
     public class HomeController : Controller
     {
+        SystemDataContext data = new SystemDataContext();
+
         /// <summary>
         /// ActionResult for the Home Index View
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
         {
+            //populate lists with dataset info
+            List<Column> columns = data.columns.Include(c => c.imageId).ToList();
+            List<Content> content = data.content.Include(c => c.imageId).Where(c => c.pageNumber == 1).ToList();
+            List<Image> images = data.images.ToList();
             
-            //pass the data sets to the view and map from there??
-            return View();
+            //construct the model based on the list info
+            HomeModel model = new HomeModel(content, columns, images);
+            
+            //pass the specific model to the view
+            return View(model);
         }
 
-        //editing view here?
-        /*
+         /// <summary>
+         /// ActionResult for the Home Edit View
+         /// </summary>
+         /// <returns></returns>
          public ActionResult Edit()
          {
-             return View(data);
-         }
-         */
+            //populate lists with dataset info
+            List<Column> columns = data.columns.ToList();
+            List<Content> content = data.content.Where(c => c.pageNumber == 1).ToList();
+            List<Image> images = data.images.ToList();
 
+            //construct the model based on the list info
+            HomeModel model = new HomeModel(content, columns, images);
+
+            //pass the specific model to the view
+            return View(model);
+        }
     }
 }

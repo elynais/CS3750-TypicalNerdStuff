@@ -1,15 +1,15 @@
 ﻿<!--This is the Main View for the Home page-->
 
-@model YouthFutureCMS.Models.SystemDataContext
+@model YouthFutureCMS.Models.HomeModel
 
 <section class="container-fluid main-header indexLeftMargin">
     <div class="row">
         <div class="header-box">
             <div class="row">
-                <p class="header-text-greeting "> @Model.GetContentInfo("Header Text") </p>
+                <p class="header-text-greeting "> @Model.getContent("Header Text") </p>
             </div>
             <div class="row sub-text-box">
-                <p class="sub-text">@Html.Raw(Model.GetContentInfo("Header Fact"))</p>
+                <p class="sub-text">@Html.Raw(Model.getContent("Header Fact"))</p>
             </div>
         </div>
     </div>
@@ -19,8 +19,8 @@
     <div class="row">
         <div class="col-xs-offset-1 col-xs-11">
             <p class="green-header">
-                <span class="mont-semibold-dark-36 have-questions-heading">@Model.GetContentInfo("Header Contacting")</span>
-                <span class="quicksand-dark-36-main have-questions-phone"> @Model.GetContentInfo("Header Contact Number")</span>
+                <span class="mont-semibold-dark-36 have-questions-heading">@Model.getContent("Header Contacting")</span>
+                <span class="quicksand-dark-36-main have-questions-phone"> @Model.getContent("Header Contact Number")</span>
             </p>
         </div>
     </div>
@@ -29,31 +29,31 @@
 <section class="container-fluid indexLeftMarginServices">
     <div class="row">
         <div class="col-xs-12">
-            <h4 class="services-heading">@Model.GetContentInfo("Service Title")</h4>
+            <h4 class="services-heading">@Model.getContent("Service Title")</h4>
             <p class="mont-light-light-22 about-services">
-                @Model.GetContentInfo("Service desc")
+                @Model.getContent("Service desc")
             </p>
         </div>
     </div>
     <div class="row">
         <div class="purpose-boxes">
-            @foreach (var col in Model.GetColumnList(1))
+            @foreach (var col in Model.getColumns(1))
             {
                 <article class="col-sm-4">
                     <section class="panel-img-container">
-                        <img src="@col.Image.ImagePath" alt="House" class="img-responsive panel-img img-center" />
+                        <img src="@Model.getImagePath(col.imageId)" alt="House" class="img-responsive panel-img img-center" />
                     </section>
                     <section>
-                        <p class="quicksand-light-32 panel-heading">@col.ColumnHeader</p>
+                        <p class="quicksand-light-32 panel-heading">@col.columnHeader</p>
                     </section>
                     <section class="minHeightServices">
                         <p class="mont-light-light-18 panel-summary">
-                            @col.ColumnInfo
+                            @col.columnInfo
                         </p>
                     </section>
                     <section class="panel-footer Learn-more-">
                         <p class="quicksand-light-24-green">
-                            <a href="@col.ColumnLink">@col.ColumnLinkDesc</a>
+                            <a href="@col.columnLink">@col.columnLinkDesc</a>
                         </p>
                     </section>
                 </article>
@@ -65,18 +65,18 @@
 <article class="container-fluid indexLeftMargin">
     <section class="purpose purpose-padding indexLeftMargin">
         <div class="row purpose-title">
-            @Html.Raw(Model.GetContentInfo("Our Purpose"))
+            @Html.Raw(Model.getContent("Our Purpose"))
         </div>
         <div class="row purpose-detail">
             <div class="col-xs-12 no-padding">
                 <p class="montlight-dark-32">
-                    @Model.GetContentInfo("Our purpose desc")
+                    @Model.getContent("Our purpose desc")
                 </p>
             </div>
         </div>
         <div class="purpose-stats">
             <div class="col-xs-12">
-                <p>@Html.Raw(Model.GetContentInfo("Our purpose fact"))</p>
+                <p>@Html.Raw(Model.getContent("Our purpose fact"))</p>
             </div>
         </div>
     </section>
@@ -85,13 +85,13 @@
 
     <section class="sponsor-bar">
         <div class="col-xs-12 col-lg-3">
-            <p class="partner-text">@Model.GetContentInfo("Our sponsor")</p>
+            <p class="partner-text">@Model.getContent("Our sponsor")</p>
         </div>
-        @foreach (var sp in Model.Contents.Where(c => c.ContentName == "Sponsors"))
+        @foreach (var sp in Model.content.Where(c => c.contentName == "Sponsors"))
         {
             <div class="col-xs-12 col-lg-3 ">
                 <div class="partner-logo">
-                    <img src="@sp.Image.ImagePath" alt="Picture" class="@sp.ContentInfo" />
+                    <img src="@Model.getImagePath(sp.imageId)" alt="Picture" class="@sp.contentInfo" />
                 </div>
             </div>
         }
@@ -100,21 +100,21 @@
     <article class="container-fluid indexLeftMargin30">
         <section class="row purpose-user">
             <div class="purpose-boxes">
-                @foreach (var col in Model.GetColumnList(2))
+                @foreach (var col in Model.getColumns(2))
                 {
                     <article class="col-sm-4 purpose-border">
                         <section class="panel-img-container">
-                            <img src="@col.Image.ImagePath" alt="Picture" class="img-responsive panel-img img-center" />
+                            <img src="@Model.getImagePath(col.imageId)" alt="Picture" class="img-responsive panel-img img-center" />
                         </section>
                         <section>
-                            <p class="panel-heading">@col.ColumnHeader</p>
+                            <p class="panel-heading">@col.columnHeader</p>
                         </section>
                         <section class="minHeight">
-                            <p class="mont-light-light-22 panel-summary">@col.ColumnInfo</p>
+                            <p class="mont-light-light-22 panel-summary">@col.columnInfo</p>
                         </section>
                         <section class="panel-footer">
                             <p class="quicksand-light-24-green">
-                                <a href="@col.ColumnLink">@col.ColumnLinkDesc</a>
+                                <a href="@col.columnLink">@col.columnLinkDesc</a>
                             </p>
                         </section>
                     </article>

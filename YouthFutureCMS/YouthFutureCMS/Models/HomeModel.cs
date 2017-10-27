@@ -29,13 +29,13 @@ namespace YouthFutureCMS.Models
         }
 
         /// <summary>
-        /// Get for returning content that has the same id
+        /// Get for returning content that has the same name
         /// </summary>
-        /// <param id="id">Id of the content you want</param>
+        /// <param name="name">Name of the content you want</param>
         /// <returns></returns>
-        public string getContent(int id)
+        public string getContent(string name)
         {
-            return content.Find(c => c.contentId == id).contentInfo;
+            return content.Find(c => c.contentName == name).contentInfo;
         }
 
         /// <summary>
@@ -48,12 +48,7 @@ namespace YouthFutureCMS.Models
             return columns.Where(c => c.sectionNum == section).ToList();
         }
 
-        /// <summary>
-        /// Get for returning image path for image that has the same id
-        /// </summary>
-        /// <param name="id">Id of the image you want</param>
-        /// <returns></returns>
-        public string getImage(int id)
+        public string getImagePath(int id)
         {
             return images.Find(c => c.imageId == id).imagePath;
         }
