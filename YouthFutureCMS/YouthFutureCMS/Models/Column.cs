@@ -12,7 +12,9 @@ namespace YouthFutureCMS.Models
         public int columnId { get; set; }
         public string columnHeader { get; set; }
         public string columnDesc { get; set; }
+        public string columnInfo { get; set; }
         public string columnLink { get; set; }
+        public string columnLinkDesc { get; set; }
         public int imageId { get; set; }
         public int sectionNum { get; set; }
 

@@ -17,10 +17,18 @@
         @Html.HiddenFor(model => model.boardId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.boardMemberName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.boardMemberFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.boardMemberName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.boardMemberName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.boardMemberFirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.boardMemberFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.boardMemberLastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.boardMemberLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.boardMemberLastName, "", new { @class = "text-danger" })
             </div>
         </div>
 
