@@ -9,8 +9,9 @@ namespace YouthFutureCMS.Models
 {
     public class Donor
     {
+        [Key]
         [Display(Name = "Id")]
-        public int donorId { get; set; }
+        public int donor_Id { get; set; }
         [Display(Name = "Full Name")]
         public string donorName { get; set; }
         [Display(Name = "Year(s)")]
@@ -22,6 +23,7 @@ namespace YouthFutureCMS.Models
     }
     public class DonorContext : DbContext
     {
+        public DonorContext() : base("name=SystemDataContext") { }
         public DbSet<Donor> donors { get; set; }
     }
 }

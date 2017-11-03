@@ -19,13 +19,19 @@ namespace YouthFutureCMS.Controllers
         public ActionResult Index()
         {
             //populate lists
-            List<Content> content = data.content.Include(c => c.imageId).ToList();
-            List<Column> columns = data.columns.Include(c => c.imageId).ToList();
-            List<Staff> staff = data.staff.Include(c => c.imageId).Where(c => c.staffStatus == "A").ToList();
-            List<Board> board = data.board.Include(c => c.imageId).ToList();
-            List<Donor> donors = data.donors.Where(c => c.donorStatus == "A").ToList();
+            List<Content> content = data.content.ToList();
+            List<Column> columns = data.columns.ToList();
+            List<Staff> staff = data.staff.ToList();
+            List<Board> board = data.board.ToList();
+            List<Donor> donors = data.donors.ToList();
             List<Image> images = data.images.ToList();
-            
+            //List<Content> content = data.content.Include(c => c.image_Id).ToList();
+            //List<Column> columns = data.columns.Include(c => c.image_Id).ToList();
+            //List<Staff> staff = data.staff.Include(c => c.image_Id).Where(c => c.staffStatus == "A").ToList();
+            //List<Board> board = data.board.Include(c => c.image_Id).ToList();
+            //List<Donor> donors = data.donors.Where(c => c.donorStatus == "A").ToList();
+            //List<Image> images = data.images.ToList();
+
             //construct secondary model
             SecondaryModel model = new SecondaryModel(columns,content,donors,board,images,staff);
             
@@ -40,10 +46,10 @@ namespace YouthFutureCMS.Controllers
          public ActionResult Edit()
          {
             //populate lists
-            List<Content> content = data.content.Include(c => c.imageId).ToList();
-            List<Column> columns = data.columns.Include(c => c.imageId).ToList();
-            List<Staff> staff = data.staff.Include(c => c.imageId).Where(c => c.staffStatus == "A").ToList();
-            List<Board> board = data.board.Include(c => c.imageId).ToList();
+            List<Content> content = data.content.Include(c => c.image_Id).ToList();
+            List<Column> columns = data.columns.Include(c => c.image_Id).ToList();
+            List<Staff> staff = data.staff.Include(c => c.image_Id).Where(c => c.staffStatus == "A").ToList();
+            List<Board> board = data.board.Include(c => c.image_Id).ToList();
             List<Donor> donors = data.donors.Where(c => c.donorStatus == "A").ToList();
             List<Image> images = data.images.ToList();
 

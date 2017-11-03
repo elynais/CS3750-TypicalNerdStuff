@@ -6,8 +6,10 @@ using System.Web;
 
 namespace YouthFutureCMS.Models
 {
-    public class SystemDataContext
+    public class SystemDataContext: DbContext
     {
+        public SystemDataContext() : base("name=SystemDataContext") { }
+
         public DbSet<Column> columns { get; set; }
 
         public DbSet<Content> content { get; set; }

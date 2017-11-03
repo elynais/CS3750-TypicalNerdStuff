@@ -14,7 +14,7 @@
         <h4>Image</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.imageId)
+        @Html.HiddenFor(model => model.image_Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.imagePath, htmlAttributes: new { @class = "control-label col-md-2" })

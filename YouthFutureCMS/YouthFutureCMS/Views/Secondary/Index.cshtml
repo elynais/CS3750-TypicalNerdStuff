@@ -87,7 +87,7 @@
         @foreach (var col in Model.getColumns(3))
         {
             <section class="col-xs-12  col-md-4">
-                <img src="@Model.getImagePath(col.imageId)" class="img-responsive center-block" title="@col.columnInfo" alt="@col.columnInfo">
+                <img src="@Model.getImagePath(col.image_Id)" class="img-responsive center-block" title="@col.columnInfo" alt="@col.columnInfo">
                 <p class="mont_light_14_white hist_subtitle">@col.columnInfo</p>
             </section>
         }
@@ -134,7 +134,7 @@
             foreach (var col in Model.getColumns(4))
             {
                 <div class="col-xs-12 col-md-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
-                    <img src="@Model.getImagePath(col.imageId)" title="Picture" alt="Picture">
+                    <img src="@Model.getImagePath(col.image_Id)" title="Picture" alt="Picture">
                     <p class="youth_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
                 </div>
                 counter++;
@@ -184,7 +184,7 @@
         @foreach (var bd in Model.board)
         {
             <section class="col-xs-12 col-md-4">
-                <p><span class="name">@((bd.boardMemberFirstName + " " + bd.boardMemberLastName).ToUpper()) </span><br />@bd.boardMemberTitle<br /><span class="email">@Model.getBoardEmail(bd.staffId)</span></p>
+                <p><span class="name">@((bd.boardMemberFirstName + " " + bd.boardMemberLastName).ToUpper()) </span><br />@bd.boardMemberTitle<br /><span class="email">@Model.getBoardEmail(bd.staff_Id)</span></p>
             </section>
         }
     </div>
@@ -203,8 +203,8 @@
         @foreach (var staff in Model.staff)
         {
             <section class="col-xs-12 col-md-4">
-                <img src="@Model.getImagePath(staff.imageId)" class="img-responsive" title="@(staff.firstName + " " + staff.lastName)" alt="@(staff.firstName + " " + staff.lastName)">
-                <p><span class="name">@((staff.firstName + " " + staff.lastName).ToUpper())</span><br />@staff.staffTitle<br /><span class="email">@staff.staffEmail</span></p>
+                <img src="@Model.getImagePath(staff.image_Id)" class="img-responsive" title="@(staff.staffFirstName + " " + staff.staffLastName)" alt="@(staff.staffFirstName + " " + staff.staffLastName)">
+                <p><span class="name">@((staff.staffFirstName + " " + staff.staffLastName).ToUpper())</span><br />@staff.staffTitle<br /><span class="email">@staff.staffEmail</span></p>
             </section>
         }
     </div>
@@ -373,7 +373,7 @@
             foreach (var col in Model.getColumns(5))
             {
                 <div class="col-xs-12 col-lg-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
-                    <img src="@Model.getImagePath(col.imageId)" title="Picture" alt="Picture">
+                    <img src="@Model.getImagePath(col.image_Id)" title="Picture" alt="Picture">
 
                     <p class="vol_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
 
