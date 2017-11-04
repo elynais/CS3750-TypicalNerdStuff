@@ -9,12 +9,13 @@ namespace YouthFutureCMS.Models
 {
     public class Staff
     {
+        [Key]
         [Display(Name = "Id")]
-        public int staffId { get; set; }
+        public int staff_Id { get; set; }
         [Display(Name = "First Name")]
-        public string firstName { get; set; }
+        public string staffFirstName { get; set; }
         [Display(Name = "Last Name")]
-        public string lastName { get; set; }
+        public string staffLastName { get; set; }
         [Display(Name = "Email")]
         public string staffEmail { get; set; }
         [Display(Name = "Title")]
@@ -24,13 +25,14 @@ namespace YouthFutureCMS.Models
         [Display(Name = "Status")]
         public string staffStatus { get; set; }
         [Display(Name = "Image Id")]
-        public int imageId { get; set; }
+        public int image_Id { get; set; }
 
         //join image here? public virtual Image image {get;set;} ??
     }
 
     public class StaffContext : DbContext
     {
+        public StaffContext() : base("name=SystemDataContext") { }
         public DbSet<Staff> staff { get; set; }
     }
 }

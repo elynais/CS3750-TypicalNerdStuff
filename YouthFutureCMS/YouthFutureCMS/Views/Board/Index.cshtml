@@ -21,10 +21,10 @@
             @Html.DisplayNameFor(model => model.boardMemberTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.staffId)
+            @Html.DisplayNameFor(model => model.staff_Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imageId)
+            @Html.DisplayNameFor(model => model.image_Id)
         </th>
         <th></th>
     </tr>
@@ -41,15 +41,15 @@
             @Html.DisplayFor(modelItem => item.boardMemberTitle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.staffId)
+            @Html.DisplayFor(modelItem => item.staff_Id)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imageId)
+            @Html.DisplayFor(modelItem => item.image_Id)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.boardId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.boardId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.boardId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.board_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.board_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.board_Id })
         </td>
     </tr>
 }

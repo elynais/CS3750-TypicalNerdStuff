@@ -45,7 +45,7 @@ namespace YouthFutureCMS.Models
         /// <returns></returns>
         public List<Column> getColumns(int section)
         {
-            return columns.Where(c => c.sectionNum == section).ToList();
+            return columns.Where(c => c.sectionNumber == section).ToList();
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace YouthFutureCMS.Models
         /// <returns></returns>
         public string getImagePath(int id)
         {
-            return images.Find(c => c.imageId == id).imagePath;
+            return images.Find(c => c.image_Id == id).imagePath;
         }
     }
 }

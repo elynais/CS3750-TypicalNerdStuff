@@ -46,7 +46,7 @@ namespace YouthFutureCMS.Models
         }
         public List<Column> getColumns(int section)
         {
-            return columns.Where(c => c.sectionNum == section).ToList();
+            return columns.Where(c => c.sectionNumber == section).ToList();
         }
         /// <summary>
         /// Gets the image path/url from the given id
@@ -55,7 +55,7 @@ namespace YouthFutureCMS.Models
         /// <returns></returns>
         public string getImagePath(int id)
         {
-            return images.Find(c => c.imageId == id).imagePath;
+            return images.Find(c => c.image_Id == id).imagePath;
         }
         /// <summary>
         /// Gets the email for the board member through the staff table
@@ -64,7 +64,7 @@ namespace YouthFutureCMS.Models
         /// <returns></returns>
         public string getBoardEmail(int id)
         {
-            return staff.Find(c => c.staffId == id).staffEmail;
+            return staff.Find(c => c.staff_Id == id).staffEmail;
         }
     }
 }
