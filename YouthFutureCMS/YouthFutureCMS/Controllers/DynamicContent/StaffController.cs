@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using YouthFutureCMS.Models;
 
-namespace YouthFutureCMS.Controllers
+namespace YouthFutureCMS.Controllers.DynamicContent
 {
     public class StaffController : Controller
     {

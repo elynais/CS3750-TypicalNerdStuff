@@ -11,20 +11,47 @@ namespace YouthFutureCMS.Controllers
 {
     public class SecondaryController : Controller
     {
-        private SystemDataContext data = new SystemDataContext();
-
+        SystemDataContext data = new SystemDataContext();
+        /// <summary>
+        /// ActionResult for returning the Secondary Index View
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
-            return View(data);
+            //populate lists
+            List<Content> content = data.content.Include(c => c.imageId).ToList();
+            List<Column> columns = data.columns.Include(c => c.imageId).ToList();
+            List<Staff> staff = data.staff.Include(c => c.imageId).Where(c => c.staffStatus == "A").ToList();
+            List<Board> board = data.board.Include(c => c.imageId).ToList();
+            List<Donor> donors = data.donors.Where(c => c.donorStatus == "A").ToList();
+            List<Image> images = data.images.ToList();
+            
+            //construct secondary model
+            SecondaryModel model = new SecondaryModel(columns,content,donors,board,images,staff);
+            
+            //pass model to view
+            return View(model);
         }
 
-        //editing view here?
-        /*
+         /// <summary>
+         /// ActionResult for returning the Secondary Edit View
+         /// </summary>
+         /// <returns></returns>
          public ActionResult Edit()
          {
-             return View(data);
-         }
-         */
+            //populate lists
+            List<Content> content = data.content.Include(c => c.imageId).ToList();
+            List<Column> columns = data.columns.Include(c => c.imageId).ToList();
+            List<Staff> staff = data.staff.Include(c => c.imageId).Where(c => c.staffStatus == "A").ToList();
+            List<Board> board = data.board.Include(c => c.imageId).ToList();
+            List<Donor> donors = data.donors.Where(c => c.donorStatus == "A").ToList();
+            List<Image> images = data.images.ToList();
 
+            //construct secondary model
+            SecondaryModel model = new SecondaryModel(columns, content, donors, board, images, staff);
+
+            //pass model to view
+            return View(model);
+        }
     }
 }

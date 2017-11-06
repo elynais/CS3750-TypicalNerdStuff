@@ -1,7 +1,474 @@
-﻿
+﻿<!--This is the Edit View for the Secondary page-->
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+@model YouthFutureCMS.Models.SecondaryModel
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="resources/yf_logo.svg" title="Youth Futures Logo" alt="YF Logo"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li> <a href="index.html">Home</a> </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Programs</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="secondary.html#outreachBanner">Street Outreach</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Get Involved</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="secondary.html#donateMain">Donate</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="secondary.html#donorsMain">Donor Recognition</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="secondary.html#historyBanner">History</a></li>
+                        <li><a href="secondary.html#staffMain">Staff</a></li>
+                        <li><a href="secondary.html#directorsMain">Board</a></li>
+                        <li><a href="secondary.html#mediaMain">Media</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Contact</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="secondary.html#contactMain">Contact Info</a></li>
+                    </ul>
+                <li class="donate"><a href="secondary.html#donateMain">Donate</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<article>
+    <div class="indexLeftMargin">
+        <div class="row  questions">
+            <br />
+            <div class="col-sm-12 col-md-7 text">
+                <p>@Model.getContent("2nd header question")</p>
+
+            </div>
+
+            <div class="col-sm-12 col-md-5 phone">
+                <p>@Model.getContent("2nd header phone")</p>
+            </div>
+        </div>
+    </div>
+</article>
+
+<div class="indexLeftMargin" id="historyBanner">
+    <div class="row hist_main_img">
+        <div class="col-xs-8 text">
+            @Html.Raw(Model.getContent("YF History"))
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row history_text">
+        <section class="col-xs-12">
+            <p class="mont_regular_22_darkgray">@Model.getContent("YF His descib")</p>
+        </section>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row history_text_pics">
+        @foreach (var col in Model.getColumns(3))
+        {
+            <section class="col-xs-12  col-md-4">
+                <img src="@Model.getImagePath(col.imageId)" class="img-responsive center-block" title="@col.columnInfo" alt="@col.columnInfo">
+                <p class="mont_light_14_white hist_subtitle">@col.columnInfo</p>
+            </section>
+        }
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row history_text">
+        <section class="col-xs-12">
+            <p class="mont_regular_22_darkgray">@Model.getContent("YF founder descr")</p>
+        </section>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row hist_2nd_back_img">
+        <section class="col-xs-12 hist_2nd_back_img_text">
+            <h4>@Model.getContent("YF history Fact")</h4>
+        </section>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row history_text">
+        <section class="col-xs-12">
+            <p class="mont_regular_22_darkgray">@Model.getContent("YF history fact desc")</p>
+        </section>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row history_green_text">
+        <section class="col-xs-12">
+            <p class="mont_light_32_white">@Model.getContent("YF history Fact2")</p>
+        </section>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <section class="row more">
+
+        @{
+            int counter = 0;
+            foreach (var col in Model.getColumns(4))
+            {
+                <div class="col-xs-12 col-md-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
+                    <img src="@Model.getImagePath(col.imageId)" title="Picture" alt="Picture">
+                    <p class="youth_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
+                </div>
+                counter++;
+            }
+        }
+    </section>
+</div>
+
+<div class="indexLeftMargin" id="outreachBanner">
+    <div class="row outreach_main_img">
+        <div class="col-xs-8 text">
+            @Html.Raw(Model.getContent("YF outreach"))
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row outreach_text">
+        <section class="col-xs-12">
+            <p class="mont_regular_22_darkgray">@Model.getContent("YF outreach desc")</p>
+        </section>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row outreach_bullet">
+        <section class="col-xs-12 col-md-6">
+            @Html.Raw(Model.getContent("YF outreach list1"))
+        </section>
+
+        <section class="col-xs-12 col-md-6">
+            @Html.Raw(Model.getContent("YF outreach list2"))
+        </section>
+    </div>
+</div>
+
+<div class="indexLeftMargin" id="directorsMain">
+    <div class="row board_header">
+        <div class="col-xs-6 text">
+            @Html.Raw(Model.getContent("Board of Dir"))
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row board_members">
+        @foreach (var bd in Model.board)
+        {
+            <section class="col-xs-12 col-md-4">
+                <p><span class="name">@((bd.boardMemberFirstName + " " + bd.boardMemberLastName).ToUpper()) </span><br />@bd.boardMemberTitle<br /><span class="email">@Model.getBoardEmail(bd.staffId)</span></p>
+            </section>
+        }
+    </div>
+</div>
+
+<div class="indexLeftMargin" id="staffMain">
+    <div class="row board_header">
+        <div class="col-xs-6 text">
+            @Html.Raw(Model.getContent("Staff"))
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row staff_members">
+        @foreach (var staff in Model.staff)
+        {
+            <section class="col-xs-12 col-md-4">
+                <img src="@Model.getImagePath(staff.imageId)" class="img-responsive" title="@(staff.firstName + " " + staff.lastName)" alt="@(staff.firstName + " " + staff.lastName)">
+                <p><span class="name">@((staff.firstName + " " + staff.lastName).ToUpper())</span><br />@staff.staffTitle<br /><span class="email">@staff.staffEmail</span></p>
+            </section>
+        }
+    </div>
+</div>
+
+<div class="indexLeftMargin" id="mediaMain">
+    <div class="row media_header">
+        <div class="col-xs-6 text">
+            @Html.Raw(Model.getContent("Media"))
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row media_subheader">
+        <div class="col-xs-12 ">
+            <p class="title">@Model.getContent("media headline")</p>
+            <p class="mont_regular_22_darkgray time">03/18/2015 10:03 pm<p>
+                <a class="link" href="#">inShare</a>
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row media_pic">
+        <div class="col-xs-12 col-lg-7 pic">
+            <img src="../resources/media_check.jpg" class="img-responsive center-block" title="America First Check" alt="Check">
+        </div>
+        <div class="col-xs-12 col-lg-5 subtext">
+            <p class="subtitle">@Model.getContent("media check desc")</p>
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row media_text">
+        <section class="col-xs-12">
+            <p class="mont_regular_22_darkgray">@Model.getContent("media check story1")</p>
+            <p class="mont_regular_22_darkgray">@Model.getContent("media check story2")</p>
+        </section>
+    </div>
+</div>
+
+<div class="indexLeftMargin" id="donorsMain">
+    <div class="row donor_header">
+        <div class="col-xs-6 text">
+            @Html.Raw(Model.getContent("Donors"))
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+
+    <div class="row donor_subheader">
+
+        <div class="col-xs-12 ">
+            <p class="title_plat">@Model.getContent("Plat Donors")</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="indexLeftMargin">
+    <div class="pre-scrollable">
+        <div class="row donor_list">
+            @foreach (var donor in Model.donors.Where(d => d.donorLevel == "P"))
+            {
+                <div class="col-xs-4 donor_box plat">
+                    <p class="donor_name">@donor.donorName</p>
+                    <p class="year">@donor.donorYear</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row donor_subheader">
+        <div class="col-xs-12 ">
+            <p class="title_gold">@Model.getContent("Gold Donors")</p>
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="pre-scrollable">
+        <div class="row donor_list">
+            @foreach (var donor in Model.donors.Where(d => d.donorLevel == "G"))
+            {
+                <div class="col-xs-4 donor_box gold">
+                    <p class="donor_name">@donor.donorName</p>
+                    <p class="year">@donor.donorYear</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row donor_subheader">
+        <div class="col-xs-12 ">
+            <p class="title_silver">@Model.getContent("Silver Donors")</p>
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="pre-scrollable">
+        <div class="row donor_list">
+            @foreach (var donor in Model.donors.Where(d => d.donorLevel == "S"))
+            {
+                <div class="col-xs-4 donor_box silver">
+                    <p class="donor_name">@donor.donorName</p>
+                    <p class="year">@donor.donorYear</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row donor_subheader">
+        <div class="col-xs-12 ">
+            <p class="title_bronze">@Model.getContent("Bronze Donors")</p>
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="pre-scrollable">
+        <div class="row donor_list">
+            @foreach (var donor in Model.donors.Where(d => d.donorLevel == "B"))
+            {
+                <div class="col-xs-4 donor_box bronze">
+                    <p class="donor_name">@donor.donorName</p>
+                    <p class="year">@donor.donorYear</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin" id="donateMain">
+    <div class="row donor_header">
+        <div class="col-xs-6 text">
+            @Html.Raw(Model.getContent("donations"))
+        </div>
+    </div>
+
+    <div class="row donate_help">
+        <div class="col-xs-12">
+            <p>@Model.getContent("donations question")</p>
+        </div>
+    </div>
+
+    <div class="row media_text">
+        <div class="col-xs-12">
+            <p class="mont_regular_22_darkgray">@Model.getContent("please donate")</p>
+        </div>
+    </div>
+
+
+    <section class="row more">
+        @{
+            counter = 0;
+            foreach (var col in Model.getColumns(5))
+            {
+                <div class="col-xs-12 col-lg-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
+                    <img src="@Model.getImagePath(col.imageId)" title="Picture" alt="Picture">
+
+                    <p class="vol_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
+
+                </div>
+                counter++;
+            }
+        }
+    </section>
+
+</div>
+
+<div class="container-fluid needs indexLeftMargin">
+    <div class="row donate_help">
+        <div class="col-xs-12">
+            <p>@Model.getContent("list of needs")</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-4 needs_list first">
+            <p class="needs_subheader">
+                @Model.getContent("Most important needs")
+            </p>
+            @Html.Raw(Model.getContent("important needs"))
+        </div>
+
+        <div class="col-xs-12 col-md-4 needs_list">
+            <p class="needs_subheader">@Model.getContent("Misc needs")</p>
+            @Html.Raw(Model.getContent("misc list"))
+
+            <p class="needs_subheader">@Model.getContent("Gift cards")</p>
+            @Html.Raw(Model.getContent("gift card list"))
+        </div>
+
+        <div class="col-xs-12 col-md-4 needs_list">
+            <p class="needs_subheader">@Model.getContent("house furnishings")</p>
+            @Html.Raw(Model.getContent("furnishings list"))
+
+            <p class="needs_subheader">@Model.getContent("Volunteers")</p>
+            @Html.Raw(Model.getContent("Volunteers list"))
+
+            <p class="needs_subheader">@Model.getContent("Repair needs")</p>
+            @Html.Raw(Model.getContent("Repair list"))
+        </div>
+    </div>
+</div>
+
+<div class="needs indexLeftMargin" id="contactMain">
+    <div class="row donor_header">
+        <div class="col-xs-6 text">
+            <h2 class="h2style1">@Model.getContent("Contact Title")</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6 contact_form">
+            <p class="contact_subheader">@Model.getContent("Contact us")</p>
+            <form method="post" name="myemailform" action="form-to-email.php">
+                <input type="text" class="input_text" name="firstName" placeholder="First Name" maxlength="20"> <span class="change" id="fName_change">Required!</span>
+                <br>
+                <input type="text" class="input_text" name="lastName" placeholder="Last Name" maxlength="20"><span class="change" id="lName_change">Required!</span>
+                <br>
+                <input type="tel" name="phone" placeholder="Telephone (Optional)" maxlength="20">
+                <br>
+                <input type="email" class="input_text" name="email" placeholder="Email Address" maxlength="40"><span class="change" id="email_change">Required!</span>
+                <br>
+                <textarea name="message" class="input_text" placeholder="Message" maxlength="255"></textarea><span class="change" id="message_change">Required!</span>
+                <br>
+                <input type="submit" class="submit_button" id="submit" value="Submit" disabled>
+                <input type="reset" value="Cancel" class="cancel" />
+            </form>
+        </div>
+
+        <div class="col-xs-12 col-md-6 two_col">
+            <p class="contact_subheader other_info">@Model.getContent("Contact call us")</p>
+            <p class="contact_info_text contact_tel">@Model.getContent("Contact number")</p>
+
+            <p class="contact_subheader other_info">@Model.getContent("come see us")</p>
+            <p class="contact_info_text">@Html.Raw(Model.getContent("address"))</p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1784.5861387467835!2d-111.96804305268928!3d41.215141436084046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87530f2689623957%3A0x49def70f5ee0a151!2sOgden+Youth+Futures!5e0!3m2!1sen!2sus!4v1492809010928" class="map" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="row contact_SM">
+        <div class="col-xs-4">
+            <p class="contact_subheader">@Model.getContent("social media")</p>
+            <img src="../resources/social_instagram.png" title="instagram icon" alt="instagram icon">
+            <img src="../resources/social_twitter.svg" title="twitter icon" alt="twitter icon">
+            <img src="../resources/social_tumblr.svg" title="tumblr icon" alt="tumblr icon">
+            <img src="../resources/social_facebook.svg" title="fb icon" alt="fb icon">
+        </div>
+    </div>
+</div>
 

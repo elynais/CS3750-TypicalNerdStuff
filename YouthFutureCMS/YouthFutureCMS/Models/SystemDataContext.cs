@@ -18,8 +18,6 @@ namespace YouthFutureCMS.Models
 
         public DbSet<Board> board { get; set; }
 
-        public DbSet<File> files { get; set; }
-
         public DbSet<Image> images { get; set; }
 
         public DbSet<Staff> staff { get; set; }
