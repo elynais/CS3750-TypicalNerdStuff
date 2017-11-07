@@ -13,7 +13,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                                                                                                                                                                                                                                                                                                                      
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html"></a><img src="./resources/yf_logo.svg" alt="Youth Futures Logo" />
@@ -63,10 +63,10 @@
         <div class="row">
             <div class="header-box">
                 <div class="row">
-                    <p class="header-text-greeting "> @Model.getContent("Header Text") </p>
+                    <p class="header-text-greeting " contenteditable="true"> @Model.getContent("Header Text") </p>
                 </div>
                 <div class="row sub-text-box">
-                    <p class="sub-text">@Html.Raw(Model.getContent("Header Fact"))</p>
+                    <p class="sub-text" contenteditable="true">@Html.Raw(Model.getContent("Header Fact"))</p>
                 </div>
             </div>
         </div>
@@ -76,8 +76,8 @@
         <div class="row">
             <div class="col-xs-offset-1 col-xs-11">
                 <p class="green-header">
-                    <span class="mont-semibold-dark-36 have-questions-heading">@Model.getContent("Header Contacting")</span>
-                    <span class="quicksand-dark-36-main have-questions-phone"> @Model.getContent("Header Contact Number")</span>
+                    <span class="mont-semibold-dark-36 have-questions-heading" contenteditable="true">@Model.getContent("Header Contacting")</span>
+                    <span class="quicksand-dark-36-main have-questions-phone" contenteditable="true"> @Model.getContent("Header Contact Number")</span>
                 </p>
             </div>
         </div>
@@ -86,8 +86,8 @@
     <section class="container-fluid indexLeftMarginServices">
         <div class="row">
             <div class="col-xs-12">
-                <h4 class="services-heading">@Model.getContent("Service Title")</h4>
-                <p class="mont-light-light-22 about-services">
+                <h4 class="services-heading" contenteditable="true">@Model.getContent("Service Title")</h4>
+                <p class="mont-light-light-22 about-services" contenteditable="true">
                     @Model.getContent("Service desc")
                 </p>
             </div>
@@ -98,19 +98,19 @@
             {
                     <article class="col-sm-4">
                         <section class="panel-img-container">
-                            <img src="@Model.getImagePath(col.imageId)" alt="House" class="img-responsive panel-img img-center" />
+                            <img src="@Model.getImagePath(col.imageId)" alt="House" class="img-responsive panel-img img-center" contenteditable="true"/>
                         </section>
                         <section>
-                            <p class="quicksand-light-32 panel-heading">@col.columnHeader</p>
+                            <p class="quicksand-light-32 panel-heading" contenteditable="true">@col.columnHeader</p>
                         </section>
                         <section class="minHeightServices">
-                            <p class="mont-light-light-18 panel-summary">
+                            <p class="mont-light-light-18 panel-summary" contenteditable="true">
                                 @col.columnInfo
                             </p>
                         </section>
                         <section class="panel-footer Learn-more-">
                             <p class="quicksand-light-24-green">
-                                <a href="@col.columnLink">@col.columnLinkDesc</a>
+                                <a href="@col.columnLink" contenteditable="true">@col.columnLinkDesc</a>
                             </p>
                         </section>
                     </article>
@@ -121,19 +121,19 @@
 
     <article class="container-fluid indexLeftMargin">
         <section class="purpose purpose-padding indexLeftMargin">
-            <div class="row purpose-title">
+            <div class="row purpose-title" contenteditable="true">
                 @Html.Raw(Model.getContent("Our Purpose"))
             </div>
             <div class="row purpose-detail">
                 <div class="col-xs-12 no-padding">
-                    <p class="montlight-dark-32">
+                    <p class="montlight-dark-32" contenteditable="true">
                         @Model.getContent("Our purpose desc")
                     </p>
                 </div>
             </div>
             <div class="purpose-stats">
                 <div class="col-xs-12">
-                    <p>@Html.Raw(Model.getContent("Our purpose fact"))</p>
+                    <p contenteditable="true">@Html.Raw(Model.getContent("Our purpose fact"))</p>
                 </div>
             </div>
         </section>
@@ -142,13 +142,13 @@
 
         <section class="sponsor-bar">
             <div class="col-xs-12 col-lg-3">
-                <p class="partner-text">@Model.getContent("Our sponsor")</p>
+                <p class="partner-text" contenteditable="true">@Model.getContent("Our sponsor")</p>
             </div>
             @foreach (var sp in Model.content.Where(c => c.contentName == "Sponsors"))
             {
                 <div class="col-xs-12 col-lg-3 ">
                     <div class="partner-logo">
-                        <img src="@Model.getImagePath(sp.imageId)" alt="Picture" class="@sp.contentInfo" />
+                        <img src="@Model.getImagePath(sp.imageId)" alt="Picture" class="@sp.contentInfo" contenteditable="true" />
                     </div>
                 </div>
             }
@@ -161,17 +161,17 @@
                     {
                         <article class="col-sm-4 purpose-border">
                             <section class="panel-img-container">
-                                <img src="@Model.getImagePath(col.imageId)" alt="Picture" class="img-responsive panel-img img-center" />
+                                <img src="@Model.getImagePath(col.imageId)" alt="Picture" class="img-responsive panel-img img-center" contenteditable="true" />
                             </section>
                             <section>
-                                <p class="panel-heading">@col.columnHeader</p>
+                                <p class="panel-heading" contenteditable="true">@col.columnHeader</p>
                             </section>
                             <section class="minHeight">
-                                <p class="mont-light-light-22 panel-summary">@col.columnInfo</p>
+                                <p class="mont-light-light-22 panel-summary" contenteditable="true">@col.columnInfo</p>
                             </section>
                             <section class="panel-footer">
                                 <p class="quicksand-light-24-green">
-                                    <a href="@col.columnLink">@col.columnLinkDesc</a>
+                                    <a href="@col.columnLink" contenteditable="true">@col.columnLinkDesc</a>
                                 </p>
                             </section>
                         </article>
