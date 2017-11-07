@@ -54,22 +54,20 @@
 
 
 <article>
-    <div class="indexLeftMargin">
+    <div class="indexLeftMargin" contenteditable="true" >
         <div class="row  questions">
             <br />
             <div class="col-sm-12 col-md-7 text">
-                <p contenteditable="true" >@Model.getContent("2nd header question")</p>
+                <p>@Model.getContent("2nd header question")</p>
 
             </div>
 
             <div class="col-sm-12 col-md-5 phone">
-                <p contenteditable="true">@Model.getContent("2nd header phone")</p>
+                <p>@Model.getContent("2nd header phone")</p>
             </div>
         </div>
     </div>
-</article>
-
-<div class="indexLeftMargin" id="historyBanner">
+</article><div class="indexLeftMargin" id="historyBanner">
     <div class="row hist_main_img">
         <div class="col-xs-8 text " contenteditable="true">
             @Html.Raw(Model.getContent("YF History"))
@@ -79,8 +77,8 @@
 
 <div class="indexLeftMargin">
     <div class="row history_text">
-        <section class="col-xs-12">
-            <p class="mont_regular_22_darkgray" contenteditable="true">@Model.getContent("YF His descib")</p>
+        <section class="col-xs-12" contenteditable="true" >
+            <p class="mont_regular_22_darkgray">@Model.getContent("YF His descib")</p>
         </section>
     </div>
 </div>
@@ -90,8 +88,8 @@
         @foreach (var col in Model.getColumns(3))
         {
             <section class="col-xs-12  col-md-4">
-                <img src="@Model.getImagePath(col.imageId)" class="img-responsive center-block" title="@col.columnInfo" alt="@col.columnInfo" contenteditable="true">
-                <p class="mont_light_14_white hist_subtitle" contenteditable="true">@col.columnInfo</p>
+                <img src="@Model.getImagePath(col.imageId)" class="img-responsive center-block" title="@col.columnInfo" alt="@col.columnInfo">
+                <p class="mont_light_14_white hist_subtitle">@col.columnInfo</p>
             </section>
         }
     </div>
@@ -99,32 +97,32 @@
 
 <div class="indexLeftMargin">
     <div class="row history_text">
-        <section class="col-xs-12">
-            <p class="mont_regular_22_darkgray" contenteditable="true">@Model.getContent("YF founder descr")</p>
+        <section class="col-xs-12" contenteditable="true" >
+            <p class="mont_regular_22_darkgray">@Model.getContent("YF founder descr")</p>
         </section>
     </div>
 </div>
 
 <div class="indexLeftMargin">
     <div class="row hist_2nd_back_img">
-        <section class="col-xs-12 hist_2nd_back_img_text">
-            <h4 contenteditable="true">@Model.getContent("YF history Fact")</h4>
+        <section class="col-xs-12 hist_2nd_back_img_text" contenteditable="true" >
+            <h4>@Model.getContent("YF history Fact")</h4>
         </section>
     </div>
 </div>
 
 <div class="indexLeftMargin">
     <div class="row history_text">
-        <section class="col-xs-12">
-            <p class="mont_regular_22_darkgray" contenteditable="true">@Model.getContent("YF history fact desc")</p>
+        <section class="col-xs-12" contenteditable="true" >
+            <p class="mont_regular_22_darkgray">@Model.getContent("YF history fact desc")</p>
         </section>
     </div>
 </div>
 
 <div class="indexLeftMargin">
     <div class="row history_green_text">
-        <section class="col-xs-12">
-            <p class="mont_light_32_white" contenteditable="true">@Model.getContent("YF history Fact2")</p>
+        <section class="col-xs-12" contenteditable="true" >
+            <p class="mont_light_32_white">@Model.getContent("YF history Fact2")</p>
         </section>
     </div>
 </div>
@@ -137,8 +135,8 @@
             foreach (var col in Model.getColumns(4))
             {
                 <div class="col-xs-12 col-md-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
-                    <img src="@Model.getImagePath(col.imageId)" title="Picture" alt="Picture" contenteditable="true">
-                    <p class="youth_p mont_light_18_darkgray" contenteditable="true"> @Html.Raw(col.columnInfo) </p>
+                    <img src="@Model.getImagePath(col.imageId)" title="Picture" alt="Picture">
+                    <p class="youth_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
                 </div>
                 counter++;
             }
@@ -156,19 +154,19 @@
 
 <div class="indexLeftMargin">
     <div class="row outreach_text">
-        <section class="col-xs-12">
-            <p class="mont_regular_22_darkgray" contenteditable="true">@Model.getContent("YF outreach desc")</p>
+        <section class="col-xs-12" contenteditable="true" >
+            <p class="mont_regular_22_darkgray">@Model.getContent("YF outreach desc")</p>
         </section>
     </div>
 </div>
 
-<div class="indexLeftMargin">
+<div class="indexLeftMargin" contenteditable="true" >
     <div class="row outreach_bullet">
-        <section class="col-xs-12 col-md-6" contenteditable="true">
+        <section class="col-xs-12 col-md-6">
             @Html.Raw(Model.getContent("YF outreach list1"))
         </section>
 
-        <section class="col-xs-12 col-md-6" contenteditable="true">
+        <section class="col-xs-12 col-md-6">
             @Html.Raw(Model.getContent("YF outreach list2"))
         </section>
     </div>
@@ -187,7 +185,7 @@
         @foreach (var bd in Model.board)
         {
             <section class="col-xs-12 col-md-4">
-                <p contenteditable="true"><span class="name">@((bd.boardMemberFirstName + " " + bd.boardMemberLastName).ToUpper()) </span><br />@bd.boardMemberTitle<br /><span class="email">@Model.getBoardEmail(bd.staffId)</span></p>
+                <p><span class="name">@((bd.boardMemberFirstName + " " + bd.boardMemberLastName).ToUpper()) </span><br />@bd.boardMemberTitle<br /><span class="email">@Model.getBoardEmail(bd.staffId)</span></p>
             </section>
         }
     </div>
@@ -206,8 +204,8 @@
         @foreach (var staff in Model.staff)
         {
             <section class="col-xs-12 col-md-4">
-                <img src="@Model.getImagePath(staff.imageId)" class="img-responsive" title="@(staff.firstName + " " + staff.lastName)" alt="@(staff.firstName + " " + staff.lastName)" contenteditable="true">
-                <p contenteditable="true"><span class="name">@((staff.firstName + " " + staff.lastName).ToUpper())</span><br />@staff.staffTitle<br /><span class="email">@staff.staffEmail</span></p>
+                <img src="@Model.getImagePath(staff.imageId)" class="img-responsive" title="@(staff.firstName + " " + staff.lastName)" alt="@(staff.firstName + " " + staff.lastName)">
+                <p><span class="name">@((staff.firstName + " " + staff.lastName).ToUpper())</span><br />@staff.staffTitle<br /><span class="email">@staff.staffEmail</span></p>
             </section>
         }
     </div>
@@ -221,10 +219,10 @@
     </div>
 </div>
 
-<div class="indexLeftMargin">
+<div class="indexLeftMargin" contenteditable="true" >
     <div class="row media_subheader">
         <div class="col-xs-12 ">
-            <p class="title" contenteditable="true">@Model.getContent("media headline")</p>
+            <p class="title">@Model.getContent("media headline")</p>
             <p class="mont_regular_22_darkgray time">03/18/2015 10:03 pm<p>
                 <a class="link" href="#">inShare</a>
         </div>
@@ -236,17 +234,17 @@
         <div class="col-xs-12 col-lg-7 pic">
             <img src="../resources/media_check.jpg" class="img-responsive center-block" title="America First Check" alt="Check">
         </div>
-        <div class="col-xs-12 col-lg-5 subtext">
-            <p class="subtitle" contenteditable="true">@Model.getContent("media check desc")</p>
+        <div class="col-xs-12 col-lg-5 subtext" contenteditable="true" >
+            <p class="subtitle">@Model.getContent("media check desc")</p>
         </div>
     </div>
 </div>
 
 <div class="indexLeftMargin">
     <div class="row media_text">
-        <section class="col-xs-12">
-            <p class="mont_regular_22_darkgray" contenteditable="true">@Model.getContent("media check story1")</p>
-            <p class="mont_regular_22_darkgray" contenteditable="true">@Model.getContent("media check story2")</p>
+        <section class="col-xs-12" contenteditable="true" >
+            <p class="mont_regular_22_darkgray">@Model.getContent("media check story1")</p>
+            <p class="mont_regular_22_darkgray">@Model.getContent("media check story2")</p>
         </section>
     </div>
 </div>
@@ -263,8 +261,8 @@
 
     <div class="row donor_subheader">
 
-        <div class="col-xs-12 ">
-            <p class="title_plat" contenteditable="true">@Model.getContent("Plat Donors")</p>
+        <div class="col-xs-12 " contenteditable="true" >
+            <p class="title_plat">@Model.getContent("Plat Donors")</p>
         </div>
     </div>
 
@@ -276,8 +274,8 @@
             @foreach (var donor in Model.donors.Where(d => d.donorLevel == "P"))
             {
                 <div class="col-xs-4 donor_box plat">
-                    <p class="donor_name" contenteditable="true">@donor.donorName</p>
-                    <p class="year" contenteditable="true">@donor.donorYear</p>
+                    <p class="donor_name">@donor.donorName</p>
+                    <p class="year">@donor.donorYear</p>
                 </div>
             }
         </div>
@@ -286,8 +284,8 @@
 
 <div class="indexLeftMargin">
     <div class="row donor_subheader">
-        <div class="col-xs-12 ">
-            <p class="title_gold" contenteditable="true">@Model.getContent("Gold Donors")</p>
+        <div class="col-xs-12 " contenteditable="true" >
+            <p class="title_gold">@Model.getContent("Gold Donors")</p>
         </div>
     </div>
 </div>
@@ -298,8 +296,8 @@
             @foreach (var donor in Model.donors.Where(d => d.donorLevel == "G"))
             {
                 <div class="col-xs-4 donor_box gold">
-                    <p class="donor_name" contenteditable="true">@donor.donorName</p>
-                    <p class="year" contenteditable="true">@donor.donorYear</p>
+                    <p class="donor_name">@donor.donorName</p>
+                    <p class="year">@donor.donorYear</p>
                 </div>
             }
         </div>
@@ -308,8 +306,8 @@
 
 <div class="indexLeftMargin">
     <div class="row donor_subheader">
-        <div class="col-xs-12 ">
-            <p class="title_silver" contenteditable="true">@Model.getContent("Silver Donors")</p>
+        <div class="col-xs-12 " contenteditable="true" >
+            <p class="title_silver">@Model.getContent("Silver Donors")</p>
         </div>
     </div>
 </div>
@@ -320,8 +318,8 @@
             @foreach (var donor in Model.donors.Where(d => d.donorLevel == "S"))
             {
                 <div class="col-xs-4 donor_box silver">
-                    <p class="donor_name" contenteditable="true">@donor.donorName</p>
-                    <p class="year" contenteditable="true">@donor.donorYear</p>
+                    <p class="donor_name">@donor.donorName</p>
+                    <p class="year">@donor.donorYear</p>
                 </div>
             }
         </div>
@@ -330,8 +328,8 @@
 
 <div class="indexLeftMargin">
     <div class="row donor_subheader">
-        <div class="col-xs-12 ">
-            <p class="title_bronze" contenteditable="true">@Model.getContent("Bronze Donors")</p>
+        <div class="col-xs-12 " contenteditable="true" >
+            <p class="title_bronze">@Model.getContent("Bronze Donors")</p>
         </div>
     </div>
 </div>
@@ -342,8 +340,8 @@
             @foreach (var donor in Model.donors.Where(d => d.donorLevel == "B"))
             {
                 <div class="col-xs-4 donor_box bronze">
-                    <p class="donor_name" contenteditable="true">@donor.donorName</p>
-                    <p class="year" contenteditable="true">@donor.donorYear</p>
+                    <p class="donor_name">@donor.donorName</p>
+                    <p class="year">@donor.donorYear</p>
                 </div>
             }
         </div>
@@ -358,14 +356,14 @@
     </div>
 
     <div class="row donate_help">
-        <div class="col-xs-12">
-            <p contenteditable="true">@Model.getContent("donations question")</p>
+        <div class="col-xs-12" contenteditable="true" >
+            <p>@Model.getContent("donations question")</p>
         </div>
     </div>
 
     <div class="row media_text">
-        <div class="col-xs-12">
-            <p class="mont_regular_22_darkgray" contenteditable="true">@Model.getContent("please donate")</p>
+        <div class="col-xs-12" contenteditable="true" >
+            <p class="mont_regular_22_darkgray">@Model.getContent("please donate")</p>
         </div>
     </div>
 
@@ -376,9 +374,9 @@
             foreach (var col in Model.getColumns(5))
             {
                 <div class="col-xs-12 col-lg-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
-                    <img src="@Model.getImagePath(col.imageId)" title="Picture" alt="Picture" contenteditable="true">
+                    <img src="@Model.getImagePath(col.imageId)" title="Picture" alt="Picture">
 
-                    <p class="vol_p mont_light_18_darkgray" contenteditable="true"> @Html.Raw(col.columnInfo) </p>
+                    <p class="vol_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
 
                 </div>
                 counter++;
@@ -388,37 +386,37 @@
 
 </div>
 
-<div class="container-fluid needs indexLeftMargin">
+<div class="container-fluid needs indexLeftMargin" contenteditable="true" >
     <div class="row donate_help">
         <div class="col-xs-12">
-            <p contenteditable="true">@Model.getContent("list of needs")</p>
+            <p>@Model.getContent("list of needs")</p>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-md-4 needs_list first" contenteditable="true">
-            <p class="needs_subheader" contenteditable="true">
+        <div class="col-xs-12 col-md-4 needs_list first" >
+            <p class="needs_subheader">
                 @Model.getContent("Most important needs")
             </p>
             @Html.Raw(Model.getContent("important needs"))
         </div>
 
-        <div class="col-xs-12 col-md-4 needs_list" contenteditable="true">
-            <p class="needs_subheader" contenteditable="true">@Model.getContent("Misc needs")</p>
+        <div class="col-xs-12 col-md-4 needs_list">
+            <p class="needs_subheader">@Model.getContent("Misc needs")</p>
             @Html.Raw(Model.getContent("misc list"))
 
-            <p class="needs_subheader" contenteditable="true">@Model.getContent("Gift cards")</p>
+            <p class="needs_subheader">@Model.getContent("Gift cards")</p>
             @Html.Raw(Model.getContent("gift card list"))
         </div>
 
-        <div class="col-xs-12 col-md-4 needs_list" contenteditable="true">
-            <p class="needs_subheader" contenteditable="true">@Model.getContent("house furnishings")</p>
+        <div class="col-xs-12 col-md-4 needs_list">
+            <p class="needs_subheader">@Model.getContent("house furnishings")</p>
             @Html.Raw(Model.getContent("furnishings list"))
 
-            <p class="needs_subheader" contenteditable="true">@Model.getContent("Volunteers")</p>
+            <p class="needs_subheader">@Model.getContent("Volunteers")</p>
             @Html.Raw(Model.getContent("Volunteers list"))
 
-            <p class="needs_subheader" contenteditable="true">@Model.getContent("Repair needs")</p>
+            <p class="needs_subheader">@Model.getContent("Repair needs")</p>
             @Html.Raw(Model.getContent("Repair list"))
         </div>
     </div>
@@ -426,8 +424,8 @@
 
 <div class="needs indexLeftMargin" id="contactMain">
     <div class="row donor_header">
-        <div class="col-xs-6 text">
-            <h2 class="h2style1" contenteditable="true">@Model.getContent("Contact Title")</h2>
+        <div class="col-xs-6 text" contenteditable="true" >
+            <h2 class="h2style1">@Model.getContent("Contact Title")</h2>
         </div>
     </div>
 
@@ -450,12 +448,12 @@
             </form>
         </div>
 
-        <div class="col-xs-12 col-md-6 two_col">
-            <p class="contact_subheader other_info" contenteditable="true">@Model.getContent("Contact call us")</p>
-            <p class="contact_info_text contact_tel" contenteditable="true">@Model.getContent("Contact number")</p>
+        <div class="col-xs-12 col-md-6 two_col" contenteditable="true" >
+            <p class="contact_subheader other_info">@Model.getContent("Contact call us")</p>
+            <p class="contact_info_text contact_tel">@Model.getContent("Contact number")</p>
 
-            <p class="contact_subheader other_info" contenteditable="true">@Model.getContent("come see us")</p>
-            <p class="contact_info_text" contenteditable="true">@Html.Raw(Model.getContent("address"))</p>
+            <p class="contact_subheader other_info">@Model.getContent("come see us")</p>
+            <p class="contact_info_text">@Html.Raw(Model.getContent("address"))</p>
 
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1784.5861387467835!2d-111.96804305268928!3d41.215141436084046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87530f2689623957%3A0x49def70f5ee0a151!2sOgden+Youth+Futures!5e0!3m2!1sen!2sus!4v1492809010928" class="map" allowfullscreen></iframe>
         </div>
