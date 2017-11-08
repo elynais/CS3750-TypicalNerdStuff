@@ -19,6 +19,13 @@
     </script>
 </head>
 
+<div class="buttons">
+        <ul>
+            <li><input class="btn pull-right" value="Save" onclick="quack();"></li>
+            <li><input class="btn pull-right" value="Cancel"></li>
+        </ul>
+    </div>
+    
 <body>
     <div id="main-body">
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -246,6 +253,22 @@
                 </div>
             </section>
         </article>
+
+        <script language="javascript">
+            var duck = new Audio('duck.mp3');
+            function quack(){               
+                duck.play();
+            }
+        </script>
+
+        <!-- <div class="buttons">
+            <ul>
+                <li><input class="btn pull-right" value="Save" onclick="quack();"></li>
+                <li><input class="btn pull-right" value="Cancel"></li>
+            </ul>
+        </div> -->
+
+        
 
         <footer class="container-fluid">
             <div class="row clear">
