@@ -1,0 +1,69 @@
+﻿@model IEnumerable<YouthFutureCMS.Models.Column>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.columnHeader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.columnDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.columnInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.columnLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.columnLinkDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sectionNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.columnHeader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.columnDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.columnInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.columnLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.columnLinkDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.image_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sectionNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.column_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.column_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.column_Id })
+        </td>
+    </tr>
+}
+
+</table>

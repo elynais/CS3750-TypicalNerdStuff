@@ -15,7 +15,6 @@ namespace YouthFutureCMS.Models
         public DateTime errorDatetime { get; set; }
         public int user_Id { get; set; }
 
-        //join user here? public virtual User user {get;set;} ??
     }
     public class ErrorLogContext : DbContext
     {

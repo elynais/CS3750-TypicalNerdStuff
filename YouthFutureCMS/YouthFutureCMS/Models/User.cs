@@ -15,7 +15,6 @@ namespace YouthFutureCMS.Models
         public string Password { get; set; }
         public int staff_Id { get; set; }
 
-        //join staff here? public virtual Staff staff {get;set;} ??
     }
     public class UserContext : DbContext
     {

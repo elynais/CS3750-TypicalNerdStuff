@@ -1,0 +1,74 @@
+﻿@model YouthFutureCMS.Models.Column
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Column</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.columnHeader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.columnHeader)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.columnDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.columnDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.columnInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.columnInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.columnLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.columnLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.columnLinkDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.columnLinkDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sectionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sectionNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.column_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

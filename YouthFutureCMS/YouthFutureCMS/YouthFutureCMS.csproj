@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\DynamicContent\BoardController.cs" />
+    <Compile Include="Controllers\DynamicContent\ColumnsController.cs" />
     <Compile Include="Controllers\DynamicContent\DonorsController.cs" />
     <Compile Include="Controllers\DynamicContent\ImagesController.cs" />
     <Compile Include="Controllers\DynamicContent\StaffController.cs" />
@@ -359,6 +360,11 @@
     <Content Include="Views\Board\Details.cshtml" />
     <Content Include="Views\Board\Edit.cshtml" />
     <Content Include="Views\Board\Index.cshtml" />
+    <Content Include="Views\Columns\Create.cshtml" />
+    <Content Include="Views\Columns\Delete.cshtml" />
+    <Content Include="Views\Columns\Details.cshtml" />
+    <Content Include="Views\Columns\Edit.cshtml" />
+    <Content Include="Views\Columns\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

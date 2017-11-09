@@ -11,16 +11,23 @@ namespace YouthFutureCMS.Models
     public class Column
     {
         [Key]
+        [Display(Name = "Column Id")]
         public int column_Id { get; set; }
+        [Display(Name = "Header")]
         public string columnHeader { get; set; }
+        [Display(Name = "Description of Column")]
         public string columnDesc { get; set; }
+        [Display(Name = "Column Content")]
         public string columnInfo { get; set; }
+        [Display(Name = "Column Link")]
         public string columnLink { get; set; }
+        [Display(Name = "Link Description")]
         public string columnLinkDesc { get; set; }
+        [Display(Name = "Image")]
         public int image_Id { get; set; }
+        [Display(Name = "Section Number")]
         public int sectionNumber { get; set; }
 
-        //image join here? public virtual Image image {get;set;}
     }
     public class ColumnContext : DbContext
     {
