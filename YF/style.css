@@ -829,3 +829,19 @@ footer .row {
     	display: block;
     }
 }
+
+.buttons {
+    position: fixed;
+    right: 0;
+    bottom: 5%;
+}
+
+.buttons ul{
+    list-style-type: none;
+}
+
+.buttons input {
+    margin: 5px 5px;
+    color: white;
+    background-color: grey;
+}
