@@ -22,10 +22,6 @@ namespace YouthFutureCMS.Controllers
             List<Column> columns = data.columns.ToList();
             List<Content> content = data.content.ToList();
             List<Image> images = data.images.ToList();
-            //Changed to this to the above code. Couldn't get this to work. 
-            //List<Column> columns = data.columns.Include(c => c.image_Id).ToList();
-            //List<Content> content = data.content.Include(c => c.image_Id).Where(c => c.pageNum == 1).ToList();
-            //List<Image> images = data.images.ToList();
 
             //construct the model based on the list info
             HomeModel model = new HomeModel(content, columns, images);
@@ -41,8 +37,8 @@ namespace YouthFutureCMS.Controllers
          public ActionResult Edit()
          {
             //populate lists with dataset info
-            List<Column> columns = data.columns.Include(c => c.image_Id).ToList();
-            List<Content> content = data.content.Include(c => c.image_Id).Where(c => c.pageNum == 1).ToList();
+            List<Column> columns = data.columns.ToList();
+            List<Content> content = data.content.ToList();
             List<Image> images = data.images.ToList();
 
             //construct the model based on the list info

@@ -27,7 +27,6 @@ namespace YouthFutureCMS.Models
         [Display(Name = "Image Id")]
         public int image_Id { get; set; }
 
-        //join image here? public virtual Image image {get;set;} ??
     }
 
     public class StaffContext : DbContext
