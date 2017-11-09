@@ -61,7 +61,7 @@
 
     <section class="container-fluid main-header indexLeftMargin">
         <div class="row">
-            <div class="header-box">
+            <div class="header-box" contenteditable="true">
                 <div class="row">
                     <p class="header-text-greeting "> @Model.getContent("Header Text") </p>
                 </div>
@@ -74,7 +74,7 @@
 
     <section id="header" class="container-fluid indexLeftMargin">
         <div class="row">
-            <div class="col-xs-offset-1 col-xs-11">
+            <div class="col-xs-offset-1 col-xs-11" contenteditable="true">
                 <p class="green-header">
                     <span class="mont-semibold-dark-36 have-questions-heading">@Model.getContent("Header Contacting")</span>
                     <span class="quicksand-dark-36-main have-questions-phone"> @Model.getContent("Header Contact Number")</span>
@@ -85,7 +85,7 @@
 
     <section class="container-fluid indexLeftMarginServices">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12" contenteditable="true">
                 <h4 class="services-heading">@Model.getContent("Service Title")</h4>
                 <p class="mont-light-light-22 about-services">
                     @Model.getContent("Service desc")
@@ -120,7 +120,7 @@
     </section>
 
     <article class="container-fluid indexLeftMargin">
-        <section class="purpose purpose-padding indexLeftMargin">
+        <section class="purpose purpose-padding indexLeftMargin" contenteditable="true">
             <div class="row purpose-title">
                 @Html.Raw(Model.getContent("Our Purpose"))
             </div>
@@ -141,7 +141,7 @@
         <div class="clear"></div>
 
         <section class="sponsor-bar">
-            <div class="col-xs-12 col-lg-3">
+            <div class="col-xs-12 col-lg-3" contenteditable="true">
                 <p class="partner-text">@Model.getContent("Our sponsor")</p>
             </div>
             @foreach (var sp in Model.content.Where(c => c.contentName == "Sponsors"))

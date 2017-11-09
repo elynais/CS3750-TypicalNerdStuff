@@ -1,4 +1,9 @@
-﻿.navbar-inverse .navbar-nav li.donate {
+﻿.editableContent {
+    border: medium;
+    border-color: chartreuse;
+}
+
+.navbar-inverse .navbar-nav li.donate {
 	background-color: #1c5788;
 }
 
