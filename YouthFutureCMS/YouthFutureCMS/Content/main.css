@@ -35,6 +35,11 @@
   }
 }
 
+.editableContent {
+    border:medium;
+    border-color:chartreuse;
+}
+
 .content {
 	max-width: 1280px;
 	margin: auto;	
