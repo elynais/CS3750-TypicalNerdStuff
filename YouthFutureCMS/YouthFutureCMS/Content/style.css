@@ -909,8 +909,6 @@ footer .row {
 }
 
 .editViews {
-    position: relative;
-    bottom: 50%;
     background-color: #9ec54d;
     color: white;
     font-size: 30px;
