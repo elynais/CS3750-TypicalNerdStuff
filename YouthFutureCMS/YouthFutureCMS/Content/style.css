@@ -914,3 +914,18 @@ footer .row {
     color: white;
     font-size: 30px;
 }
+
+.editImg {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background-color: #9ec54d;
+    color: white;
+    font-size: 10px;
+}
+
+.editColumn {
+    background-color: #9ec54d;
+    color: white;
+    font-size: 10px;
+}

@@ -14,7 +14,7 @@
 
 <div class="buttons">
     <ul>
-        <li><a type="button" class="btn pull-right" onclick="quack();" contenteditable="false">Save</a></li>
+        <li><a @*type="button"*@ class="btn pull-right" onclick="quack();" contenteditable="false">Save</a></li>
         <li><a type="button" class="btn pull-right" contenteditable="false" href="/Secondary/Index">Cancel</a></li>
     </ul>
 </div>
@@ -56,6 +56,7 @@
         @foreach (var col in Model.getColumns(3))
         {
             <section class="col-xs-12  col-md-4">
+                <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                 <img src="@Model.getImagePath(col.image_Id)" class="img-responsive center-block" title="@col.columnInfo" alt="@col.columnInfo">
                 <p class="mont_light_14_white hist_subtitle">@col.columnInfo</p>
             </section>
@@ -103,6 +104,7 @@
             foreach (var col in Model.getColumns(4))
             {
                 <div class="col-xs-12 col-md-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
+                    <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                     <img src="@Model.getImagePath(col.image_Id)" title="Picture" alt="Picture">
                     <p class="youth_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
                 </div>
@@ -176,6 +178,7 @@
         @foreach (var staff in Model.staff)
         {
             <section class="col-xs-12 col-md-4">
+                <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                 <img src="@Model.getImagePath(staff.image_Id)" class="img-responsive" title="@(staff.staffFirstName + " " + staff.staffLastName)" alt="@(staff.staffFirstName + " " + staff.staffLastName)">
                 <p><span class="name">@((staff.staffFirstName + " " + staff.staffLastName).ToUpper())</span><br />@staff.staffTitle<br /><span class="email">@staff.staffEmail</span></p>
             </section>
@@ -205,6 +208,7 @@
 <div class="indexLeftMargin">
     <div class="row media_pic">
         <div class="col-xs-12 col-lg-7 pic">
+            <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
             <img src="../resources/media_check.jpg" class="img-responsive center-block" title="America First Check" alt="Check">
         </div>
         <div class="col-xs-12 col-lg-5 subtext" contenteditable="true">
