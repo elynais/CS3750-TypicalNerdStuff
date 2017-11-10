@@ -902,10 +902,11 @@ footer .row {
     list-style-type: none;
 }
 
-.buttons input {
+.buttons a {
     margin: 5px 5px;
     color: white;
     background-color: grey;
+    width: 100px;
 }
 
 .editViews {

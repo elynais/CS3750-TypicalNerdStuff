@@ -6,7 +6,7 @@
 @model YouthFutureCMS.Models.SecondaryModel
 
 <script language="javascript">
-    var duck = new Audio('duck.mp3');
+    var duck = new Audio('https://www.google.com/logos/fnbx/animal_sounds/duck.mp3');
     function quack(){               
         duck.play();
     }
@@ -14,8 +14,8 @@
 
 <div class="buttons">
     <ul>
-        <li><input class="btn pull-right" value="Save" onclick="quack();"></li>
-        <li><input class="btn pull-right" value="Cancel"></li>
+        <li><a type="button" class="btn pull-right" onclick="quack();" contenteditable="false">Save</a></li>
+        <li><a type="button" class="btn pull-right" contenteditable="false" href="/Secondary/Index">Cancel</a></li>
     </ul>
 </div>
 
