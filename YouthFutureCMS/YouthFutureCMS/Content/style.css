@@ -639,7 +639,7 @@ footer .row {
 	background-color: #FFF;
 	min-height: 105px;
 	margin-top: 49px;
-	line-height: 25px;
+	line-height: 200%;
 }
 .purpose-stats p{
 	font-size: 38px;

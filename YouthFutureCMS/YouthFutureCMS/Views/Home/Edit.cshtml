@@ -1,6 +1,7 @@
 ﻿<!--This is the Edit View for the Home page-->
 @{
     ViewBag.Title = "Edit";
+    var divID= ""; 
 }
 
 @model YouthFutureCMS.Models.HomeModel
@@ -12,9 +13,41 @@
     }
 </script>
 
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<title>jQuery AJAX call to insert records to database</title>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnSave').click(function () {
+                var contentInfo = document.getElementById(divID).outerText;
+                var contentName = document.getElementById(divID).title;
+                contentName = contentName;
+                contentInfo = contentInfo;
+                //alert(contentName); //for testing 
+                $.ajax({
+                    type: 'POST',
+                    contentType: "application/json; charset=utf-8",
+                    url: '/Home/updateContent',
+                    data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
+                    //async: false,
+                    success: function (response) {
+                        alert("Record saved successfully..!!");
+                    },
+                    error: function () {
+                        alert("Error");
+                    }
+                });
+            });
+        });
+        function reply_click(clicked_id) {
+            //alert(clicked_id); //For testing 
+            divID = clicked_id;
+
+        }
+</script>
+
 <div class="buttons">
     <ul>
-        <li><input class="btn pull-right" value="Save" onclick="quack();"></li>
+        <li><input class="btn pull-right" value="Save" onclick="quack();" id="btnSave"></li>
         <li><input class="btn pull-right" value="Cancel"></li>
     </ul>
 </div>
@@ -23,10 +56,10 @@
     <section class="container-fluid main-header indexLeftMargin">
         <div class="row">
             <div class="header-box" contenteditable="true">
-                <div class="row">
-                    <p class="header-text-greeting "> @Model.getContent("Header Text") </p>
+                <div class="row" id="headerText" title="Header Text" onClick="reply_click(this.id)">
+                    <p class="header-text-greeting"> @Model.getContent("Header Text") </p>
                 </div>
-                <div class="row sub-text-box">
+                <div class="row sub-text-box" id="headerFact" title="Header Fact" onClick="reply_click(this.id)">
                     <p class="sub-text">@Html.Raw(Model.getContent("Header Fact"))</p>
                 </div>
             </div>
@@ -37,8 +70,8 @@
         <div class="row">
             <div class="col-xs-offset-1 col-xs-11" contenteditable="true">
                 <p class="green-header">
-                    <span class="mont-semibold-dark-36 have-questions-heading">@Model.getContent("Header Contacting")</span>
-                    <span class="quicksand-dark-36-main have-questions-phone"> @Model.getContent("Header Contact Number")</span>
+                    <span class="mont-semibold-dark-36 have-questions-heading" id="HeaderContacting" title="Header Contacting" onClick="reply_click(this.id)">@Model.getContent("Header Contacting")</span>
+                    <span class="quicksand-dark-36-main have-questions-phone" id="HeaderContactNumber" title="Header Contact Number" onClick="reply_click(this.id)"> @Model.getContent("Header Contact Number")</span>
                 </p>
             </div>
         </div>
@@ -47,8 +80,8 @@
     <section class="container-fluid indexLeftMarginServices">
         <div class="row">
             <div class="col-xs-12" contenteditable="true">
-                <h4 class="services-heading">@Model.getContent("Service Title")</h4>
-                <p class="mont-light-light-22 about-services">
+                <h4 class="services-heading" id="ServiceTitle" title="Service Title" onClick="reply_click(this.id)">@Model.getContent("Service Title")</h4>
+                <p class="mont-light-light-22 about-services" id="Service desc" title="Service desc" onClick="reply_click(this.id)">
                     @Model.getContent("Service desc")
                 </p>
             </div>
@@ -82,18 +115,18 @@
 
     <article class="container-fluid indexLeftMargin">
         <section class="purpose purpose-padding indexLeftMargin" contenteditable="true">
-            <div class="row purpose-title">
-                @Html.Raw(Model.getContent("Our Purpose"))
+            <div class="row purpose-title" id="OurPurpose" title="Our Purpose" onClick="reply_click(this.id)">
+                <h2 class="h2-green">@Html.Raw(Model.getContent("Our Purpose"))</h2>
             </div>
             <div class="row purpose-detail">
                 <div class="col-xs-12 no-padding">
-                    <p class="montlight-dark-32">
+                    <p class="montlight-dark-32" id="OurPurposeDesc" title="Our purpose desc" onClick="reply_click(this.id)">
                         @Model.getContent("Our purpose desc")
                     </p>
                 </div>
             </div>
             <div class="purpose-stats">
-                <div class="col-xs-12">
+                <div class="col-xs-12" id="OurPurposeFact" title="Our purpose fact" onClick="reply_click(this.id)">
                     <p>@Html.Raw(Model.getContent("Our purpose fact"))</p>
                 </div>
             </div>
@@ -102,7 +135,7 @@
         <div class="clear"></div>
 
         <section class="sponsor-bar">
-            <div class="col-xs-12 col-lg-3" contenteditable="true">
+            <div class="col-xs-12 col-lg-3" contenteditable="true" id="OurSponsor" title="Our sponsor" onClick="reply_click(this.id)">
                 <p class="partner-text">@Model.getContent("Our sponsor")</p>
             </div>
             @foreach (var sp in Model.content.Where(c => c.contentName == "Sponsors"))
