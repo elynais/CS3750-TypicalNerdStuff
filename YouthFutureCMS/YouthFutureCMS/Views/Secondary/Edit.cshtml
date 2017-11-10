@@ -58,6 +58,7 @@
             <section class="col-xs-12  col-md-4">
                 <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                 <img src="@Model.getImagePath(col.image_Id)" class="img-responsive center-block" title="@col.columnInfo" alt="@col.columnInfo">
+                <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
                 <p class="mont_light_14_white hist_subtitle">@col.columnInfo</p>
             </section>
         }
@@ -106,6 +107,7 @@
                 <div class="col-xs-12 col-md-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
                     <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                     <img src="@Model.getImagePath(col.image_Id)" title="Picture" alt="Picture">
+                    <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
                     <p class="youth_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
                 </div>
                 counter++;
@@ -352,8 +354,9 @@
             foreach (var col in Model.getColumns(5))
             {
                 <div class="col-xs-12 col-lg-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
+                    <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                     <img src="@Model.getImagePath(col.image_Id)" title="Picture" alt="Picture">
-
+                    <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
                     <p class="vol_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
 
                 </div>
