@@ -895,6 +895,7 @@ footer .row {
     position: fixed;
     right: 0;
     bottom: 5%;
+    z-index: 10;
 }
 
 .buttons ul{
@@ -905,4 +906,12 @@ footer .row {
     margin: 5px 5px;
     color: white;
     background-color: grey;
+}
+
+.editViews {
+    position: relative;
+    bottom: 50%;
+    background-color: #9ec54d;
+    color: white;
+    font-size: 30px;
 }

@@ -140,6 +140,8 @@
     </div>
 </div>
 
+
+
 <div class="indexLeftMargin" id="directorsMain">
     <div class="row board_header">
         <div class="col-xs-6 text" contenteditable="true">
@@ -158,6 +160,8 @@
         }
     </div>
 </div>
+
+<a type="button" class="btn pull-right editViews" href="/Board/Index">Edit Board</a>
 
 <div class="indexLeftMargin" id="staffMain">
     <div class="row board_header">
@@ -178,6 +182,7 @@
         }
     </div>
 </div>
+<a type="button" class="btn pull-right editViews" href="/Staff/Index">Edit Staff</a>
 
 <div class="indexLeftMargin" id="mediaMain">
     <div class="row media_header">
@@ -218,17 +223,18 @@
 </div>
 
 <div class="indexLeftMargin" id="donorsMain">
-    <div class="row donor_header">
+    <div class="row donor_header"> 
+               
         <div class="col-xs-6 text" contenteditable="true">
             @Html.Raw(Model.getContent("Donors"))
-        </div>
+        </div>    
     </div>
 </div>
 
+<a type="button" class="btn pull-right editViews" href="/Donors/Index">Edit Donors</a>
+
 <div class="indexLeftMargin">
-
     <div class="row donor_subheader">
-
         <div class="col-xs-12 " contenteditable="true">
             <p class="title_plat">@Model.getContent("Plat Donors")</p>
         </div>
