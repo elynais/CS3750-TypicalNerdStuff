@@ -6,16 +6,16 @@
 @model YouthFutureCMS.Models.HomeModel
 
 <script language="javascript">
-    var duck = new Audio('duck.mp3');
-    function quack(){               
+    var duck = new Audio('https://www.google.com/logos/fnbx/animal_sounds/duck.mp3');
+    function quack() {
         duck.play();
     }
 </script>
 
 <div class="buttons">
     <ul>
-        <li><input class="btn pull-right" value="Save" onclick="quack();"></li>
-        <li><input class="btn pull-right" value="Cancel"></li>
+        <li><a @*type="button"*@ class="btn pull-right" onclick="quack();" contenteditable="false">Save</a></li>
+        <li><a type="button" class="btn pull-right" contenteditable="false" href="/Home/Index">Cancel</a></li>
     </ul>
 </div>
 
@@ -54,9 +54,13 @@
             </div>
         </div>
         <div class="row">
+            <div class="pull-right">
+                <a type="button" class="btn editColumn" href="/Images/Index">Edit Images</a>
+                <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
+            </div>
             <div class="purpose-boxes">
                 @foreach (var col in Model.getColumns(1))
-            {
+                {
                     <article class="col-sm-4">
                         <section class="panel-img-container">
                             <img src="@Model.getImagePath(col.image_Id)" alt="House" class="img-responsive panel-img img-center" />
@@ -79,7 +83,7 @@
             </div>
         </div>
     </section>
-
+ 
     <article class="container-fluid indexLeftMargin">
         <section class="purpose purpose-padding indexLeftMargin" contenteditable="true">
             <div class="row purpose-title">
@@ -115,6 +119,10 @@
             }
         </section>
 
+        <div class="pull-right">
+            <a type="button" class="btn pull-right editColumn" href="/Images/Index">Edit Images</a>
+        </div>
+
         <article class="container-fluid indexLeftMargin30">
             <section class="row purpose-user">
                 <div class="purpose-boxes">
@@ -138,6 +146,9 @@
                         </article>
                     }
                 </div>
+                    <a type="button" class="btn editColumn" href="/Images/Index">Edit Images</a>
+                    <p> </p>
+                    <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
             </section>
         </article>
     </article>

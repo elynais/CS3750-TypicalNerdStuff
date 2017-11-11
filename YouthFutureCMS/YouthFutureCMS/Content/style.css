@@ -895,14 +895,37 @@ footer .row {
     position: fixed;
     right: 0;
     bottom: 5%;
+    z-index: 10;
 }
 
 .buttons ul{
     list-style-type: none;
 }
 
-.buttons input {
+.buttons a {
     margin: 5px 5px;
     color: white;
     background-color: grey;
+    width: 100px;
+}
+
+.editViews {
+    background-color: #9ec54d;
+    color: white;
+    font-size: 30px;
+}
+
+.editImg {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background-color: #9ec54d;
+    color: white;
+    font-size: 10px;
+}
+
+.editColumn {
+    background-color: #9ec54d;
+    color: white;
+    font-size: 10px;
 }
