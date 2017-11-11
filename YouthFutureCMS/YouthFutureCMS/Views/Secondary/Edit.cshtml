@@ -56,12 +56,14 @@
         @foreach (var col in Model.getColumns(3))
         {
             <section class="col-xs-12  col-md-4">
-                <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                 <img src="@Model.getImagePath(col.image_Id)" class="img-responsive center-block" title="@col.columnInfo" alt="@col.columnInfo">
-                <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
                 <p class="mont_light_14_white hist_subtitle">@col.columnInfo</p>
             </section>
         }
+        <div class="pull-right">
+            <a type="button" class="btn editColumn" href="/Images/Index">Edit Images</a>
+            <a type="button" class="btn editColumn" href="/Columns/Index">Edit Captions</a>
+        </div>
     </div>
 </div>
 
@@ -105,14 +107,16 @@
             foreach (var col in Model.getColumns(4))
             {
                 <div class="col-xs-12 col-md-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
-                    <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                     <img src="@Model.getImagePath(col.image_Id)" title="Picture" alt="Picture">
-                    <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
                     <p class="youth_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
                 </div>
                 counter++;
             }
         }
+        <div class="pull-right">
+            <a type="button" class="btn editColumn" href="/Images/Index">Edit Images</a>
+            <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
+        </div>
     </section>
 </div>
 
@@ -180,14 +184,18 @@
         @foreach (var staff in Model.staff)
         {
             <section class="col-xs-12 col-md-4">
-                <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                 <img src="@Model.getImagePath(staff.image_Id)" class="img-responsive" title="@(staff.staffFirstName + " " + staff.staffLastName)" alt="@(staff.staffFirstName + " " + staff.staffLastName)">
                 <p><span class="name">@((staff.staffFirstName + " " + staff.staffLastName).ToUpper())</span><br />@staff.staffTitle<br /><span class="email">@staff.staffEmail</span></p>
             </section>
         }
     </div>
 </div>
-<a type="button" class="btn pull-right editViews" href="/Staff/Index">Edit Staff</a>
+<div class="pull-right">
+    <a type="button" class="btn editViews" href="/Images/Index">Edit Images</a>
+    <a type="button" class="btn editViews" href="/Staff/Index">Edit Staff</a>
+
+</div>
+
 
 <div class="indexLeftMargin" id="mediaMain">
     <div class="row media_header">
@@ -210,7 +218,6 @@
 <div class="indexLeftMargin">
     <div class="row media_pic">
         <div class="col-xs-12 col-lg-7 pic">
-            <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
             <img src="../resources/media_check.jpg" class="img-responsive center-block" title="America First Check" alt="Check">
         </div>
         <div class="col-xs-12 col-lg-5 subtext" contenteditable="true">
@@ -354,15 +361,17 @@
             foreach (var col in Model.getColumns(5))
             {
                 <div class="col-xs-12 col-lg-4 @(counter == 1 ? "more_stories" : "more_volunteer")">
-                    <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                     <img src="@Model.getImagePath(col.image_Id)" title="Picture" alt="Picture">
-                    <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
                     <p class="vol_p mont_light_18_darkgray"> @Html.Raw(col.columnInfo) </p>
 
                 </div>
                 counter++;
             }
         }
+        <div class="pull-right">
+            <a type="button" class="btn editColumn" href="/Images/Index">Edit Image</a>
+            <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
+        </div>
     </section>
 
 </div>

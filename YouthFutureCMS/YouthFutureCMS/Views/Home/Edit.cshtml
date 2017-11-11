@@ -54,15 +54,17 @@
             </div>
         </div>
         <div class="row">
+            <div class="pull-right">
+                <a type="button" class="btn editColumn" href="/Images/Index">Edit Images</a>
+                <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
+            </div>
             <div class="purpose-boxes">
                 @foreach (var col in Model.getColumns(1))
-            {
+                {
                     <article class="col-sm-4">
                         <section class="panel-img-container">
-                            <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                             <img src="@Model.getImagePath(col.image_Id)" alt="House" class="img-responsive panel-img img-center" />
                         </section>
-                        <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
                         <section>
                             <p class="quicksand-light-32 panel-heading">@col.columnHeader</p>
                         </section>
@@ -81,7 +83,7 @@
             </div>
         </div>
     </section>
-
+ 
     <article class="container-fluid indexLeftMargin">
         <section class="purpose purpose-padding indexLeftMargin" contenteditable="true">
             <div class="row purpose-title">
@@ -111,12 +113,15 @@
             {
                 <div class="col-xs-12 col-lg-3 ">
                     <div class="partner-logo">
-                        <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                         <img src="@Model.getImagePath(sp.image_Id)" alt="Picture" class="@sp.contentInfo" />
                     </div>
                 </div>
             }
         </section>
+
+        <div class="pull-right">
+            <a type="button" class="btn pull-right editColumn" href="/Images/Index">Edit Images</a>
+        </div>
 
         <article class="container-fluid indexLeftMargin30">
             <section class="row purpose-user">
@@ -125,10 +130,8 @@
                     {
                         <article class="col-sm-4 purpose-border">
                             <section class="panel-img-container">
-                                <a type="button" class="btn pull-right editImg" href="/Images/Index">Edit Image</a>
                                 <img src="@Model.getImagePath(col.image_Id)" alt="Picture" class="img-responsive panel-img img-center" />
                             </section>
-                            <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
                             <section>
                                 <p class="panel-heading">@col.columnHeader</p>
                             </section>
@@ -143,6 +146,9 @@
                         </article>
                     }
                 </div>
+                    <a type="button" class="btn editColumn" href="/Images/Index">Edit Images</a>
+                    <p> </p>
+                    <a type="button" class="btn editColumn" href="/Columns/Index">Edit Info</a>
             </section>
         </article>
     </article>
