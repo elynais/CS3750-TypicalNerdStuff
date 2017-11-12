@@ -12,10 +12,42 @@
     }
 </script>
 
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<title>jQuery AJAX call to insert records to database</title>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnSave').click(function () {
+            var contentInfo = document.getElementById(divID).outerText;
+            var contentName = document.getElementById(divID).title;
+            contentName = contentName;
+            contentInfo = contentInfo;
+            //alert(contentName); //for testing
+            $.ajax({
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                url: '/Secondary/updateContent',
+                data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
+                //async: false,
+                success: function (response) {
+                    alert("Record saved successfully..!!");
+                },
+                error: function () {
+                    alert("Error");
+                }
+            });
+        });
+    });
+    function reply_click(clicked_id) {
+        //alert(clicked_id); //For testing
+        divID = clicked_id;
+
+    }
+</script>
+
 <div class="buttons">
     <ul>
-        <li><a @*type="button"*@ class="btn pull-right" onclick="quack();" contenteditable="false">Save</a></li>
-        <li><a type="button" class="btn pull-right" contenteditable="false" href="/Secondary/Index">Cancel</a></li>
+        <li><a class="btn pull-right" onclick="quack();" contenteditable="false" id="btnSave">Save</a></li>
+        <li><a type="button" class="btn pull-right" contenteditable="false" href="/Secondary/Edit">Cancel</a></li>
     </ul>
 </div>
 
