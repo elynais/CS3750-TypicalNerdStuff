@@ -1,7 +1,6 @@
 ﻿<!--This is the Edit View for the Home page-->
 @{
     ViewBag.Title = "Edit";
-    var divID= ""; 
 }
 
 @model YouthFutureCMS.Models.HomeModel
@@ -20,8 +19,6 @@
             $('#btnSave').click(function () {
                 var contentInfo = document.getElementById(divID).outerText;
                 var contentName = document.getElementById(divID).title;
-                contentName = contentName;
-                contentInfo = contentInfo;
                 //alert(contentName); //for testing 
                 $.ajax({
                     type: 'POST',
