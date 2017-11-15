@@ -6,22 +6,22 @@ IF EXISTS (SELECT * FROM sys.sysdatabases WHERE NAME = 'YouthFutureDb')
 CREATE DATABASE [YouthFutureDb]
 ON Primary
 
-(NAME = N'YouthFutureDb', FILENAME = 
-N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureDb.mdf',
-SIZE = 5120KB, FILEGROWTH = 1024KB)
-LOG ON
-(NAME = N'YouthFutureDbLog', FILENAME = 
-N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureDb.ldf',
-SIZE = 2048KB, FILEGROWTH = 10%);
+--(NAME = N'YouthFutureDb', FILENAME = 
+--N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureDb.mdf',
+--SIZE = 5120KB, FILEGROWTH = 1024KB)
+--LOG ON
+--(NAME = N'YouthFutureDbLog', FILENAME = 
+--N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\YouthFutureDb.ldf',
+--SIZE = 2048KB, FILEGROWTH = 10%);
 
---(NAME = N'YouthFutureDb', FILENAME =
---	N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureDb.mdf',
---	SIZE = 5120KB, FILEGROWTH = 1024KB)
+(NAME = N'YouthFutureDb', FILENAME =
+	N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureDb.mdf',
+	SIZE = 5120KB, FILEGROWTH = 1024KB)
 
---	LOG ON
---	(NAME = N'YouthFutureDbLOG', FILENAME =
---	N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureDbLog.ldf',
---	SIZE = 2048KB, FILEGROWTH = 10%);
+	LOG ON
+	(NAME = N'YouthFutureDbLOG', FILENAME =
+	N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\YouthFutureDbLog.ldf',
+	SIZE = 2048KB, FILEGROWTH = 10%);
 GO
 
 --ATTACH TO A NEW DATABASE
@@ -37,8 +37,8 @@ IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'ErrorLog')
 IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Donor')
 	DROP TABLE Donor;
 
---IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Event')
---	DROP TABLE Event;
+IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Event')
+	DROP TABLE Event;
 
 IF EXISTS (SELECT * FROM sys.tables WHERE NAME = N'Board')
 	DROP TABLE Board;
@@ -122,14 +122,15 @@ CREATE TABLE Donor
 
 );
 
---CREATE TABLE Event
---(
---	Event_id INT IDENTITY(1,1) NOT NULL,
---	EventName NVARCHAR(50) NOT NULL,
---	EventDate DATE NOT NULL,
---	EventDesc NVARCHAR(100) NOT NULL,
---	EventLocation NVARCHAR(80) NOT NULL
---);
+CREATE TABLE Event
+(
+	Event_id INT IDENTITY(1,1) NOT NULL,
+	EventName NVARCHAR(255) NOT NULL,
+	EventTitle NVARCHAR(255) NOT NULL,
+	EventDate DATE NOT NULL,
+	EventDesc NVARCHAR(MAX) NOT NULL,
+	EventLocation NVARCHAR(255) NOT NULL
+);
 
 CREATE TABLE ErrorLog
 (
@@ -173,8 +174,8 @@ ADD CONSTRAINT PK_Board PRIMARY KEY CLUSTERED (Board_id)
 ALTER TABLE Donor
 ADD CONSTRAINT PK_Donor PRIMARY KEY CLUSTERED (Donor_id)
 
---ALTER TABLE Event
---ADD CONSTRAINT PK_Event PRIMARY KEY CLUSTERED (Event_id)
+ALTER TABLE Event
+ADD CONSTRAINT PK_Event PRIMARY KEY CLUSTERED (Event_id)
 
 ALTER TABLE ErrorLog
 ADD CONSTRAINT PK_ErrorLog PRIMARY KEY CLUSTERED (ErrorLog_id)
@@ -758,3 +759,15 @@ VALUES ('address', '2760 S. Adams Ave<br>Ogden, Utah 84403', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('social media', 'SOCIAL MEDIA', 2);
+
+	--Event_id INT IDENTITY(1,1) NOT NULL,
+	--EventName NVARCHAR(255) NOT NULL,
+	--EventTitle NVARCHAR(255) NOT NULL,
+	--EventDate DATE NOT NULL,
+	--EventDesc NVARCHAR(MAX) NOT NULL,
+	--EventLocation NVARCHAR(255) NOT NULL
+
+INSERT INTO Event (EventName, EventTitle, EventDate, EventDesc, EventLocation)
+VALUES ('CHARITY DINNER', 'Weber State Youth Charity Dinner', '03/08/2017', 
+		'Youth Futures is hosting its 6th Annual Charity Dinner Auction at the Meyden Center in Bellevue, WA. Join us for an evening of glamor and geekery, hosted by Mike "Gabe" Krahulik and Jerry "Tycho" Holkins of Penny Arcade and featuring auction items from every corner of the nerd (and Non-nerd) universe',
+		'Weber State University, Browning Center, Ballroom C');
