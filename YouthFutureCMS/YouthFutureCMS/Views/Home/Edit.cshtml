@@ -17,29 +17,29 @@
 <script type="text/javascript">
         $(document).ready(function () {
             $('#btnSave').click(function () {
-                var contentInfo = document.getElementById(divID).outerText;
-                var contentName = document.getElementById(divID).title;
-                //alert(contentName); //for testing 
-                $.ajax({
-                    type: 'POST',
-                    contentType: "application/json; charset=utf-8",
-                    url: '/Home/updateContent',
-                    data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
-                    //async: false,
-                    success: function (response) {
-                        alert("Record saved successfully..!!");
-                    },
-                    error: function () {
-                        alert("Error");
-                    }
-                });
+				var editedMatches = document.querySelectorAll(".edited");
+				for (i = 0; i < editedMatches.length; i++) {
+					//debugger
+					for (j = 0; j < editedMatches[i].children.length; j++) {
+						var contentName = editedMatches[i].children[j].title
+						var contentInfo = editedMatches[i].children[j].outerText; 
+						$.ajax({
+							type: 'POST',
+							contentType: "application/json; charset=utf-8",
+							url: '/Home/updateContent',
+							data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
+							//async: false,
+							//success: function (response) {
+							//	alert("Record saved successfully..!!");
+							//},
+							//error: function () {
+							//	alert("Error");
+							//}
+						});
+					}
+				}
             });
         });
-        function reply_click(clicked_id) {
-            //alert(clicked_id); //For testing 
-            divID = clicked_id;
-
-        }
 </script>
 
 <div class="buttons">
@@ -52,11 +52,11 @@
 <div id="main-body">
     <section class="container-fluid main-header indexLeftMargin">
         <div class="row">
-            <div class="header-box" contenteditable="true">
-                <div class="row" id="headerText" title="Header Text" onClick="reply_click(this.id)">
+            <div class="header-box edited" contenteditable="true">
+                <div class="row" id="headerText" title="Header Text">
                     <p class="header-text-greeting"> @Model.getContent("Header Text") </p>
                 </div>
-                <div class="row sub-text-box" id="headerFact" title="Header Fact" onClick="reply_click(this.id)">
+                <div class="row sub-text-box" id="headerFact" title="Header Fact">
                     <p class="sub-text">@Html.Raw(Model.getContent("Header Fact"))</p>
                 </div>
             </div>
@@ -65,22 +65,28 @@
 
     <section id="header" class="container-fluid indexLeftMargin">
         <div class="row">
-            <div class="col-xs-offset-1 col-xs-11" contenteditable="true">
-                <p class="green-header">
-                    <span class="mont-semibold-dark-36 have-questions-heading" id="HeaderContacting" title="Header Contacting" onClick="reply_click(this.id)">@Model.getContent("Header Contacting")</span>
-                    <span class="quicksand-dark-36-main have-questions-phone" id="HeaderContactNumber" title="Header Contact Number" onClick="reply_click(this.id)"> @Model.getContent("Header Contact Number")</span>
-                </p>
+            <div class="col-xs-offset-1 col-xs-11 edited" contenteditable="true" >
+                <div class="green-header" id="HeaderContacting" title="Header Contacting">
+					<p class="mont-semibold-dark-36 have-questions-heading" >@Model.getContent("Header Contacting")</p>
+				</div>
+				<div class="green-header" id="HeaderContactNumber" title="Header Contact Number"> 
+                    <p class="quicksand-dark-36-main have-questions-phone" > @Model.getContent("Header Contact Number")</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="container-fluid indexLeftMarginServices">
         <div class="row">
-            <div class="col-xs-12" contenteditable="true">
-                <h4 class="services-heading" id="ServiceTitle" title="Service Title" onClick="reply_click(this.id)">@Model.getContent("Service Title")</h4>
-                <p class="mont-light-light-22 about-services" id="Service desc" title="Service desc" onClick="reply_click(this.id)">
-                    @Model.getContent("Service desc")
-                </p>
+            <div class="col-xs-12 edited" contenteditable="true">
+				<div id="ServiceTitle" title="Service Title">
+					<h4 class="services-heading" >@Model.getContent("Service Title")</h4>
+				</div>
+				<div id="Service desc" title="Service desc">
+					<p class="mont-light-light-22 about-services">
+						@Model.getContent("Service desc")
+					</p>
+				</div>
             </div>
         </div>
         <div class="row">
@@ -115,19 +121,19 @@
     </section>
  
     <article class="container-fluid indexLeftMargin">
-        <section class="purpose purpose-padding indexLeftMargin" contenteditable="true">
-            <div class="row purpose-title" id="OurPurpose" title="Our Purpose" onClick="reply_click(this.id)">
+        <section class="purpose purpose-padding indexLeftMargin edited" contenteditable="true">
+            <div class="row purpose-title" id="OurPurpose" title="Our Purpose">
                 <h2 class="h2-green">@Html.Raw(Model.getContent("Our Purpose"))</h2>
             </div>
-            <div class="row purpose-detail">
-                <div class="col-xs-12 no-padding">
-                    <p class="montlight-dark-32" id="OurPurposeDesc" title="Our purpose desc" onClick="reply_click(this.id)">
+            <div class="row purpose-detail edited">
+                <div class="col-xs-12 no-padding" id="OurPurposeDesc" title="Our purpose desc">
+                    <p class="montlight-dark-32">
                         @Model.getContent("Our purpose desc")
                     </p>
                 </div>
             </div>
-            <div class="purpose-stats">
-                <div class="col-xs-12" id="OurPurposeFact" title="Our purpose fact" onClick="reply_click(this.id)">
+            <div class="purpose-stats edited">
+                <div class="col-xs-12" id="OurPurposeFact" title="Our purpose fact">
                     <p>@Html.Raw(Model.getContent("Our purpose fact"))</p>
                 </div>
             </div>
@@ -136,8 +142,11 @@
         <div class="clear"></div>
 
         <section class="sponsor-bar">
-            <div class="col-xs-12 col-lg-3" contenteditable="true" id="OurSponsor" title="Our sponsor" onClick="reply_click(this.id)">
-                <p class="partner-text">@Model.getContent("Our sponsor")</p>
+            <div class="col-xs-12 col-lg-3 edited" contenteditable="true" >
+				<div id="OurSponsor" title="Our sponsor">
+					<p class="partner-text">@Model.getContent("Our sponsor")</p>
+				</div>
+                <
             </div>
             @foreach (var sp in Model.content.Where(c => c.contentName == "Sponsors"))
             {
