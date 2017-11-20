@@ -17,28 +17,41 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#btnSave').click(function () {
-			var contentInfo = document.getElementById(divID).outerText;
-            var contentName = document.getElementById(divID).title;
-            //alert(contentName); //for testing
-            $.ajax({
-                type: 'POST',
-                contentType: "application/json; charset=utf-8",
-                url: '/Secondary/updateContent',
-                data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
-                //async: false,
-                success: function (response) {
-                    alert("Record saved successfully..!!");
-                },
-                error: function () {
-                    alert("Error");
-                }
-            });
+			var editedMatches = document.querySelectorAll(".edited");
+			var editedMatchesHTMLList = document.querySelectorAll(".editedHTMLList");
+			for (i = 0; i < editedMatches.length; i++) {
+				//debugger
+				for (j = 0; j < editedMatches[i].children.length; j++) {
+					var contentName = editedMatches[i].children[j].title
+					var contentInfo = editedMatches[i].children[j].outerText;
+					$.ajax({
+						type: 'POST',
+						contentType: "application/json; charset=utf-8",
+						url: '/Home/updateContent',
+						data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
+						//async: false,
+						//success: function (response) {
+						//	alert("Record saved successfully..!!");
+						//},
+						//error: function () {
+						//	alert("Error");
+						//}
+					});
+				}
+			}
+			for (i = 0; i < editedMatchesHTMLList.length; i++) {
+				//debugger
+				var contentName = editedMatchesHTMLList[i].title
+				var contentInfo = editedMatchesHTMLList[i].innerHTML;
+				$.ajax({
+					type: 'POST',
+					contentType: "application/json; charset=utf-8",
+					url: '/Home/updateContent',
+					data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
+				});
+			}
         });
     });
-    function reply_click(clicked_id) {
-        //alert(clicked_id); //For testing
-        divID = clicked_id;
-    }
 </script>
 
 <div class="buttons">
@@ -50,14 +63,14 @@
 
 <article>
     <div class="indexLeftMargin" contenteditable="true">
-        <div class="row  questions">
+        <div class="row  questions edited">
             <br />
-            <div class="col-sm-12 col-md-7 text" id="2ndHeaderQuestion" title="2nd header question" onClick="reply_click(this.id)">
+            <div class="col-sm-12 col-md-7 text" id="2ndHeaderQuestion" title="2nd header question">
                 <p>@Model.getContent("2nd header question")</p>
 
             </div>
 
-            <div class="col-sm-12 col-md-5 phone" id="2ndHeaderPhone" title="2nd header phone" onClick="reply_click(this.id)">
+            <div class="col-sm-12 col-md-5 phone" id="2ndHeaderPhone" title="2nd header phone">
                 <p>@Model.getContent("2nd header phone")</p>
             </div>
         </div>
@@ -65,16 +78,16 @@
 </article>
 
 <div class="indexLeftMargin" id="historyBanner">
-    <div class="row hist_main_img">
-        <div class="col-xs-8 text" contenteditable="true" id="YFHistory" title="YF History" onClick="reply_click(this.id)">
+    <div class="row hist_main_img edited">
+        <div class="col-xs-8 text" contenteditable="true" id="YFHistory" title="YF History">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("YF History"))</h2>
         </div>
     </div>
 </div>
 
-<div class="indexLeftMargin">
-    <div class="row history_text">
-        <section class="col-xs-12" contenteditable="true" id="YFHisDescib" title="YF His descib" onClick="reply_click(this.id)">
+<div class="indexLeftMargin edited">
+    <div class="row history_text" id="YFHisDescib" title="YF His descib">
+        <section class="col-xs-12" contenteditable="true" >
             <p class="mont_regular_22_darkgray">@Model.getContent("YF His descib")</p>
         </section>
     </div>
@@ -96,33 +109,33 @@
     </div>
 </div>
 
-<div class="indexLeftMargin">
-    <div class="row history_text">
-        <section class="col-xs-12" contenteditable="true" id="YFFounderDescr" title="YF founder descr" onClick="reply_click(this.id)">
+<div class="indexLeftMargin edited">
+    <div class="row history_text" id="YFFounderDescr" title="YF founder descr">
+        <section class="col-xs-12" contenteditable="true" >
             <p class="mont_regular_22_darkgray">@Model.getContent("YF founder descr")</p>
         </section>
     </div>
 </div>
 
-<div class="indexLeftMargin">
-    <div class="row hist_2nd_back_img">
-        <section class="col-xs-12 hist_2nd_back_img_text" contenteditable="true" id="YFHistoryFact" title="YF history Fact" onClick="reply_click(this.id)">
+<div class="indexLeftMargin edited">
+    <div class="row hist_2nd_back_img" id="YFHistoryFact" title="YF history Fact">
+        <section class="col-xs-12 hist_2nd_back_img_text" contenteditable="true">
             <h4>@Model.getContent("YF history Fact")</h4>
         </section>
     </div>
 </div>
 
-<div class="indexLeftMargin">
-    <div class="row history_text">
-        <section class="col-xs-12" contenteditable="true" id="YFHistoryFactDesc" title="YF history fact desc" onClick="reply_click(this.id)">
+<div class="indexLeftMargin edited">
+    <div class="row history_text" id="YFHistoryFactDesc" title="YF history fact desc">
+        <section class="col-xs-12" contenteditable="true">
             <p class="mont_regular_22_darkgray">@Model.getContent("YF history fact desc")</p>
         </section>
     </div>
 </div>
 
-<div class="indexLeftMargin">
-    <div class="row history_green_text">
-        <section class="col-xs-12" contenteditable="true" id="YFHistoryFact2" title="YF history Fact2" onClick="reply_click(this.id)">
+<div class="indexLeftMargin edited">
+    <div class="row history_green_text" id="YFHistoryFact2" title="YF history Fact2">
+        <section class="col-xs-12" contenteditable="true">
             <p class="mont_light_32_white">@Model.getContent("YF history Fact2")</p>
         </section>
     </div>
@@ -149,39 +162,38 @@
     </section>
 </div>
 
-<div class="indexLeftMargin" id="outreachBanner">
-    <div class="row outreach_main_img">
-        <div class="col-xs-8 text" contenteditable="true" id="YFOutreach" title="YF outreach" onClick="reply_click(this.id)">
+<div class="indexLeftMargin edited" id="outreachBanner">
+    <div class="row outreach_main_img"  id="YFOutreach" title="YF outreach">
+        <div class="col-xs-8 text" contenteditable="true">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("YF outreach"))</h2>
         </div>
     </div>
 </div>
 
-<div class="indexLeftMargin">
-    <div class="row outreach_text">
-        <section class="col-xs-12" contenteditable="true" id="YFOutreachDesc" title="YF outreach desc" onClick="reply_click(this.id)">
+<div class="indexLeftMargin edited">
+    <div class="row outreach_text" id="YFOutreachDesc" title="YF outreach desc">
+        <section class="col-xs-12" contenteditable="true">
             <p class="mont_regular_22_darkgray">@Model.getContent("YF outreach desc")</p>
         </section>
     </div>
 </div>
 
-<div class="indexLeftMargin" contenteditable="true">
-    <div class="row outreach_bullet">
-        <section class="col-xs-12 col-md-6" id="YFOutreachList1" title="YF outreach list1" onClick="reply_click(this.id)">
+<div class="indexLeftMargin " contenteditable="true">
+    <div class="row outreach_bullet" >
+		<section class="editedHTMLList" id="YFOutreachList1" title="YF outreach list1">
 			@Html.Raw(Model.getContent("YF outreach list1"))
-</section>
-
-        <section class="col-xs-12 col-md-6" id="YFOutreachList2" title="YF outreach list2" onClick="reply_click(this.id)">
-            @Html.Raw(Model.getContent("YF outreach list2"))
-        </section>
+		</section>
+		<section class="editedHTMLList" id="YFOutreachList2" title="YF outreach list2">
+			@Html.Raw(Model.getContent("YF outreach list2"))
+		</section>
     </div>
 </div>
 
 
 
 <div class="indexLeftMargin" id="directorsMain">
-    <div class="row board_header">
-        <div class="col-xs-6 text" contenteditable="true" id="BoardOfDir" title="Board of Dir" onClick="reply_click(this.id)">
+    <div class="row board_header edited">
+        <div class="col-xs-6 text" contenteditable="true" id="BoardOfDir" title="Board of Dir">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("Board of Dir"))</h2>
         </div>
     </div>
@@ -201,8 +213,8 @@
 <a type="button" class="btn pull-right editViews" href="/Board/Index">Edit Board</a>
 
 <div class="indexLeftMargin" id="staffMain">
-    <div class="row board_header">
-        <div class="col-xs-6 text" contenteditable="true" id="Staff" title="Staff" onClick="reply_click(this.id)">
+    <div class="row board_header edited">
+        <div class="col-xs-6 text" contenteditable="true" id="Staff" title="Staff">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("Staff"))</h2>
         </div>
     </div>
@@ -227,7 +239,7 @@
 
 
 <div class="indexLeftMargin" id="mediaMain">
-    <div class="row media_header">
+    <div class="row media_header edited">
         <div class="col-xs-6 text" contenteditable="true" id="Media" title="Media" onClick="reply_click(this.id)">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("Media"))</h2>
         </div>
@@ -235,39 +247,44 @@
 </div>
 
 <div class="indexLeftMargin">
-    <div class="row media_subheader">
-        <div class="col-xs-12 " contenteditable="true" id="mediaHeadline" title="media headline" onClick="reply_click(this.id)">
-            <p class="title">@Model.getContent("media headline")</p>
-            <p class="mont_regular_22_darkgray time">03/18/2015 10:03 pm<p> @*/ <----Need to fix this/*@
-                <a class="link" href="#">inShare</a>
-        </div>
+    <div class="row media_subheader edited">
+		<div class="col-xs-12 " contenteditable="true" id="mediaHeadline" title="media headline">
+			<p class="title">@Model.getContent("media headline")</p>
+		</div>
+		<div>
+			<p class="mont_regular_22_darkgray time">03/18/2015 10:03 pm<p>
+					@*/ <----Need to fix this/*@
+				<a class="link" href="#">inShare</a>
+		</div>
     </div>
 </div>
 
 <div class="indexLeftMargin">
-    <div class="row media_pic">
+    <div class="row media_pic edited">
         <div class="col-xs-12 col-lg-7 pic">
             <img src="../resources/media_check.jpg" class="img-responsive center-block" title="America First Check" alt="Check">
         </div>
-        <div class="col-xs-12 col-lg-5 subtext" contenteditable="true" id="mediaCheckDesc" title="media check desc" onClick="reply_click(this.id)">
+        <div class="col-xs-12 col-lg-5 subtext" contenteditable="true" id="mediaCheckDesc" title="media check desc">
             <p class="subtitle">@Model.getContent("media check desc")</p>
         </div>
     </div>
 </div>
 
 <div class="indexLeftMargin">
-    <div class="row media_text">
-        <section class="col-xs-12" contenteditable="true">
-            <p class="mont_regular_22_darkgray" id="media check story1" title="media check story1" onClick="reply_click(this.id)">@Model.getContent("media check story1")</p>
-            <p class="mont_regular_22_darkgray" id="media check story2" title="media check story2" onClick="reply_click(this.id)">@Model.getContent("media check story2")</p>
-        </section>
+    <div class="row media_text edited" contenteditable="true">
+			<div class="col-xs-12" id="media check story1" title="media check story1">
+				<p class="mont_regular_22_darkgray">@Model.getContent("media check story1")</p>
+			</div>
+			<div class="col-xs-12" id="media check story2" title="media check story2">
+				<p class="mont_regular_22_darkgray">@Model.getContent("media check story2")</p>
+			</div>
     </div>
 </div>
 
 <div class="indexLeftMargin" id="donorsMain">
-    <div class="row donor_header"> 
+    <div class="row donor_header edited"> 
                
-        <div class="col-xs-6 text" contenteditable="true" id="Donors" title="Donors" onClick="reply_click(this.id)">
+        <div class="col-xs-6 text" contenteditable="true" id="Donors" title="Donors">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("Donors"))</h2>
         </div>    
     </div>
@@ -276,8 +293,8 @@
 <a type="button" class="btn pull-right editViews" href="/Donors/Index">Edit Donors</a>
 
 <div class="indexLeftMargin">
-    <div class="row donor_subheader">
-        <div class="col-xs-12 " contenteditable="true" id="PlatDonors" title="Plat Donors" onClick="reply_click(this.id)">
+    <div class="row donor_subheader edited">
+        <div class="col-xs-12 " contenteditable="true" id="PlatDonors" title="Plat Donors">
             <p class="title_plat">@Model.getContent("Plat Donors")</p>
         </div>
     </div>
@@ -299,8 +316,8 @@
 </div>
 
 <div class="indexLeftMargin">
-    <div class="row donor_subheader">
-        <div class="col-xs-12 " contenteditable="true"  id="GoldDonors" title="Gold Donors" onClick="reply_click(this.id)">
+    <div class="row donor_subheader edited">
+        <div class="col-xs-12 " contenteditable="true"  id="GoldDonors" title="Gold Donors">
             <p class="title_gold">@Model.getContent("Gold Donors")</p>
         </div>
     </div>
@@ -321,8 +338,8 @@
 </div>
 
 <div class="indexLeftMargin">
-    <div class="row donor_subheader">
-        <div class="col-xs-12 " contenteditable="true" id="SilverDonors" title="Silver Donors" onClick="reply_click(this.id)">
+    <div class="row donor_subheader edited">
+        <div class="col-xs-12 " contenteditable="true" id="SilverDonors" title="Silver Donors">
             <p class="title_silver">@Model.getContent("Silver Donors")</p>
         </div>
     </div>
@@ -343,8 +360,8 @@
 </div>
 
 <div class="indexLeftMargin">
-    <div class="row donor_subheader">
-        <div class="col-xs-12 " contenteditable="true" id="BronzeDonors" title="Bronze Donors" onClick="reply_click(this.id)">
+    <div class="row donor_subheader edited">
+        <div class="col-xs-12 " contenteditable="true" id="BronzeDonors" title="Bronze Donors">
             <p class="title_bronze">@Model.getContent("Bronze Donors")</p>
         </div>
     </div>
@@ -365,20 +382,20 @@
 </div>
 
 <div class="indexLeftMargin" id="donateMain">
-    <div class="row donor_header">
-        <div class="col-xs-6 text" contenteditable="true" id="donations" title="donations" onClick="reply_click(this.id)">
+    <div class="row donor_header edited">
+        <div class="col-xs-6 text" contenteditable="true" id="donations" title="donations">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("donations"))</h2>
         </div>
     </div>
 
-    <div class="row donate_help">
-        <div class="col-xs-12" contenteditable="true" id="donationsQuestion" title="donations question" onClick="reply_click(this.id)">
+    <div class="row donate_help edited">
+        <div class="col-xs-12" contenteditable="true" id="donationsQuestion" title="donations question">
             <p>@Model.getContent("donations question")</p>
         </div>
     </div>
 
-    <div class="row media_text">
-        <div class="col-xs-12" contenteditable="true" id="pleaseDonate" title="please donate" onClick="reply_click(this.id)">
+    <div class="row media_text edited">
+        <div class="col-xs-12" contenteditable="true" id="pleaseDonate" title="please donate">
             <p class="mont_regular_22_darkgray">@Model.getContent("please donate")</p>
         </div>
     </div>
@@ -406,51 +423,66 @@
 </div>
 
 <div class="container-fluid needs indexLeftMargin" contenteditable="true">
-    <div class="row donate_help">
-        <div class="col-xs-12" id="listOfNeeds" title="list of needs" onClick="reply_click(this.id)">
+    <div class="row donate_help edited">
+        <div class="col-xs-12" id="listOfNeeds" title="list of needs">
             <p>@Model.getContent("list of needs")</p>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-md-4 needs_list first">
-            <p class="needs_subheader" id="MostImportantNeeds" title="Most important needs" onClick="reply_click(this.id)">
+        <div class="col-xs-12 col-md-4 needs_list first edited">
+            <p class="needs_subheader" id="MostImportantNeeds" title="Most important needs">
                 @Model.getContent("Most important needs")
             </p>
-            @Html.Raw(Model.getContent("important needs"))
+			<section class="editedHTMLList" title="important needs">
+					@Html.Raw(Model.getContent("important needs"))
+			</section>
         </div>
 
-        <div class="col-xs-12 col-md-4 needs_list">
+        <div class="col-xs-12 col-md-4 needs_list edited">
             <p class="needs_subheader" id="MiscNeeds" title="Misc needs" onClick="reply_click(this.id)">@Model.getContent("Misc needs")</p>
-            @Html.Raw(Model.getContent("misc list"))
-
-            <p class="needs_subheader" id="GiftCards" title="Gift cards" onClick="reply_click(this.id)">@Model.getContent("Gift cards")</p>
-            @Html.Raw(Model.getContent("gift card list"))
+			<section class="editedHTMLList" title="misc list">
+				@Html.Raw(Model.getContent("misc list"))
+			</section>
+			<section class="edited">
+				<p class="needs_subheader" id="GiftCards" title="Gift cards">@Model.getContent("Gift cards")</p>
+			</section>
+			<section class="editedHTMLList" title="gift card list">
+				@Html.Raw(Model.getContent("gift card list"))
+			</section>
         </div>
 
-        <div class="col-xs-12 col-md-4 needs_list">
-            <p class="needs_subheader" id="houseFurnishings" title="house furnishings" onClick="reply_click(this.id)">@Model.getContent("house furnishings")</p>
-            @Html.Raw(Model.getContent("furnishings list"))
-
-            <p class="needs_subheader" id="Volunteers" title="Volunteers" onClick="reply_click(this.id)">@Model.getContent("Volunteers")</p>
-            @Html.Raw(Model.getContent("Volunteers list"))
-
-            <p class="needs_subheader" id="RepairNeeds" title="Repair needs" onClick="reply_click(this.id)">@Model.getContent("Repair needs")</p>
-            @Html.Raw(Model.getContent("Repair list"))
+        <div class="col-xs-12 col-md-4 needs_list edited">
+            <p class="needs_subheader" id="houseFurnishings" title="house furnishings">@Model.getContent("house furnishings")</p>
+			<section class="editedHTMLList" title="furnishings list">
+				@Html.Raw(Model.getContent("furnishings list"))
+			</section>
+			<section class="edited">
+				<p class="needs_subheader" id="Volunteers" title="Volunteers">@Model.getContent("Volunteers")</p>
+			</section>
+			<section class="editedHTMLList" title="Volunteers list">
+				@Html.Raw(Model.getContent("Volunteers list"))
+			</section>
+			<section class="edited">
+				<p class="needs_subheader" id="RepairNeeds" title="Repair needs" >@Model.getContent("Repair needs")</p>
+			</section>
+			<section class="editedHTMLList" title="Repair list">
+				@Html.Raw(Model.getContent("Repair list"))
+			</section>
         </div>
     </div>
 </div>
 
 <div class="needs indexLeftMargin" id="contactMain">
-    <div class="row donor_header">
-        <div class="col-xs-6 text" contenteditable="true" id="ContactTitle" title="Contact Title" onClick="reply_click(this.id)">
+    <div class="row donor_header edited">
+        <div class="col-xs-6 text" contenteditable="true" id="ContactTitle" title="Contact Title">
             <h2 class="h2style1">@Model.getContent("Contact Title")</h2>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-md-6 contact_form">
-            <p class="contact_subheader" contenteditable="true" id="ContactUs" title="Contact us" onClick="reply_click(this.id)">@Model.getContent("Contact us")</p>
+        <div class="col-xs-12 col-md-6 contact_form edited">
+            <p class="contact_subheader" contenteditable="true" id="ContactUs" title="Contact us">@Model.getContent("Contact us")</p>
             <form method="post" name="myemailform" action="form-to-email.php">
                 <input type="text" class="input_text" name="firstName" placeholder="First Name" maxlength="20"> <span class="change" id="fName_change">Required!</span>
                 <br>
@@ -467,7 +499,7 @@
             </form>
         </div>
 
-        <div class="col-xs-12 col-md-6 two_col" contenteditable="true">
+        <div class="col-xs-12 col-md-6 two_col edited" contenteditable="true">
             <p class="contact_subheader other_info" id="ContactCallUs" title="Contact call us" onClick="reply_click(this.id)">@Model.getContent("Contact call us")</p>
             <p class="contact_info_text contact_tel" id="ContactNumber" title="Contact number" onClick="reply_click(this.id)">@Model.getContent("Contact number")</p>
 
@@ -479,7 +511,7 @@
     </div>
 
     <div class="row contact_SM">
-        <div class="col-xs-4">
+        <div class="col-xs-4 edited">
             <p class="contact_subheader" contenteditable="true" id="socialMedia" title="social media" onClick="reply_click(this.id)">@Model.getContent("social media")</p>
             <img src="../resources/social_instagram.png" title="instagram icon" alt="instagram icon">
             <img src="../resources/social_twitter.svg" title="twitter icon" alt="twitter icon">
