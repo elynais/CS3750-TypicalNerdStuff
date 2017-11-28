@@ -200,6 +200,48 @@
     </div>
 </div>
 
+<div class="indexLeftMargin" id="mediaMain">
+    <div class="row calendar_header">
+        <div class="col-xs-6 text">
+            <h2 class="h2style1">@Html.Raw(Model.getContent("Calendar"))</h2>
+        </div>
+    </div>
+</div>
+
+<div class="indexLeftMargin">
+    <div class="row calendar">
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+            @{
+                foreach (var eve in Model.events.Where(c => c.eventDate >= new DateTime()))
+                {
+                    <div class="card">
+                        <div class="card-header" role="tab" id="eventHeading">
+                            <h5 class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse" aria-expanded="true">
+                                    @eve.eventName - @eve.eventDate
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="collapse" class="collapse show" role="tabpanel">
+                            <div class="card-block">
+                                <h3>What?</h3>
+                                <p>@eve.eventName</p>
+                                <h3>Where?</h3>
+                                <p>@eve.eventLocation</p>
+                                <h3>When?</h3>
+                                <p>@eve.eventDate</p>
+                                <h3>Details:</h3>
+                                <p>@eve.eventDesc</p>
+                            </div>
+                        </div>
+                    </div>
+               } 
+            }
+        </div>
+    </div>
+</div>
+
+
 <div class="indexLeftMargin" id="donorsMain">
     <div class="row donor_header">
         <div class="col-xs-6 text">
