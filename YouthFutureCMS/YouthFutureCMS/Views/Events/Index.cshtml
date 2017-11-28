@@ -1,0 +1,51 @@
+﻿@model IEnumerable<YouthFutureCMS.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.eventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventLocation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.eventId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.eventId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.eventId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -200,6 +200,7 @@
     <Compile Include="Controllers\DynamicContent\BoardController.cs" />
     <Compile Include="Controllers\DynamicContent\ColumnsController.cs" />
     <Compile Include="Controllers\DynamicContent\DonorsController.cs" />
+    <Compile Include="Controllers\DynamicContent\EventsController.cs" />
     <Compile Include="Controllers\DynamicContent\ImagesController.cs" />
     <Compile Include="Controllers\DynamicContent\StaffController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="Models\Content.cs" />
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\ErrorLog.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
@@ -365,6 +367,11 @@
     <Content Include="Views\Columns\Details.cshtml" />
     <Content Include="Views\Columns\Edit.cshtml" />
     <Content Include="Views\Columns\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
