@@ -28,9 +28,10 @@ namespace YouthFutureCMS.Controllers
             List<Board> board = data.board.ToList();
             List<Donor> donors = data.donors.ToList();
             List<Image> images = data.images.ToList();
+            List<Event> events = data.events.ToList();
 
             //construct secondary model
-            SecondaryModel model = new SecondaryModel(columns,content,donors,board,images,staff);
+            SecondaryModel model = new SecondaryModel(columns,content,donors,board,images,staff,events);
             
             //pass model to view
             return View(model);
@@ -49,9 +50,10 @@ namespace YouthFutureCMS.Controllers
             List<Board> board = data.board.ToList();
             List<Donor> donors = data.donors.ToList();
             List<Image> images = data.images.ToList();
+            List<Event> events = data.events.ToList();
 
             //construct secondary model
-            SecondaryModel model = new SecondaryModel(columns, content, donors, board, images, staff);
+            SecondaryModel model = new SecondaryModel(columns, content, donors, board, images, staff, events);
 
             //pass model to view
             return View(model);

@@ -1,0 +1,50 @@
+﻿@model YouthFutureCMS.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.eventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.eventId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

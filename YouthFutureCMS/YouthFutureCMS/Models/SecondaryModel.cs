@@ -21,6 +21,8 @@ namespace YouthFutureCMS.Models
 
         public List<Staff> staff { get; set; }
 
+        public List<Event> events { get; set; }
+
         /// <summary>
         /// Contructor
         /// </summary>
@@ -30,7 +32,7 @@ namespace YouthFutureCMS.Models
         /// <param name="boardParam"></param>
         /// <param name="imageParam"></param>
         /// <param name="staffParam"></param>
-        public SecondaryModel(List<Column> columnParam, List<Content> contentParam, List<Donor> donorParam, List<Board> boardParam, List<Image> imageParam, List<Staff> staffParam)
+        public SecondaryModel(List<Column> columnParam, List<Content> contentParam, List<Donor> donorParam, List<Board> boardParam, List<Image> imageParam, List<Staff> staffParam, List<Event> eventParam)
         {
             columns = columnParam;
             content = contentParam;
@@ -38,6 +40,7 @@ namespace YouthFutureCMS.Models
             board = boardParam;
             images = imageParam;
             staff = staffParam;
+            events = eventParam;
         }
 
         public string getContent(string name)
@@ -65,6 +68,14 @@ namespace YouthFutureCMS.Models
         public string getBoardEmail(int id)
         {
             return staff.Find(c => c.staff_Id == id).staffEmail;
+        }
+        /// <summary>
+        /// Gets the list of events that are after today's current date
+        /// </summary>
+        /// <returns></returns>
+        public List<Event> getCurrentEvents()
+        {
+            return events.Where(c => c.eventDate >= new DateTime()).ToList();
         }
     }
 }

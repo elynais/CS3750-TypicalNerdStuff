@@ -25,5 +25,7 @@ namespace YouthFutureCMS.Models
         public DbSet<Staff> staff { get; set; }
 
         public DbSet<User> users { get; set; }
+
+        public DbSet<Event> events { get; set; }
     }
 }
