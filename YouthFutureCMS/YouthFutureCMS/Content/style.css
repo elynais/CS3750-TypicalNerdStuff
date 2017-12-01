@@ -901,17 +901,30 @@ footer .row {
     right: 0;
     bottom: 5%;
     z-index: 10;
+    background-color: grey;
+    padding: 10px 0 15px 0;
+    border-radius: 15px 0 0 15px;
+}
+
+.buttons p {
+    text-align: center;
+    font-size: 20px;
+    color: white
 }
 
 .buttons ul{
     list-style-type: none;
+    padding: 0 10px 0 20px;
 }
 
 .buttons a {
+    /*margin: 5px 5px;
+    color: white;
+    background-color: grey;*/
+    width: 150px;
     margin: 5px 5px;
     color: white;
-    background-color: grey;
-    width: 100px;
+    background-color: #9FC453;
 }
 
 .editViews {
