@@ -33,11 +33,12 @@ namespace YouthFutureCMS.Controllers
             return View(model);
         }
 
-         /// <summary>
-         /// ActionResult for the Home Edit View
-         /// </summary>
-         /// <returns></returns>
-         public ActionResult Edit()
+        /// <summary>
+        /// ActionResult for the Home Edit View
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public ActionResult Edit()
          {
             //populate lists with dataset info
             List<Column> columns = data.columns.ToList();
