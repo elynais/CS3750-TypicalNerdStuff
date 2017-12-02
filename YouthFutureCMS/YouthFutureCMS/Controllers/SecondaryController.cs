@@ -37,11 +37,12 @@ namespace YouthFutureCMS.Controllers
             return View(model);
         }
 
-         /// <summary>
-         /// ActionResult for returning the Secondary Edit View
-         /// </summary>
-         /// <returns></returns>
-         public ActionResult Edit()
+        /// <summary>
+        /// ActionResult for returning the Secondary Edit View
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public ActionResult Edit()
          {
             //populate lists
             List<Content> content = data.content.ToList();

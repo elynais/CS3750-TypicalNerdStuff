@@ -21,7 +21,7 @@ namespace YouthFutureCMS.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SystemDataContext", throwIfV1Schema: false)
         {
         }
 
