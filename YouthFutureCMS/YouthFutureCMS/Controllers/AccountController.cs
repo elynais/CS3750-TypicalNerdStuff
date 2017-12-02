@@ -451,7 +451,7 @@ namespace MVCLogin.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Edit", "Home");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

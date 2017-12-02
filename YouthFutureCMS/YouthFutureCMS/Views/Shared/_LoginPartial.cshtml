@@ -4,7 +4,10 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
-
+		<ul class="">
+			@Html.ActionLink("Secondary Edit ", "Edit", "Secondary", routeValues: null, htmlAttributes: new { id = "SecondaryEditLink" })
+			@Html.ActionLink(" Home Edit", "Edit", "Home", routeValues: null, htmlAttributes: new { id = "HomeEditLink" })
+		</ul>
     <ul class="nav navbar-nav navbar-right">
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Home", routeValues: null, htmlAttributes: new { title = "Manage" })
