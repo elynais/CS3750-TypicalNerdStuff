@@ -361,7 +361,7 @@ INSERT INTO Image (Image_id, ImagePath)
 VALUES (6, '..\resources\hand_icon.png');
 
 INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
-VALUES ('Apply to Volunteer', 'Make your mark where it matters.', '/Secondary/Index#donateMain', 6, 2, 'Volunteer Now >');
+VALUES ('Apply to Volunteer', 'Make your mark where it matters.', '/Secondary/Index#contactMain', 6, 2, 'Volunteer Now >');
 
 INSERT INTO Image (Image_id, ImagePath)
 VALUES (7, '..\resources\girl_icon.png');
@@ -373,7 +373,7 @@ INSERT INTO Image (Image_id, ImagePath)
 VALUES (8, '..\resources\calendar_icon.png');
 
 INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
-VALUES ('Events', 'Check out our monthly events', '/Secondary/Index#calendarMain', 8, 2, 'View All Events >');
+VALUES ('Events', 'Check out our monthly events', '/Secondary/Index#eventsMain', 8, 2, 'View All Events >');
 
 SET IDENTITY_INSERT Image OFF
 
