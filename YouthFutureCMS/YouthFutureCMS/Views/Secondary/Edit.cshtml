@@ -190,18 +190,18 @@
     </div>
 </div>
 
-<div class="indexLeftMargin" id="youthStories" contenteditable="true">
+<div class="indexLeftMargin" id="YouthStoriesHeader" title="Youth Stories Header" >
     <div class="row board_header edited">
-        <div class="col-xs-6 text">
+        <div class="col-xs-6 text" contenteditable="true">
             <h2 class="h2style1">@Html.Raw(Model.getContent("Youth Stories Header"))</h2>
         </div>
     </div>
 </div>
 
 <div class="indexLeftMargin" contenteditable="true">
-    <div class="row board_header edited">
+    <div class="row board_header edited" id="YouthStories" title="Youth Stories">
         <section class="col-xs-12">
-            @*<p class="mont_regular_22_darkgray">@Model.getContent("Youth Stories")</p>*@
+            <p class="mont_regular_22_darkgray">@Model.getContent("Youth Stories")</p>
         </section>
     </div>
 </div>
