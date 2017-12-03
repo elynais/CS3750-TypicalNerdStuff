@@ -891,14 +891,11 @@ footer .row {
 	}
 }
 
-#ErrorMessage {
+.ErrorMessage {
     background-color: #1c5788;
     padding-top: 30px;
     padding-bottom: 29px;
     margin-right: 0;
-}
-
-.header-comingSoon {
 }
 
 .commingSoon-header {
@@ -907,7 +904,7 @@ footer .row {
     background-repeat: no-repeat;
 }
 
-#ComingSoonMessage {
+.ComingSoonMessage {
     background-color: #21415f;
     padding-top: 30px;
     padding-bottom: 29px;
