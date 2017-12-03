@@ -947,3 +947,12 @@ footer .row {
     color: white;
     font-size: 10px;
 }
+
+.cal_text {
+    font-size: 20px !important;
+}
+
+.cal_subheader {
+    color: cadetblue !important;
+    font-size: 40px !important;
+}
