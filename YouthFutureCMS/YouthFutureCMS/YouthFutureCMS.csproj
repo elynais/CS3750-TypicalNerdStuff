@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -197,10 +198,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\CustomErrorUseController.cs" />
     <Compile Include="Controllers\DynamicContent\BoardController.cs" />
     <Compile Include="Controllers\DynamicContent\DonorsController.cs" />
     <Compile Include="Controllers\DynamicContent\ImagesController.cs" />
     <Compile Include="Controllers\DynamicContent\StaffController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SecondaryController.cs" />
     <Compile Include="Global.asax.cs">
@@ -359,9 +362,13 @@
     <Content Include="Views\Board\Details.cshtml" />
     <Content Include="Views\Board\Edit.cshtml" />
     <Content Include="Views\Board\Index.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Shared\ComingSoon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CustomErrorUse\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
