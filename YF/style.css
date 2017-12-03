@@ -829,3 +829,39 @@ footer .row {
     	display: block;
     }
 }
+
+#ErrorMessage {
+    background-color: #1c5788;
+    padding-top: 30px;
+    padding-bottom: 29px;
+    margin-right: 0;
+}
+
+.header-comingSoon {
+}
+
+.commingSoon-header {
+    background-image: url('./resources/staff_header.jpg');
+    min-height: 509px;
+    background-repeat: no-repeat;
+}
+
+#ComingSoonMessage {
+    background-color: #21415f;
+    padding-top: 30px;
+    padding-bottom: 29px;
+    margin-right: 0;
+}
+
+.comingSoon-text-greeting {
+    font-family: quicksand-bold;
+    font-size: 120px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.06;
+    letter-spacing: -6px;
+    margin-top: 200px;
+    margin-left: -100px;
+    color: #FFF;
+}
