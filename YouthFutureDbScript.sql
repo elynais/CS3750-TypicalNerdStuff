@@ -367,7 +367,7 @@ INSERT INTO Image (Image_id, ImagePath)
 VALUES (7, '..\resources\girl_icon.png');
 
 INSERT INTO [Column] (ColumnHeader, ColumnInfo, ColumnLink, Image_id, SectionNumber, ColumnLinkDesc)
-VALUES ('Youth Stories', 'Read how these young men and women overcome their success stories', '/Secondary/Index#historyBanner', 7, 2, 'Read the Stories >');
+VALUES ('Youth Stories', 'Read how these young men and women overcome their success stories', '/Secondary/Index#youthStories', 7, 2, 'Read the Stories >');
 
 INSERT INTO Image (Image_id, ImagePath)
 VALUES (8, '..\resources\calendar_icon.png');
