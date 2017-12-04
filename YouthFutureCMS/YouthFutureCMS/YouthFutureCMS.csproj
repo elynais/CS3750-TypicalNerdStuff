@@ -199,12 +199,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomErrorUseController.cs" />
     <Compile Include="Controllers\DynamicContent\BoardController.cs" />
     <Compile Include="Controllers\DynamicContent\ColumnsController.cs" />
     <Compile Include="Controllers\DynamicContent\DonorsController.cs" />
     <Compile Include="Controllers\DynamicContent\EventsController.cs" />
     <Compile Include="Controllers\DynamicContent\ImagesController.cs" />
     <Compile Include="Controllers\DynamicContent\StaffController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SecondaryController.cs" />
     <Compile Include="Global.asax.cs">
@@ -244,6 +246,7 @@
     <Content Include="resources\arrow_left.png" />
     <Content Include="resources\arrow_right.png" />
     <Content Include="resources\board_header.jpg" />
+    <Content Include="resources\bridge.png" />
     <Content Include="resources\calendar_icon.png" />
     <Content Include="resources\contact_header.jpg" />
     <Content Include="resources\contact_map.jpg" />
@@ -288,6 +291,7 @@
     <Content Include="resources\the_group_logo.png" />
     <Content Include="resources\tumbler.svg" />
     <Content Include="resources\twitter.svg" />
+    <Content Include="resources\Under_construction.png" />
     <Content Include="resources\van_icon.png" />
     <Content Include="resources\yf_logo.svg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -375,9 +379,12 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\ComingSoon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CustomErrorUse\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

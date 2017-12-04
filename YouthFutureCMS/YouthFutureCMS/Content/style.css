@@ -563,7 +563,9 @@ footer .row {
 }
 .maxwidthFooter {
 	max-width: 100%; 
+    max-height:100%;
 	/*margin-left: 15px;*/
+    bottom:0;
 }
 .maxwidthHeader {
 	max-width: 1140px; 
@@ -946,6 +948,41 @@ footer .row {
     background-color: #9ec54d;
     color: white;
     font-size: 10px;
+}
+
+.comingSoon {
+    background-image:url(../resources/bridge.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+.comingSoonText {
+    color: darkred;
+    font-family: quicksand-bold;
+    font-size: 100px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.06;
+    letter-spacing: initial;
+    margin-top: auto;
+    margin-left: auto;
+    padding-top: 100px;
+    padding-bottom:100px;
+    text-align: center;
+    height:auto;
+    width:auto;
+}
+
+.errorSmallText {
+    color: darkred;
+    font-family: quicksand-bold;
+    font-size: 50px;
+    text-align: center;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: initial;
+    padding-bottom: 100px;
 }
 
 .cal_text {
