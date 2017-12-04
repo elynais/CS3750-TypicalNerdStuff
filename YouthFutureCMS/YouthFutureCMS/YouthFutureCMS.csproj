@@ -246,6 +246,7 @@
     <Content Include="resources\arrow_left.png" />
     <Content Include="resources\arrow_right.png" />
     <Content Include="resources\board_header.jpg" />
+    <Content Include="resources\bridge.png" />
     <Content Include="resources\calendar_icon.png" />
     <Content Include="resources\contact_header.jpg" />
     <Content Include="resources\contact_map.jpg" />
@@ -290,6 +291,7 @@
     <Content Include="resources\the_group_logo.png" />
     <Content Include="resources\tumbler.svg" />
     <Content Include="resources\twitter.svg" />
+    <Content Include="resources\Under_construction.png" />
     <Content Include="resources\van_icon.png" />
     <Content Include="resources\yf_logo.svg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
