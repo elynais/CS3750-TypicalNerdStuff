@@ -22,7 +22,8 @@
 					//debugger
 					for (j = 0; j < editedMatches[i].children.length; j++) {
 						var contentName = editedMatches[i].children[j].title
-						var contentInfo = editedMatches[i].children[j].outerText; 
+						var contentInfo = editedMatches[i].children[j].innerText; 
+						contentInfo = contentInfo.replace("\'", "\\\'");
 						$.ajax({
 							type: 'POST',
 							contentType: "application/json; charset=utf-8",
@@ -66,13 +67,11 @@
 
     <section id="header" class="container-fluid indexLeftMargin">
         <div class="row">
-            <div class="col-xs-offset-1 col-xs-11 edited" contenteditable="true" >
-                <div class="green-header" id="HeaderContacting" title="Header Contacting">
-					<p class="mont-semibold-dark-36 have-questions-heading" >@Model.getContent("Header Contacting")</p>
-				</div>
-				<div class="green-header" id="HeaderContactNumber" title="Header Contact Number"> 
-                    <p class="quicksand-dark-36-main have-questions-phone" > @Model.getContent("Header Contact Number")</p>
-                </div>
+            <div class="col-xs-offset-1 col-xs-11">
+				<p class="green-header edited" contenteditable="true">	
+					<span class="mont-semibold-dark-36 have-questions-heading" id="HeaderContacting" title="Header Contacting">@Model.getContent("Header Contacting")</span>
+                    <span class="quicksand-dark-36-main have-questions-phone" id="HeaderContactNumber" title="Header Contact Number"> @Model.getContent("Header Contact Number")</span>
+				</p>
             </div>
         </div>
     </section>

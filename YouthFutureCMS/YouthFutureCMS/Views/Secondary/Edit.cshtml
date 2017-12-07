@@ -23,7 +23,8 @@
 				//debugger
 				for (j = 0; j < editedMatches[i].children.length; j++) {
 					var contentName = editedMatches[i].children[j].title
-					var contentInfo = editedMatches[i].children[j].outerText;
+					var contentInfo = editedMatches[i].children[j].innerText;
+					contentInfo = contentInfo.replace("\'", "\\\'");
 					$.ajax({
 						type: 'POST',
 						contentType: "application/json; charset=utf-8",
@@ -43,6 +44,7 @@
 				//debugger
 				var contentName = editedMatchesHTMLList[i].title
 				var contentInfo = editedMatchesHTMLList[i].innerHTML;
+				contentInfo = contentInfo.replace("\'", "\\\'");
 				$.ajax({
 					type: 'POST',
 					contentType: "application/json; charset=utf-8",
@@ -181,26 +183,26 @@
 
 <div class="indexLeftMargin " contenteditable="true">
     <div class="row outreach_bullet" >
-		<section class="editedHTMLList" id="YFOutreachList1" title="YF outreach list1">
+		<section class="col-xs-12 col-md-6 editedHTMLList" id="YFOutreachList1" title="YF outreach list1">
 			@Html.Raw(Model.getContent("YF outreach list1"))
 		</section>
-		<section class="editedHTMLList" id="YFOutreachList2" title="YF outreach list2">
+		<section class="col-xs-12 col-md-6 editedHTMLList" id="YFOutreachList2" title="YF outreach list2">
 			@Html.Raw(Model.getContent("YF outreach list2"))
 		</section>
     </div>
 </div>
 
-<div class="indexLeftMargin" id="YouthStoriesHeader" title="Youth Stories Header" >
+<div class="indexLeftMargin" >
     <div class="row board_header edited">
-        <div class="col-xs-6 text" contenteditable="true">
+        <div class="col-xs-6 text" contenteditable="true" id="YouthStoriesHeader" title="Youth Stories Header" >
             <h2 class="h2style1">@Html.Raw(Model.getContent("Youth Stories Header"))</h2>
         </div>
     </div>
 </div>
 
 <div class="indexLeftMargin" contenteditable="true">
-    <div class="row board_header edited" id="YouthStories" title="Youth Stories">
-        <section class="col-xs-12">
+    <div class="row board_header edited">
+        <section class="col-xs-12" id="YouthStories" title="Youth Stories">
             <p class="mont_regular_22_darkgray">@Model.getContent("Youth Stories")</p>
         </section>
     </div>
@@ -268,9 +270,6 @@
 			<p class="title">@Model.getContent("media headline")</p>
 		</div>
 		<div>
-			<p class="mont_regular_22_darkgray time">03/18/2015 10:03 pm<p>
-					@*/ <----Need to fix this/*@
-				<a class="link" href="#">inShare</a>
 		</div>
     </div>
 </div>
@@ -298,8 +297,8 @@
 </div>
 
 <div class="indexLeftMargin" id="mediaMain">
-    <div class="row media_header edited">
-        <div class="col-xs-6 text">
+    <div class="row media_header edited" contenteditable="true">
+        <div class="col-xs-6 text" id="Calendar Header" title="Calendar Header">
             <h2 class="h2style1">@Html.Raw(Model.getContent("Calendar Header"))</h2>
         </div>
     </div>
