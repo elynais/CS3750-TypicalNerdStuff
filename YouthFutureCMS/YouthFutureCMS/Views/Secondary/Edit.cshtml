@@ -28,7 +28,7 @@
 					$.ajax({
 						type: 'POST',
 						contentType: "application/json; charset=utf-8",
-						url: '/Home/updateContent',
+						url: '/Secondary/updateContent',
 						data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
 						//async: false,
 						//success: function (response) {
@@ -42,14 +42,14 @@
 			}
 			for (i = 0; i < editedMatchesHTMLList.length; i++) {
 				//debugger
-				var contentName = editedMatchesHTMLList[i].title
-				var contentInfo = editedMatchesHTMLList[i].innerHTML;
-				contentInfo = contentInfo.replace("\'", "\\\'");
+				var contentNameHTML = editedMatchesHTMLList[i].title;
+				var contentInfoHTML = editedMatchesHTMLList[i].innerHTML;
+				contentInfoHTML = contentInfoHTML.replace(/'/g, "\\\'");
 				$.ajax({
 					type: 'POST',
 					contentType: "application/json; charset=utf-8",
-					url: '/Home/updateContent',
-					data: "{'contentName':'" + contentName + "','contentInfo':'" + contentInfo + "'}",
+					url: '/Secondary/updateContentHTML',
+					data: "{'contentNameHTML':'" + contentNameHTML + "','contentInfoHTML':'" + contentInfoHTML + "'}",
 				});
 			}
         });
@@ -183,10 +183,10 @@
 
 <div class="indexLeftMargin " contenteditable="true">
     <div class="row outreach_bullet" >
-		<section class="col-xs-12 col-md-6 editedHTMLList" id="YFOutreachList1" title="YF outreach list1">
+		<section class="col-xs-12 col-md-6 editedHTMLList" title="YF outreach list1">
 			@Html.Raw(Model.getContent("YF outreach list1"))
 		</section>
-		<section class="col-xs-12 col-md-6 editedHTMLList" id="YFOutreachList2" title="YF outreach list2">
+		<section class="col-xs-12 col-md-6 editedHTMLList" title="YF outreach list2">
 			@Html.Raw(Model.getContent("YF outreach list2"))
 		</section>
     </div>
@@ -489,44 +489,55 @@
 
     <div class="row">
         <div class="col-xs-12 col-md-4 needs_list first edited">
-            <p class="needs_subheader" id="MostImportantNeeds" title="Most important needs">
-                @Model.getContent("Most important needs")
-            </p>
-			<section class="editedHTMLList" title="important needs">
+            <p class="needs_subheader" id="MostImportantNeeds" title="Most important needs">@Model.getContent("Most important needs")</p>
+			<div>
+				<section class="editedHTMLList" title="important needs">
 					@Html.Raw(Model.getContent("important needs"))
-			</section>
+				</section>
+			</div>
         </div>
 
         <div class="col-xs-12 col-md-4 needs_list edited">
-            <p class="needs_subheader" id="MiscNeeds" title="Misc needs" onClick="reply_click(this.id)">@Model.getContent("Misc needs")</p>
-			<section class="editedHTMLList" title="misc list">
-				@Html.Raw(Model.getContent("misc list"))
-			</section>
+            <p class="needs_subheader" id="MiscNeeds" title="Misc needs" onClick="reply_click(this.id)">@Model.getContent("Misc needs")
+			</p>
+			<div>
+				<section class="editedHTMLList" title="misc list">
+					@Html.Raw(Model.getContent("misc list"))
+				</section>
+			</div>
 			<section class="edited">
 				<p class="needs_subheader" id="GiftCards" title="Gift cards">@Model.getContent("Gift cards")</p>
 			</section>
-			<section class="editedHTMLList" title="gift card list">
-				@Html.Raw(Model.getContent("gift card list"))
-			</section>
+			<div>
+				<section class="editedHTMLList" title="gift card list">
+					@Html.Raw(Model.getContent("gift card list"))
+				</section>
+			</div>
         </div>
 
         <div class="col-xs-12 col-md-4 needs_list edited">
             <p class="needs_subheader" id="houseFurnishings" title="house furnishings">@Model.getContent("house furnishings")</p>
-			<section class="editedHTMLList" title="furnishings list">
-				@Html.Raw(Model.getContent("furnishings list"))
-			</section>
+			<div>
+				<section class="editedHTMLList" title="furnishings list">
+					@Html.Raw(Model.getContent("furnishings list"))
+				</section>
+			</div>
 			<section class="edited">
 				<p class="needs_subheader" id="Volunteers" title="Volunteers">@Model.getContent("Volunteers")</p>
 			</section>
-			<section class="editedHTMLList" title="Volunteers list">
-				@Html.Raw(Model.getContent("Volunteers list"))
-			</section>
+			<div>
+				<section class="editedHTMLList" title="Volunteers list">
+					@Html.Raw(Model.getContent("Volunteers list"))
+				</section>
+			</div>
 			<section class="edited">
 				<p class="needs_subheader" id="RepairNeeds" title="Repair needs" >@Model.getContent("Repair needs")</p>
 			</section>
-			<section class="editedHTMLList" title="Repair list">
-				@Html.Raw(Model.getContent("Repair list"))
-			</section>
+			<div>
+				<section class="editedHTMLList" title="Repair list">
+					@Html.Raw(Model.getContent("Repair list"))
+				</section>
+			</div>
         </div>
     </div>
 </div>

@@ -84,5 +84,31 @@ namespace YouthFutureCMS.Controllers
                 return Content("failure");
             }
         }
+        [HttpPost]
+        public ActionResult updateContentHTML(string contentNameHTML, string contentInfoHTML)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SystemDataContext"].ConnectionString);
+            try
+            {
+                contentInfoHTML = contentInfoHTML.TrimEnd();
+                contentInfoHTML = contentInfoHTML.TrimStart();
+                if (contentInfoHTML.Contains("'"))
+                {
+                    contentInfoHTML.Replace("'", "''");
+                }
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Contents SET ContentInfo = @contentInfoHTML WHERE contentName = @contentNameHTML", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@contentInfoHTML", contentInfoHTML);
+                cmd.Parameters.AddWithValue("@contentNameHTML", contentNameHTML);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return Content("Success");
+            }
+            catch (Exception ex)
+            {
+                return Content("failure");
+            }
+        }
     }
 }
