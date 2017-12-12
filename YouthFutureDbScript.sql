@@ -472,7 +472,7 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('YF history Fact','5,000 youth experiences homelessness for at leat one night a year in Utah', 2);
+VALUES ('YF history Fact','5,000 youth experiences homelessness for at least one night a year in Utah', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('YF history fact desc', 'During the 2014 Legislative Session, HB132 was passed, which allowed for rewriting the prohibitive law and drafting licensing procedures for residential support programs for temporary homeless youth shelter in Utah. Youth Futures and other homeless youth service providers participated in the rules writing process. The licensing rules enrolled on October 22, 2014, and the founders began to set-up the facility for licensing. Youth Futures received the first license for homeless youth shelter granted in the State of Utah under the new law.', 2);
@@ -498,13 +498,13 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Served <span class = "green">7,085</span> meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room <span class = "green">354</span> times with access to basic nec-essities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.', 14, 4);
+VALUES ('Served <span class = "green">7,085</span> meals; 3 meals a day and 2 snacks for shelter and drop-in youth. Opened the resource room <span class = "green">354</span> times with access to basic necessities including clothing, hygiene items, back packs, blankets, sleeping bags, basic medical supplies, etc.', 14, 4);
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
 VALUES ('Conducted more than <span class = "green">245</span> street outreach hours and provided items from the resource room to street youth.', 15, 4);
 
 INSERT INTO [Column] (ColumnInfo, Image_id, SectionNumber)
-VALUES ('Provided <span class = "green">1,535</span> shelter night stays and <span class = "green">511</span> drop in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.', 16, 4);
+VALUES ('Provided <span class = "green">1,535</span> shelter night stays and <span class = "green">511</span> drop-in services including case management, connections to health care, mental health care and group therapy, facilitation with other youth service providers, computer access, showers, laundry facilities, etc.', 16, 4);
 
 GO 
 
@@ -605,7 +605,7 @@ SET IDENTITY_INSERT Image OFF
 GO
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES ('media check desc', 'At right, from left to right: Kristen Mitchell, executive director of Youth Futures Utah and Scott Tuccio, president of the Board of Directorsof Youth Futures Utah, stand with Nicole Cypers, public relations and social media manager for America First Credit Union, at the Weber State basketball game for a check presentation in the amount of $3,400 on Saturday, March 7 at Weber State University.', 2);
+VALUES ('media check desc', 'At right, from left to right: Kristen Mitchell, executive director of Youth Futures Utah and Scott Tuccio, president of the Board of Directors of Youth Futures Utah, stand with Nicole Cypers, public relations and social media manager for America First Credit Union, at the Weber State basketball game for a check presentation in the amount of $3,400 on Saturday, March 7 at Weber State University.', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('media check story1', 'OGDEN, Utah--America First Credit Union awarded Youth Futures Utah, a homeless shelter for youth, with $3,400 during the Weber State University basketball game. America First paid the organization $10 for each assist the Weber State University basketball team completed throughout the 2014  2015 season. With 340 assists, the donation amounted to $3,400 in total for the newly-opened youth homeless organization, located in Ogden, Utah.', 2);
@@ -707,7 +707,7 @@ INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Most important needs', 'MOST IMPORTANT NEEDS (In order of priority)',2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
-VALUES('important needs', '<ul> <li>Cash donations</li> <li>Printer Paper</li> <li>Canned meat & Jerky</li> <li>Scotch tape</li> <li>Bus tokens or passes</li> <li>Earbud Headphones</li> <li>Cinch bags</li> <li>Batteries</li> <li>Sweat Pants</li> <li>Pajama Bottoms </li> <li>Sports bras</li> <li>Trail mix individuals</li> <li>Toilet Paper</li> <li>Condoms</li> <li>Tampons</li> <li>Carabiners</li> <li>Paper plates and cups</li>	<li>Mens and Womens Underwear</li> <li>Socks </li>	<li>Kleenex individuals</li> <li>Undershirts, S M L XL</li>	<li>Garbage bags 30 Gallon</li>	<li>Garbage sacks small</li> <li>Lip balm</li> <li>Ziploc bags, quart and gallon</li> <li>Energy Bars</li> <li>Heavy duty plastic storage bins that will not melt if heated in shed</li> </ul>', 2);
+VALUES('important needs', '<ul> <li>Cash donations</li> <li>Printer Paper</li> <li>Canned meat & Jerky</li> <li>Scotch tape</li> <li>Bus tokens or passes</li> <li>Earbud Headphones</li> <li>Cinch bags</li> <li>Batteries</li> <li>Sweat Pants</li> <li>Pajama Bottoms </li> <li>Sports bras</li> <li>Trail mix individuals</li> <li>Toilet Paper</li> <li>Condoms</li> <li>Tampons</li> <li>Carabiners</li> <li>Paper plates and cups</li>	<li>Men and Women's Underwear</li> <li>Socks </li>	<li>Kleenex individuals</li> <li>Undershirts, S M L XL</li>	<li>Garbage bags 30 Gallon</li>	<li>Garbage sacks small</li> <li>Lip balm</li> <li>Ziploc bags, quart and gallon</li> <li>Energy Bars</li> <li>Heavy duty plastic storage bins that will not melt if heated in shed</li> </ul>', 2);
 
 INSERT INTO Content (ContentName, ContentInfo, PageNum)
 VALUES ('Misc needs', 'MISC. NEEDS', 2);
