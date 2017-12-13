@@ -440,7 +440,9 @@
     <div class="row">
         <div class="col-xs-12 col-md-6 contact_form">
             <p class="contact_subheader">@Model.getContent("Contact us")</p>
-            <form method="post" name="myemailform" action="form-to-email.php">
+            @*<form method="post" name="myemailform" action="form-to-email.php">*@
+            @using (Html.BeginForm("SubmitForm", "Secondary", FormMethod.Post))
+            {
                 <input type="text" class="input_text" name="firstName" placeholder="First Name" maxlength="20"> <span class="change" id="fName_change">Required!</span>
                 <br>
                 <input type="text" class="input_text" name="lastName" placeholder="Last Name" maxlength="20"><span class="change" id="lName_change">Required!</span>
@@ -451,9 +453,19 @@
                 <br>
                 <textarea name="message" class="input_text" placeholder="Message" maxlength="255"></textarea><span class="change" id="message_change">Required!</span>
                 <br>
+                <div class="g-recaptcha" data-sitekey="6LcpxzwUAAAAAPv0WzOvBxsql-Fm5gCwMVQsJItk" data-callback="enableSubmit"></div>
                 <input type="submit" class="submit_button" id="submit" value="Submit" disabled>
                 <input type="reset" value="Cancel" class="cancel" />
-            </form>
+            }
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+            <script type="text/javascript">
+                function enableSubmit() {
+                    $('#submit').removeAttr('disabled');
+                }
+            </script>
+            @*<span style="font-size:30px;">
+                @ViewBag.Message
+            </span>*@
         </div>
 
         <div class="col-xs-12 col-md-6 two_col">

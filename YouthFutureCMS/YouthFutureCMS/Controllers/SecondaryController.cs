@@ -9,6 +9,8 @@ using YouthFutureCMS.Models;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace YouthFutureCMS.Controllers
 {
@@ -79,6 +81,29 @@ namespace YouthFutureCMS.Controllers
             {
                 return Content("failure");
             }
+        }
+
+        [HttpPost]
+        public ActionResult SubmitForm()
+        {
+            //To Validate Google recaptcha
+            var response = Request["g-recaptcha-response"];
+            string secretKey = "6LcpxzwUAAAAAJWEgyEzFDGSwvwqvJdRUeNNwBkN";
+            var client = new WebClient();
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+
+            //check the status is true or not
+            if (status == true)
+            {
+                ViewBag.Message = "Your Google reCaptcha validation success";
+            }
+            else
+            {
+                ViewBag.Message = "Your Google reCaptcha validation failed";
+            }
+            return View();
         }
     }
 }
