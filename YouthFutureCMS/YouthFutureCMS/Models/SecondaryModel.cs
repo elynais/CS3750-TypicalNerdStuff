@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -22,6 +23,26 @@ namespace YouthFutureCMS.Models
         public List<Staff> staff { get; set; }
 
         public List<Event> events { get; set; }
+
+        /// <summary>
+        /// These variables will work with the smtp server
+        /// email: youthfuturetest@gmail.com
+        /// password: youthfutures
+        /// </summary>
+        [Required, Display(Name = "First Name")]
+        public string FromFirstName { get; set; }
+
+        [Required, Display(Name = "Last Name")]
+        public string FromLastName { get; set; }
+
+        [Display(Name = "Telephone Number")]
+        public string FromPhoneNumber { get; set; }
+
+        [Required, Display(Name = "Email"), EmailAddress]
+        public string FromEmail { get; set; }
+
+        [Required]
+        public string Message { get; set; }
 
         /// <summary>
         /// Contructor
