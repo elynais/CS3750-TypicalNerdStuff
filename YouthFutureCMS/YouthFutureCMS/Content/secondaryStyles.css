@@ -191,7 +191,7 @@
 	  color: #8ebc3d;
 }
 
-.board_member {
+.board_members {
     background-color: white;
     padding-left: 5%;
     padding-bottom: 5%;
@@ -202,11 +202,11 @@
     color: #474747;
 }
 
-.board_member  span.name {
+.board_members  span.name {
 	font-size: 20px;
 }
 
-.board_member   img {
+.board_members   img {
 	padding-bottom: 10%;
 }
 
