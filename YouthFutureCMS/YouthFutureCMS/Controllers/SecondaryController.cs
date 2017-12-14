@@ -98,12 +98,14 @@ namespace YouthFutureCMS.Controllers
             if (status == true)
             {
                 ViewBag.Message = "Your Google reCaptcha validation success";
+                return RedirectToAction("Index", "Secondary");
             }
             else
             {
                 ViewBag.Message = "Your Google reCaptcha validation failed";
+                return RedirectToAction("Index", "Secondary");
             }
-            return View();
+            //return View("~/Views/Secondary/Index");
         }
     }
 }
