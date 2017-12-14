@@ -191,26 +191,22 @@
 	  color: #8ebc3d;
 }
 
-.board_members {
-	background-color: white;
-	padding-left: 5%;
-	padding-bottom: 5%;
-	height: 130px;
-	overflow-y: scroll;
+.board_member {
+    background-color: white;
+    padding-left: 5%;
+    padding-bottom: 5%;
+    height: 130px;
+    font-family: "montserrat-light";
+    font-size: 16px;
+    line-height: 30px;
+    color: #474747;
 }
 
-.board_members {
-	font-family: "montserrat-light";
-	font-size: 16px;
-	line-height: 30px;
-	color: #474747;
-}
-
-.board_members  span.name {
+.board_member  span.name {
 	font-size: 20px;
 }
 
-.board_members   img {
+.board_member   img {
 	padding-bottom: 10%;
 }
 
@@ -219,7 +215,6 @@
 	padding-left: 5%;
 	padding-bottom: 5%;
 	height: 440px;
-	overflow-y: scroll;
 }
 
 .staff_members {
@@ -574,11 +569,6 @@
 	padding-top: 5%;
 	padding-left: 9%;
 	padding-bottom: 10%;
-}
-
-.pre-scrollable {
-	max-height: 150px;
-	overflow-y: scroll;
 }
 
 @media (min-width: 768px) {

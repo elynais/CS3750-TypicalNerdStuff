@@ -1,6 +1,8 @@
 ﻿<!--This is the Edit View for the Home page-->
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_EditLayout.cshtml";
+
 }
 <title>Edit Home</title>
 @model YouthFutureCMS.Models.HomeModel
@@ -139,24 +141,19 @@
             </div>
         </section>
 
-        <div class="clear"></div>
-
-        <section class="sponsor-bar">
-            <div class="col-xs-12 col-lg-3 edited" contenteditable="true" >
-				<div id="OurSponsor" title="Our sponsor">
-					<p class="partner-text">@Model.getContent("Our sponsor")</p>
-				</div>
-                <
+        <div style="background-color:#474747; padding-bottom:25px;" class="indexLeftMargin">
+            <div class="col-xs-12 col-lg-3 edited" contenteditable="true">
+                <p class="partner-text">@Model.getContent("Our sponsor")</p>
             </div>
-            @foreach (var sp in Model.content.Where(c => c.contentName == "Sponsors"))
-            {
-                <div class="col-xs-12 col-lg-3 ">
-                    <div class="partner-logo">
-                        <img src="@Model.getImagePath(sp.image_Id)" alt="Picture" class="@sp.contentInfo" />
-                    </div>
-                </div>
-            }
-        </section>
+            <div>
+                <marquee width="65%" behavior="scroll" direction="left">
+                    @foreach (var sp in Model.content.Where(c => c.contentName == "Sponsors"))
+                    {
+                        <img style="padding-right:10%;" src="@Model.getImagePath(sp.image_Id)" alt="Picture" class="@sp.contentInfo" />
+                    }
+                </marquee>
+            </div>
+        </div>
 
         <div class="pull-right">
             <a type="button" class="btn pull-right editColumn" href="/Images/Index">Edit Images</a>

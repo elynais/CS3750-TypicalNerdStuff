@@ -1,6 +1,7 @@
 ﻿<!--This is the Edit View for the Secondary page-->
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_EditLayout.cshtml";
 }
 <title>@ViewBag.title About Us</title>
 @model YouthFutureCMS.Models.SecondaryModel
@@ -360,7 +361,6 @@
 </div>
 
 <div class="indexLeftMargin">
-    <div class="pre-scrollable">
         <div class="row donor_list">
             @foreach (var donor in Model.donors.Where(d => d.donorLevel == "P"))
             {
@@ -370,7 +370,6 @@
                 </div>
             }
         </div>
-    </div>
 </div>
 
 <div class="indexLeftMargin">
@@ -382,7 +381,6 @@
 </div>
 
 <div class="indexLeftMargin">
-    <div class="pre-scrollable">
         <div class="row donor_list">
             @foreach (var donor in Model.donors.Where(d => d.donorLevel == "G"))
             {
@@ -392,7 +390,6 @@
                 </div>
             }
         </div>
-    </div>
 </div>
 
 <div class="indexLeftMargin">
@@ -404,7 +401,6 @@
 </div>
 
 <div class="indexLeftMargin">
-    <div class="pre-scrollable">
         <div class="row donor_list">
             @foreach (var donor in Model.donors.Where(d => d.donorLevel == "S"))
             {
@@ -414,7 +410,6 @@
                 </div>
             }
         </div>
-    </div>
 </div>
 
 <div class="indexLeftMargin">
@@ -426,7 +421,6 @@
 </div>
 
 <div class="indexLeftMargin">
-    <div class="pre-scrollable">
         <div class="row donor_list">
             @foreach (var donor in Model.donors.Where(d => d.donorLevel == "B"))
             {
@@ -436,7 +430,6 @@
                 </div>
             }
         </div>
-    </div>
 </div>
 
 <div class="indexLeftMargin" id="donateMain">
