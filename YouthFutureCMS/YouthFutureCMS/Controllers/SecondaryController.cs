@@ -11,6 +11,7 @@ using System.Configuration;
 using System.Data;
 using System.Net;
 using Newtonsoft.Json.Linq;
+using System.Net.Mail;
 
 namespace YouthFutureCMS.Controllers
 {
@@ -98,6 +99,22 @@ namespace YouthFutureCMS.Controllers
             if (status == true)
             {
                 ViewBag.Message = "Your Google reCaptcha validation success";
+
+                var firstName = Request["firstName"];
+                var lastName = Request["lastName"];
+                var phone = Request["phone"];
+                var email = Request["email"];
+                var message = Request["message"];
+                using (var sender = new SmtpClient())
+                {
+                    var msg = new MailMessage();
+                    msg.To.Add("youthfuturetest@gmail.com");
+                    msg.Subject = "Youth Futures Contact Us";
+                    msg.Body = firstName + "\n" + lastName + "\n" + phone + "\n" + email + "\n" + message;
+                    sender.Send(msg);
+                    //< text > The email has been successfully sent </ text >
+                }
+                    
                 return RedirectToAction("Index", "Secondary");
             }
             else
