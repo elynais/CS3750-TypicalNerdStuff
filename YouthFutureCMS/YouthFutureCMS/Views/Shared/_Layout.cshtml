@@ -3,8 +3,6 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Testing</title>
-
     <meta name="description" content="Youth Futures Template Page" />
     <meta name="keywords" content="keywords" />
     <meta name="author" content="Chris Ridl" />
@@ -25,26 +23,7 @@
 </head>
 
 <body>
-        @*<div class="navbar navbar-default navbar-fixed-top" style="max-width: 1050px; position: absolute; margin: auto;">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </div>
-            </div>
-        </div>*@
-        
+      
     <nav class="navbarLayout navbar-default navbar-fixed-top navBar-widthCenter navBarWidthLayout navBarWidthLayoutLeft">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -57,7 +36,6 @@
                 </button>
                 <a class="navbar-brand" href="/Home/Index"><img src="../resources/yf_logo.svg" alt="Youth Futures Logo" /></a>
             </div>
-			@Html.Partial("_LoginPartial")
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -94,6 +72,7 @@
                         </ul>
                     </li>
                     <li class="donate"><a href="/Secondary/Index#donateMain">Donate</a></li>
+                    <li>@Html.Partial("_LoginPartial")</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

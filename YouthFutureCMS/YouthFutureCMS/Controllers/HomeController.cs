@@ -58,7 +58,10 @@ namespace YouthFutureCMS.Controllers
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SystemDataContext"].ConnectionString);
             try
             {
-                
+                if (contentInfo.Contains("'"))
+                {
+                    contentInfo.Replace("'", "''");
+                }
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE Contents SET ContentInfo = @contentInfo WHERE contentName = @ContentName", conn);
                 cmd.CommandType = CommandType.Text;
