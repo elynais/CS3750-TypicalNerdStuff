@@ -1,9 +1,10 @@
 ﻿@model YouthFutureCMS.Models.Column
 
 @{
-    ViewBag.Title = "Edit";
-}
+    ViewBag.Title = "Edit"; Layout = "~/Views/Shared/_EditLayout.cshtml";
 
+}
+<title>@ViewBag.title Columns</title>
 <h2>Edit</h2>
 
 @using (Html.BeginForm())

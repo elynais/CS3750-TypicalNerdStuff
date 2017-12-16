@@ -9,6 +9,9 @@ using YouthFutureCMS.Models;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Net;
+using Newtonsoft.Json.Linq;
+using System.Net.Mail;
 
 namespace YouthFutureCMS.Controllers
 {
@@ -66,11 +69,82 @@ namespace YouthFutureCMS.Controllers
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SystemDataContext"].ConnectionString);
             try
             {
+                if (contentInfo.Contains("'"))
+                {
+                    contentInfo.Replace("'", "''");
+                }
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE Contents SET ContentInfo = @contentInfo WHERE contentName = @ContentName", conn);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@contentInfo", contentInfo);
                 cmd.Parameters.AddWithValue("@contentName", contentName);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return Content("Success");
+            }
+            catch (Exception ex)
+            {
+                return Content("failure");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult SubmitForm()
+        {
+            //To Validate Google recaptcha
+            var response = Request["g-recaptcha-response"];
+            string secretKey = "6LcpxzwUAAAAAJWEgyEzFDGSwvwqvJdRUeNNwBkN";
+            var client = new WebClient();
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+
+            //check the status is true or not
+            if (status == true)
+            {
+                ViewBag.Message = "Your Google reCaptcha validation success";
+
+                var firstName = Request["firstName"];
+                var lastName = Request["lastName"];
+                var phone = Request["phone"];
+                var email = Request["email"];
+                var message = Request["message"];
+                using (var sender = new SmtpClient())
+                {
+                    var msg = new MailMessage();
+                    msg.To.Add("youthfuturetest@gmail.com");
+                    msg.Subject = "Youth Futures Contact Us";
+                    msg.Body = firstName + "\n" + lastName + "\n" + phone + "\n" + email + "\n" + message;
+                    sender.Send(msg);
+                    //< text > The email has been successfully sent </ text >
+                }
+                    
+                return RedirectToAction("Index", "Secondary");
+            }
+            else
+            {
+                ViewBag.Message = "Your Google reCaptcha validation failed";
+                return RedirectToAction("Index", "Secondary");
+            }
+        }
+        
+        [HttpPost]
+        public ActionResult updateContentHTML(string contentNameHTML, string contentInfoHTML)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SystemDataContext"].ConnectionString);
+            try
+            {
+                contentInfoHTML = contentInfoHTML.TrimEnd();
+                contentInfoHTML = contentInfoHTML.TrimStart();
+                if (contentInfoHTML.Contains("'"))
+                {
+                    contentInfoHTML.Replace("'", "''");
+                }
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Contents SET ContentInfo = @contentInfoHTML WHERE contentName = @contentNameHTML", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@contentInfoHTML", contentInfoHTML);
+                cmd.Parameters.AddWithValue("@contentNameHTML", contentNameHTML);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 return Content("Success");

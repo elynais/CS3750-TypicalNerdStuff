@@ -1,9 +1,10 @@
 ﻿@model YouthFutureCMS.Models.Event
 
 @{
-    ViewBag.Title = "Create";
-}
+    ViewBag.Title = "Create"; Layout = "~/Views/Shared/_EditLayout.cshtml";
 
+}
+<title>@ViewBag.title Events</title>
 <h2>Create</h2>
 
 @using (Html.BeginForm()) 

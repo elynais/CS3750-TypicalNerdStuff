@@ -1,9 +1,10 @@
 ﻿@model YouthFutureCMS.Models.Image
 
 @{
-    ViewBag.Title = "Edit";
-}
+    ViewBag.Title = "Edit"; Layout = "~/Views/Shared/_EditLayout.cshtml";
 
+}
+<title>@ViewBag.title Images</title>
 <h2>Edit</h2>
 
 @using (Html.BeginForm())

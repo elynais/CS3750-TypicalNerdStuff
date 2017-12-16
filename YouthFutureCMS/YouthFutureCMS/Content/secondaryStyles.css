@@ -187,18 +187,14 @@
 }
 
 .board_members {
-	background-color: white;
-	padding-left: 5%;
-	padding-bottom: 5%;
-	height: 130px;
-	overflow-y: scroll;
-}
-
-.board_members {
-	font-family: "montserrat-light";
-	font-size: 16px;
-	line-height: 30px;
-	color: #474747;
+    background-color: white;
+    padding-left: 5%;
+    padding-bottom: 5%;
+    height: 130px;
+    font-family: "montserrat-light";
+    font-size: 16px;
+    line-height: 30px;
+    color: #474747;
 }
 
 .board_members  span.name {
@@ -214,7 +210,6 @@
 	padding-left: 5%;
 	padding-bottom: 5%;
 	height: 440px;
-	overflow-y: scroll;
 }
 
 .staff_members {
@@ -569,11 +564,6 @@
 	padding-top: 5%;
 	padding-left: 9%;
 	padding-bottom: 10%;
-}
-
-.pre-scrollable {
-	max-height: 150px;
-	overflow-y: scroll;
 }
 
 @media (min-width: 768px) {

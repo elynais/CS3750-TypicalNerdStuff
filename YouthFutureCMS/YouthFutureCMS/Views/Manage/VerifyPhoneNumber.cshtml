@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Verify Phone Number";
 }
-
+<title>@ViewBag.title</title>
 <h2>@ViewBag.Title.</h2>
 
 @using (Html.BeginForm("VerifyPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))

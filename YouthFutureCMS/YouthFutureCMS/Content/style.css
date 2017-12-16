@@ -661,7 +661,6 @@ footer .row {
 	height: 141px;
 	background-color: #474747;
 	margin-left: -15px;
-	overflow-y: scroll;
 }
 .no-padding {
 	padding: 0;

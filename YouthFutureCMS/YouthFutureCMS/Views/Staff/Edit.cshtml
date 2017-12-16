@@ -1,9 +1,10 @@
 ﻿@model YouthFutureCMS.Models.Staff
 
 @{
-    ViewBag.Title = "Edit";
-}
+    ViewBag.Title = "Edit"; Layout = "~/Views/Shared/_EditLayout.cshtml";
 
+}
+<title>@ViewBag.title Staff</title>
 <h2>Edit</h2>
 
 @using (Html.BeginForm())
