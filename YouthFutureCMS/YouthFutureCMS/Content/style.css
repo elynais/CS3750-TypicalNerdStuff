@@ -1,8 +1,9 @@
 ﻿.edited {
+   border-style: dotted;
+   border-width: thick;
+   border-color: #ff3300;
+}
     
-}
-.editedHTMLList {
-}
 @font-face {
 	font-family: 'montserrat-light';
 	src: url('fonts/montserrat-light.otf') format('opentype');
