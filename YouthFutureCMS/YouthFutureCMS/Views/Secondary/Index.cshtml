@@ -231,22 +231,22 @@
                 int i = 0;
                 foreach (var eve in Model.events.Where(c => c.eventDate.CompareTo(DateTime.Now) >= 0))
                 {
-                    <div class="panel-group panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
+                    <div class="panel-group">
+                        <div class="panel-heading panel-style">
+                            <h4 class="panel-title panel-title-style">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse_@i">@eve.eventName - @eve.eventDate</a>
                             </h4>
                         </div>
                         <div id="collapse_@i" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <h4 class="cal_subheader">What?</h4>
-                                    <p class="cal_text">@eve.eventName</p>
-                                <h4 class="cal_subheader">Where?</h4>
-                                    <p class="cal_text">@eve.eventLocation</p>
-                                <h4 class="cal_subheader">When?</h4>
-                                    <p class="cal_text">@eve.eventDate</p>
-                                <h4 class="cal_subheader">Details:</h4>
-                                    <p class="cal_text">@eve.eventDesc</p>
+                                <h4 class="quicksand-light-24-green">What?</h4>
+                                    <p class="quicksand-light-18">@eve.eventName</p>
+                                <h4 class="quicksand-light-24-green">Where?</h4>
+                                    <p class="quicksand-light-18">@eve.eventLocation</p>
+                                <h4 class="quicksand-light-24-green">When?</h4>
+                                    <p class="quicksand-light-18">@eve.eventDate</p>
+                                <h4 class="quicksand-light-24-green">Details:</h4>
+                                    <p class="quicksand-light-18">@eve.eventDesc</p>
                             </div>
                         </div>
                     </div>
