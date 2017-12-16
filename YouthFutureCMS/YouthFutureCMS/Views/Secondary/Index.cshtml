@@ -437,9 +437,30 @@
         </div>
     </div>
 
+    @using System.Net.Mail;
+    @{
+        if (IsPost)
+        {
+            var firstName = Request["firstName"];
+            var lastName = Request["lastName"];
+            var phone = Request["phone"];
+            var email = Request["email"];
+            var message = Request["message"];
+            using (var client = new SmtpClient())
+            {
+                var msg = new MailMessage();
+                msg.To.Add("youthfuturetest@gmail.com");
+                msg.Subject = "Youth Futures Contact Us";
+                msg.Body = firstName + "\n" + lastName + "\n" + phone + "\n"+ email + "\n" + message;
+                client.Send(msg);
+                <text>The email has been successfully sent</text>
+            }
+        }
+    }
     <div class="row">
         <div class="col-xs-12 col-md-6 contact_form">
             <p class="contact_subheader">@Model.getContent("Contact us")</p>
+
             @*<form method="post" name="myemailform" action="form-to-email.php">*@
             @using (Html.BeginForm("SubmitForm", "Secondary", FormMethod.Post))
             {

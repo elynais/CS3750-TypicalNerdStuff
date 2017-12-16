@@ -47,6 +47,7 @@ namespace YouthFutureCMS.Models
         {
             return content.Find(c => c.contentName == name).contentInfo;
         }
+
         public List<Column> getColumns(int section)
         {
             return columns.Where(c => c.sectionNumber == section).ToList();
