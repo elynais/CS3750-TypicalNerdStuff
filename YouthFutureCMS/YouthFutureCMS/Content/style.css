@@ -3,7 +3,11 @@
    border-width: thick;
    border-color: #ff3300;
 }
-    
+
+.editedHTMLList {
+    /*Needed for list view saving*/
+}
+
 @font-face {
 	font-family: 'montserrat-light';
 	src: url('fonts/montserrat-light.otf') format('opentype');
