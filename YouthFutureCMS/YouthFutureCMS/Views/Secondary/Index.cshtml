@@ -19,7 +19,7 @@
     </div>
 </article>
 
-<div class="indexLeftMargin" id="historyBanner">
+<div class="indexLeftMargin" id="historyBanner" style="padding-top:150px; margin-top: -150px;">
     <div class="row hist_main_img">
         <div class="col-xs-8 text">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("YF History"))</h2>
@@ -96,7 +96,7 @@
     </section>
 </div>
 
-<div class="indexLeftMargin" id="outreachBanner">
+<div class="indexLeftMargin" id="outreachBanner" style="padding-top:150px; margin-top: -150px;">
     <div class="row outreach_main_img">
         <div class="col-xs-8 text">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("YF outreach"))</h2>
@@ -140,7 +140,7 @@
     </div>
 </div>
 
-<div class="indexLeftMargin" id="directorsMain">
+<div class="indexLeftMargin" id="directorsMain" style="padding-top:150px; margin-top: -150px;">
     <div class="row board_header">
         <div class="col-xs-6 text">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("Board of Dir"))</h2>
@@ -159,7 +159,7 @@
     </div>
 </div>
 
-<div class="indexLeftMargin" id="staffMain">
+<div class="indexLeftMargin" id="staffMain" style="padding-top:150px; margin-top: -150px;">
     <div class="row board_header">
         <div class="col-xs-6 text">          
 			<h2 class="h2style1">@Html.Raw(Model.getContent("Staff"))</h2>
@@ -179,7 +179,7 @@
     </div>
 </div>
 
-<div class="indexLeftMargin" id="mediaMain">
+<div class="indexLeftMargin" id="mediaMain" style="padding-top:150px; margin-top: -150px;">
     <div class="row media_header">
         <div class="col-xs-6 text">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("Media"))</h2>
@@ -216,7 +216,7 @@
 </div>
 
 
-<div class="indexLeftMargin" >
+<div class="indexLeftMargin" id="eventsMain" style="padding-top:150px; margin-top: -150px;" >
     <div class="row media_header">
         <div class="col-xs-6 text">
            <h2 class="h2style1">@Html.Raw(Model.getContent("Calendar Header"))</h2>
@@ -231,22 +231,22 @@
                 int i = 0;
                 foreach (var eve in Model.events.Where(c => c.eventDate.CompareTo(DateTime.Now) >= 0))
                 {
-                    <div class="panel-group panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
+                    <div class="panel-group">
+                        <div class="panel-heading panel-style">
+                            <h4 class="panel-title panel-title-style">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse_@i">@eve.eventName - @eve.eventDate</a>
                             </h4>
                         </div>
                         <div id="collapse_@i" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <h4 class="cal_subheader">What?</h4>
-                                    <p class="cal_text">@eve.eventName</p>
-                                <h4 class="cal_subheader">Where?</h4>
-                                    <p class="cal_text">@eve.eventLocation</p>
-                                <h4 class="cal_subheader">When?</h4>
-                                    <p class="cal_text">@eve.eventDate</p>
-                                <h4 class="cal_subheader">Details:</h4>
-                                    <p class="cal_text">@eve.eventDesc</p>
+                                <h4 class="quicksand-light-24-green">What?</h4>
+                                    <p class="quicksand-light-18">@eve.eventName</p>
+                                <h4 class="quicksand-light-24-green">Where?</h4>
+                                    <p class="quicksand-light-18">@eve.eventLocation</p>
+                                <h4 class="quicksand-light-24-green">When?</h4>
+                                    <p class="quicksand-light-18">@eve.eventDate</p>
+                                <h4 class="quicksand-light-24-green">Details:</h4>
+                                    <p class="quicksand-light-18">@eve.eventDesc</p>
                             </div>
                         </div>
                     </div>
@@ -257,7 +257,7 @@
     </div>
 </div>
 
-<div class="indexLeftMargin" id="donorsMain">
+<div class="indexLeftMargin" id="donorsMain" style="padding-top:150px; margin-top: -150px;">
     <div class="row donor_header">
         <div class="col-xs-6 text">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("Donors"))</h2>
@@ -356,7 +356,7 @@
         </div>
 </div>
 
-<div class="indexLeftMargin" id="donateMain">
+<div class="indexLeftMargin anchor" id="donateMain" style="padding-top:150px; margin-top: -150px;">
     <div class="row donor_header">
         <div class="col-xs-6 text">
 			<h2 class="h2style1">@Html.Raw(Model.getContent("donations"))</h2>
@@ -430,7 +430,7 @@
     </div>
 </div>
 
-<div class= "needs indexLeftMargin" id="contactMain">
+<div class= "needs indexLeftMargin" id="contactMain"style="padding-top:150px; margin-top: -150px;">
     <div class="row donor_header">
         <div class="col-xs-6 text">
             <h2 class="h2style1">@Model.getContent("Contact Title")</h2>
